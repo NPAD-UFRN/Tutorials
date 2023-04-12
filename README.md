@@ -2,11 +2,11 @@
 
 ## Iniciante
 
-- [Introdução ao Supercomputador - Parte 1 (Linux)](superpc_introduction_linux.md)
+- [Introdução ao Supercomputador - Parte 1 (Linux)](beginner/superpc_linux_introduction.md)
 
 ## Intermediário
 
-- [Comandos Slurm](commands.md)
+- [Comandos Slurm](intermediate/slurm_commands.md)
 
 ## Avançado
 

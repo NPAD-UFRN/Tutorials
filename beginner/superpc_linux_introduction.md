@@ -1,3 +1,24 @@
+
+- [Tutorial Introdução ao Supercomputador - Parte 1 (Linux)](#tutorial-introdução-ao-supercomputador---parte-1-linux)
+  - [Criação de conta no Supercomputador](#criação-de-conta-no-supercomputador)
+  - [Geração de chave SSH pública](#geração-de-chave-ssh-pública)
+  - [Acessando o supercomputador](#acessando-o-supercomputador)
+    - [Dica: Crie uma configuração para ssh](#dica-crie-uma-configuração-para-ssh)
+  - [Copiando arquivos para o supercomputador](#copiando-arquivos-para-o-supercomputador)
+    - [scp](#scp)
+      - [Copiar Um arquivo DO SEU COMPUTADOR para o super computador usando scp](#copiar-um-arquivo-do-seu-computador-para-o-super-computador-usando-scp)
+      - [Copiar Um arquivo DO SUPER COMPUTADOR para o seu computador usando scp](#copiar-um-arquivo-do-super-computador-para-o-seu-computador-usando-scp)
+    - [rsync](#rsync)
+      - [Copiar Um arquivo DO SEU COMPUTADOR para o super computador usando rsync](#copiar-um-arquivo-do-seu-computador-para-o-super-computador-usando-rsync)
+      - [Copiar Um arquivo DO SUPER COMPUTADOR para o seu computador usando rsync](#copiar-um-arquivo-do-super-computador-para-o-seu-computador-usando-rsync)
+    - [Acesso pelo Gnome files do Linux](#acesso-pelo-gnome-files-do-linux)
+      - [Clique em Other Locations](#clique-em-other-locations)
+      - [Digite o endereço do super pc](#digite-o-endereço-do-super-pc)
+        - [Dica: Adicione nos favoritos](#dica-adicione-nos-favoritos)
+  - [Informações extras sobre os comandos utilizados](#informações-extras-sobre-os-comandos-utilizados)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Tutorial Introdução ao Supercomputador - Parte 1 (Linux)
 
 Neste tutorial iremos aprender a gerar a chave SSH, a acessar o supercomputador e a transferir arquivos para supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail atendimento\<at>npad.ufrn.b (substituindo \<at> por @).
@@ -82,7 +103,7 @@ Last login: Wed Apr 12 10:43:17 2023 from 201.17.86.147
 [nomeDoUsuario@service0 ~]$
 ```
 
-### Dica
+### Dica: Crie uma configuração para ssh
 
 Se você criar ou adicionar a seguinte configuração no arquivo **~/.ssh/config**:
 
@@ -116,6 +137,9 @@ scp -r meuArquivo super-pc:~/
 # caso não tenha configurado 
 scp -r -P4422 meuArquivo nomeDoUsuario@sc2.npad.ufrn.br:~/
 ```
+*LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que
+o arquivo a ser copiado está na pasta home do super computador.
+
 
 #### Copiar Um arquivo DO SUPER COMPUTADOR para o seu computador usando scp
 
@@ -125,12 +149,92 @@ Para copiar o arquivo: **meuArquivo** DO SUPER COMPUTADOR para o seu computador 
 # caso tenha configurado o ~/.ssh/config 
 scp -r super-pc:~/meuArquivo  ~/Downloads
 # caso não tenha configurado 
-scp -r -P4422  scavalcanti@sc2.npad.ufrn.br:~/meuArquivo  ~/Downloads
+scp -r -P4422  nomeDoUsuario@sc2.npad.ufrn.br:~/meuArquivo  ~/Downloads
 ```
 
-*LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário.
+*LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que
+o arquivo a ser copiado está na pasta home do super computador.
 
 ### rsync
 
-Outra aplicação que permite copiar arquivos é o **rsync**
+Outra aplicação que permite copiar arquivos é o **rsync**. Em alguns sistemas eles
+não vem instalado por padrão, certifique-se de que ele esteja instalado.
 
+#### Copiar Um arquivo DO SEU COMPUTADOR para o super computador usando rsync
+
+Para copiar o arquivo **meuArquivo** DO SEU COMPUTADOR para o super computador usando o programa **rsync**. Abra um terminal Linux, use o seguite comando:
+
+```bash
+# caso tenha configurado o ~/.ssh/config 
+rsync  -aP  ~/Downloads/meuArquivo super-pc:~/
+# caso não tenha configurado 
+rsync  -aP  ~/Downloads/meuArquivo --rsh='ssh -p4422' -aP nomeDoUsuario@sc2.npad.ufrn.br:~/
+```
+
+*LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que
+o arquivo: **meuArquivo** a será copiado na pasta home do super computador. Perceba que  o arquivo **meuArquivo** está localizado na pasta Downloads.
+
+
+#### Copiar Um arquivo DO SUPER COMPUTADOR para o seu computador usando rsync
+
+Para copiar o arquivo: **meuArquivo** DO SUPER COMPUTADOR para o seu computador na pasta **Downloads** usando o programa **rsync**. Abra um terminal Linux, use o seguite comando:
+
+```bash
+# caso tenha configurado o ~/.ssh/config 
+rsync super-pc:~/meuArquivo  ~/Downloads
+# caso não tenha configurado 
+rsync --rsh='ssh -p4422' -aP nomeDoUsuario@sc2.npad.ufrn.br:~/meuArquivo  ~/Downloads
+```
+
+*LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que
+o arquivo a ser copiado está na pasta home do super computador.
+
+### Acesso pelo Gnome files do Linux
+
+**Gnome** é a interface padrão do **Ubuntu**. Que é distribuição padrão
+para desenvolvimento do Instituto Metrópole Digital (IMD). Portanto iremos
+mostar como conectar o gestor de arquivos padrão do Gnome, chamado **Gnome files**
+com os seus arquivos no super computador.
+
+![Imagem do Gnome files](/assets/superpc_linux_introduction/files.png)
+
+#### Clique em Other Locations
+
+Abra o gestor de arquivos Gnome files e clique em **Other Locations** como
+apontado na imagem
+
+![Clique em other Locations](/assets/superpc_linux_introduction/files_click_on_other_locations.png)
+
+#### Digite o endereço do super pc
+
+No canto inferior direito, digite o endereço do super computador. No caso
+o endereço varia de acordo com o seu nome de usuário:
+
+```bash
+ssh://nomeDoUsuario@sc2.npad.ufrn.br:4422
+```
+
+No entando caso você tenha configurado o arquivo **~/.ssh/config**
+o endereço pode ser escrito da seguinte forma:
+
+```bash
+ssh://super-pc
+```
+
+![Clique em other Locations](/assets/superpc_linux_introduction/enter_server_addresss.png)
+
+##### Dica: Adicione nos favoritos
+
+Para não precisar ficar refazendo este tutorial, você pode salvar o
+o endereço do super computador nos favoritos, clicando com botão direito do
+mouse e depois em **add to Bookmarks**
+
+![adicione nos favoritos](/assets/superpc_linux_introduction/add_bookmarks.png)
+
+## Informações extras sobre os comandos utilizados
+
+Sobre os comandos utilizados **rsync** e **scp**, você pode saber mais informações
+sobre eles em suas respectivas referências:
+
+- **scp**: [linux.die.net/man/1/scp](https://linux.die.net/man/1/scp)
+- **rsync**: [linux.die.net/man/1/rsync](https://linux.die.net/man/1/rsync)

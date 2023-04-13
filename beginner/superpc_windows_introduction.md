@@ -7,6 +7,7 @@
     - [Dica: Crie uma configuração para ssh](#dica-crie-uma-configuração-para-ssh)
   - [Copiar Um arquivo DO SEU COMPUTADOR para o supercomputador usando scp](#copiar-um-arquivo-do-seu-computador-para-o-supercomputador-usando-scp)
   - [Copiar Um arquivo DO SUPERCOMPUTADOR para o seu computador usando scp](#copiar-um-arquivo-do-supercomputador-para-o-seu-computador-usando-scp)
+  - [Informações extras sobre os comandos utilizados](#informações-extras-sobre-os-comandos-utilizados)
 
 
 # Introdução ao Supercomputador - Parte 1 (Windows)
@@ -158,3 +159,9 @@ scp -r -P4422  nomeDoUsuario@sc2.npad.ufrn.br:~/meuArquivo  ~/Downloads
 ```
 
 *LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que o arquivo a ser copiado está na pasta home do supercomputador.
+
+## Informações extras sobre os comandos utilizados
+
+- **scp**: [learn microsoft scp](https://learn.microsoft.com/pt-br/azure/virtual-machines/copy-files-to-vm-using-scp)
+
+- **ssh**: [learn microsoft ssh](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui)

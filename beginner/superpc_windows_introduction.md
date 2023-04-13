@@ -187,7 +187,7 @@ chave **privada** que foi [criada anteriormente](#geração-de-chave-ssh-públic
 
 Caso não tenha mudado o nome dela, o caminho até a chave privada é **C:\Users\NomeDoSeuUsuário\\.ssh\id_rsa**. Para visualiza-lá terá que selecionar
 a opção: **todos os tipos de arquivo**. Se tudo der certo o WinSCP irá pedir
-para converter a Chave em formato *OpenSSH* para um formado *PuTTY*. Concorde,converta, salve e saída das configurações avançadas através do botão **OK**.
+para converter a Chave em formato *OpenSSH* para um formado *PuTTY*. Concorde, converta, salve e saída das configurações avançadas através do botão **OK**.
 Se tudo der certo quando você pressionar o botão **Login**. Você terá acesso
 ao seu sistema de arquivos do supercomputador.
 

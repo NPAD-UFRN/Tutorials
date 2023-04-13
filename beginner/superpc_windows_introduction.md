@@ -1,3 +1,14 @@
+
+- [Introdução ao Supercomputador - Parte 1 (Windows)](#introdução-ao-supercomputador---parte-1-windows)
+  - [Instalando o OpenSSH no Windows](#instalando-o-openssh-no-windows)
+  - [Geração de chave SSH pública](#geração-de-chave-ssh-pública)
+  - [Criação de conta no Supercomputador](#criação-de-conta-no-supercomputador)
+  - [Acessando o supercomputador](#acessando-o-supercomputador)
+    - [Dica: Crie uma configuração para ssh](#dica-crie-uma-configuração-para-ssh)
+  - [Copiar Um arquivo DO SEU COMPUTADOR para o supercomputador usando scp](#copiar-um-arquivo-do-seu-computador-para-o-supercomputador-usando-scp)
+  - [Copiar Um arquivo DO SUPERCOMPUTADOR para o seu computador usando scp](#copiar-um-arquivo-do-supercomputador-para-o-seu-computador-usando-scp)
+
+
 # Introdução ao Supercomputador - Parte 1 (Windows)
 
 Neste tutorial iremos aprender a gerar a chave SSH, a acessar o supercomputador e a transferir arquivos para o supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail atendimento\<at>npad.ufrn.b (substituindo \<at> por @).
@@ -114,17 +125,15 @@ trocando o **nomeDoUsuario** pelo nome do sue usuário, você poderá acessar o 
 ssh super-pc
 ```
 
-Para criar o arquivo utilize o comando:
+Para criar o arquivo utilize o comando: **New-Item**  e para editar o aquivo pode utilizar o **NotePad**.
 
 ```PS
 New-Item ~/.ssh/config
 ```
 
-e para editar o aquivo pode utilizar o **NotePad**. O arquivo estará armazenado em
-**C:\Users\\NomeDoSeuUsuario\.ssh\config**. É interessante criar o arquivo
-atráves do comando, pois atráves da interface gráfica o arquivo pode ter o nome **config.txt** ao invés de **config**.
+O arquivo estará armazenado em **C:\Users\\NomeDoSeuUsuario\.ssh\config**. É interessante criar o arquivo atráves do comando, pois atráves da interface gráfica o arquivo pode ter o nome **config.txt** ao invés de **config**.
 
-#### Copiar Um arquivo DO SEU COMPUTADOR para o supercomputador usando scp
+## Copiar Um arquivo DO SEU COMPUTADOR para o supercomputador usando scp
 
 Para copiar o arquivo **meuArquivo** DO SEU COMPUTADOR para o super computador usando o programa **scp**. Abra o Windows PowerShell, use o seguinte comando:
 
@@ -137,7 +146,7 @@ scp -r -P4422 meuArquivo nomeDoUsuario@sc2.npad.ufrn.br:~/
 
 *LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que o arquivo a ser copiado está na pasta home do supercomputador.
 
-#### Copiar Um arquivo DO SUPERCOMPUTADOR para o seu computador usando scp
+## Copiar Um arquivo DO SUPERCOMPUTADOR para o seu computador usando scp
 
 Para copiar o arquivo: **meuArquivo** DO SUPERCOMPUTADOR para o seu computador na pasta **Downloads** usando o programa **scp**. Abra o Windows PowerShell, use o seguinte comando:
 

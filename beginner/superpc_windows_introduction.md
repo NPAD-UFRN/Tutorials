@@ -4,7 +4,7 @@ Neste tutorial iremos aprender a gerar a chave SSH, a acessar o supercomputador 
 
 ## Instalando o OpenSSH no Windows
 
-Na propria documentação official. A Microsoft oferece um tutorial de
+Na própria documentação oficial. A Microsoft oferece um tutorial de
 como [instalar o OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Ao Completar o tutorial
 você deverá ser capaz de Abrir o **Windows PowerShell** e executar o comando **ssh**:
 

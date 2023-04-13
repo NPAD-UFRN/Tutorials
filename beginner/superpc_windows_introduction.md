@@ -8,7 +8,8 @@
     - [Dica: Crie uma configuração para ssh](#dica-crie-uma-configuração-para-ssh)
   - [Copiar Um arquivo DO SEU COMPUTADOR para o supercomputador usando scp](#copiar-um-arquivo-do-seu-computador-para-o-supercomputador-usando-scp)
   - [Copiar Um arquivo DO SUPERCOMPUTADOR para o seu computador usando scp](#copiar-um-arquivo-do-supercomputador-para-o-seu-computador-usando-scp)
-  - [Informações extras sobre os comandos utilizados](#informações-extras-sobre-os-comandos-utilizados)
+  - [Copiando Arquivos Atranvés de uma Interface gráfica](#copiando-arquivos-atranvés-de-uma-interface-gráfica)
+  - [Informações extras sobre as aplicações utilizadas](#informações-extras-sobre-as-aplicações-utilizadas)
 
 Neste tutorial iremos aprender a gerar a chave SSH, a acessar o supercomputador e a transferir arquivos para o supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail atendimento\<at>npad.ufrn.b (substituindo \<at> por @).
 
@@ -158,8 +159,42 @@ scp -r -P4422  nomeDoUsuario@sc2.npad.ufrn.br:~/meuArquivo  ~/Downloads
 
 *LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que o arquivo a ser copiado está na pasta home do supercomputador.
 
-## Informações extras sobre os comandos utilizados
+## Copiando Arquivos Atranvés de uma Interface gráfica
+
+Ao contrário do linux, o windows explorer não possui suporte ao **scp**, tendo
+que fazer uso de um programa de terceiros chamado **WinSCP**. Para instalar o
+WinSCP vá no [site oficial](https://winscp.net/eng/download.php) e clique em **Download**. Após a finalização do download, clique no executável e instale a aplicação. Ao executar a aplicação irá aparecer a seguinte interface:
+
+![WinSCP](/assets/superpc_windows_introduction/winSCP.png)
+
+- *HostName* coloque: **sc2.npad.ufrn.br**
+
+- *Port number* coloque **4422**  
+
+- *User name* coloque o seu nome de usuário
+
+- IMPORTANTE: deixe o campo *Password* vazio
+
+Depois clique em **Advanced...**
+
+![WinSCP Advanced](/assets/superpc_windows_introduction/winSCP_Advanced.png)
+
+Em Advanced, vá em **Authentication**, um submenu de **SSH**. Procure por **Private
+key file** e clique nos três pontinhos (**...**). Agora você precisa procurar a
+chave **privada** que foi [criada anteriormente](#geração-de-chave-ssh-pública).
+
+![SELECT FILE](/assets/superpc_windows_introduction/select_file.png)
+
+Caso não tenha mudado o nome dela, o caminho até a chave privada é **C:\Users\NomeDoSeuUsuário\\.ssh\id_rsa**. Para visualiza-lá terá que selecionar
+a opção: **todos os tipos de arquivo**. Se tudo der certo o WinSCP irá pedir
+para converter a Chave em formato *OpenSSH* para um formado *PuTTY*. Concorde,converta, salve e saída das configurações avançadas através do botão **OK**.
+Se tudo der certo quando você pressionar o botão **Login**. Você terá acesso
+ao seu sistema de arquivos do supercomputador.
+
+## Informações extras sobre as aplicações utilizadas
 
 - **scp**: [learn microsoft scp](https://learn.microsoft.com/pt-br/azure/virtual-machines/copy-files-to-vm-using-scp)
 
 - **ssh**: [learn microsoft ssh](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui)
+
+- **WinSCP**: [winscp docs](https://winscp.net/eng/docs/start)

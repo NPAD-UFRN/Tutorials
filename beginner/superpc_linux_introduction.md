@@ -1,3 +1,4 @@
+# Tutorial Introdução ao Supercomputador - Parte 1 (Linux)
 
 - [Tutorial Introdução ao Supercomputador - Parte 1 (Linux)](#tutorial-introdução-ao-supercomputador---parte-1-linux)
   - [Criação de conta no Supercomputador](#criação-de-conta-no-supercomputador)
@@ -16,10 +17,6 @@
       - [Digite o endereço do super pc](#digite-o-endereço-do-super-pc)
         - [Dica: Adicione nos favoritos](#dica-adicione-nos-favoritos)
   - [Informações extras sobre os comandos utilizados](#informações-extras-sobre-os-comandos-utilizados)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Tutorial Introdução ao Supercomputador - Parte 1 (Linux)
 
 Neste tutorial iremos aprender a gerar a chave SSH, a acessar o supercomputador e a transferir arquivos para supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail atendimento\<at>npad.ufrn.b (substituindo \<at> por @).
 
@@ -137,9 +134,9 @@ scp -r meuArquivo super-pc:~/
 # caso não tenha configurado 
 scp -r -P4422 meuArquivo nomeDoUsuario@sc2.npad.ufrn.br:~/
 ```
+
 *LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que
 o arquivo a ser copiado está na pasta home do super computador.
-
 
 #### Copiar Um arquivo DO SUPER COMPUTADOR para o seu computador usando scp
 

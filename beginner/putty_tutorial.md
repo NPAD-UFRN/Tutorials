@@ -29,7 +29,8 @@ Três configurações precisam ser feitas.
 
 Certifique-se que em **Session**, a caixa **SSH** em Connection type está marcada.
 Abaixo de **Saved Sessions** escreva um nome dessa sessão, como por exemplo NPAD.
-e clique em **Save** para salvar todas as configurações feitas até o momento.
-Dessa forma sempre que quiser acessar o NPAD através do PuTTy é só clicar em **Load** e depois no botão **Open**.
+Clique em **Save** para salvar todas as configurações feitas até o momento.
+Dessa forma sempre que quiser acessar o NPAD através do PuTTy é só selecionar o
+nome da sessão, clicar em **Load** e depois no botão **Open**.
 
 ![PuTTY Config Session](/assets/putty_tutorial/putty_config_session.png)

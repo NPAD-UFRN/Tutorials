@@ -60,7 +60,7 @@ Para utilizar o supercomputador é necessário criar uma conta na nossa [Página
 Uma vez que tenha cadastro no NPAD, você pode acessar o supercomputador de
 duas formas:
 
-- da aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](/beginner/putty_tutorial.md#acessando-o-supercomputador-através-do-putty).
+- Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](/beginner/putty_tutorial.md#acessando-o-supercomputador-através-do-putty).
 
 - através de um terminal como: **Windows PowerShell**, **MobaXterm**, usando o comando **ssh**
 

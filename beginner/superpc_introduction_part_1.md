@@ -33,7 +33,7 @@ Recomendamos utilizar o cliente ssh e terminal oficiais do sistema operacional q
 Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo **rsa**. Caso esteja utilizando o **PuTTy** veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](/beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa). Para as demais opções é necessário você abrir um terminal.
 
 - Windows + MobaXterm: abra a aplicação e clique no botão **start local terminal**
-- Windows com  Windows PowerShell: procure o programa **Windows PowerShell**
+- Windows com  Windows PowerShell: procure o programa **Windows PowerShell** e abra-o
 - Ubuntu: procure por gnome-terminal ou gnome-console ou aperte **Ctrl + Alt + T**
 
 Para gerar sua chave ssh do tipo **rsa** , e digite o comando a seguir:
@@ -48,9 +48,7 @@ Irá ser realizado uma sequência de perguntas, apenas pressione enter em todas 
 cat .ssh/id_rsa.pub
 ```
 
-Você precisará copiar e colar essa chave pública na hora de criar uma conta ou
-ou adicionar outra chave. Com uma chave pública você está pronto para criar uma
-cona no NPAD. Perceba que você criou uma chave privada em **.ssh/id_rsa** e uma
+Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh/id_rsa** e uma
 chave pública **.ssh/id_rsa.pub**.
 
 ## Criando uma conta no NPAD

@@ -4,7 +4,7 @@ Ao contrário do linux, o windows explorer não possui suporte ao **scp**, tendo
 que fazer uso de um programa de terceiros chamado **WinSCP**. Para instalar o
 WinSCP vá no [site oficial](https://winscp.net/eng/download.php) e clique em **Download**. Após a finalização do download, clique no executável e instale a aplicação. Ao executar a aplicação irá aparecer a seguinte interface:
 
-![WinSCP](/assets/superpc_windows_introduction/winSCP.png)
+![WinSCP](/assets/winscp_tutorial/winSCP.png)
 
 - *HostName* coloque: **sc2.npad.ufrn.br**
 

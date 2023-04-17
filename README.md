@@ -9,4 +9,3 @@
 - [Comandos Slurm](intermediate/slurm_commands.md)
 
 ## Avançado
-

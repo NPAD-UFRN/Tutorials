@@ -13,6 +13,6 @@ Para deixar salvo uma sessão com NPAD, você ir em:
 
 Clique em **Advanced SSH settings** e marque a caixa **Use private key**.
 Verifique se a chave privada está correta. Se você criou uma chave seguindo o nosso tutorial, o nome da chave é **id_rsa**
-e está localizada em **C:\Users\tests\AppData\Roaming\MobaXterm\home\\.ssh\id_rsa**.
+e está localizada em **C:\Users\NomeDoSeuUsuário\AppData\Roaming\MobaXterm\home\\.ssh\id_rsa**.
 
 ![MOBAXTERM](/assets/mobaxterm_tutorial/mobaXterm.png)

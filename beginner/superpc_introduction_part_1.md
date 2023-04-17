@@ -155,4 +155,4 @@ Foi feito dois tutoriais:
 ### Através do terminal
 
 É possível transferir arquivos através das aplicações de linhas de comando como:
-[scp](/beginner/scp_tutorial.md) e [rsync](/beginner/rsync_tutorial.md). Sendo o **rsync** apenas para linux e **scp** funciona no Windows apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse).
+[scp](https://linux.die.net/man/1/scp) e [rsync](https://linux.die.net/man/1/rsync). Sendo o **rsync** apenas para linux e **scp** funciona no Windows apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Para usar como usar o **scp** veja o [tutorial: scp](/beginner/scp_tutorial.md) e para o **rsync** veja o [tutorial: rsync](/beginner/rsync_tutorial.md).

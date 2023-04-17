@@ -26,8 +26,7 @@ chave **privada** que foi criada anteriormente, no meu caso o nome dela é **id_
 
 ## PuTTy
 
-Caso você esteja utilizando o **Putty** vá onde deve selecionar a chave
-privada criada pelo **PuttyGen**.
+Caso você esteja utilizando o **Putty** vá onde você salvou a chave privada pelo **PuttyGen**.
 
 ## OpenSSH + Windows PowerShell
 

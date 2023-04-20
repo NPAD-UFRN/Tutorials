@@ -112,7 +112,7 @@ A execução de um programa no supercomputador está sujeita à disponibilidade 
 ./helloWorld #o ponto e a barra indicam o caminho até a pasta atual.
 ```
 
-Saiba como escolher o tempo de execução [aqui](http://npad.ufrn.br/tutoriais/introducao-parte3.php#backfill).
+Saiba como escolher o tempo de execução [aqui](/intermediate/superpc_introduction_part_3.md#backfill-e-escolha-do-tempo-de-execução).
 
 ## Executando um programa criado a partir do código-fonte
 
@@ -150,4 +150,4 @@ Submitted batch job 14520
 Hello World!
 ```
 
-Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](http://npad.ufrn.br//tutoriais/openmp.php) e [MPI](http://npad.ufrn.br/tutoriais/mpi.php).
+Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](/advanced/openmp_tutorial.md) e [MPI](/advanced/mpi_tutorial.md).

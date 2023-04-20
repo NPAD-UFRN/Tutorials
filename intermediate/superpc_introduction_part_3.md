@@ -254,4 +254,4 @@ O tempo de início esperado depende da finalização dos jobs em execução e o 
 
 ```
 
-Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](/tutoriais/openmp.php) e [MPI](/tutoriais/mpi.php).
+Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](/advanced/openmp_tutorial.md) e [MPI](/advanced/mpi_tutorial.md).

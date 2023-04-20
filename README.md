@@ -20,6 +20,12 @@
   
 ## Intermediário
 
+- [Introdução ao Supercomputador - Parte 3](intermediate/superpc_introduction_part_3.md)
+
 - [Comandos Slurm](intermediate/slurm_commands.md)
 
 ## Avançado
+
+- [Tutorial OpenMP](advanced/openmp_tutorial.md)
+
+- [Tutorial MPI](advanced/mpi_tutorial.md)

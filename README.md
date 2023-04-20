@@ -4,6 +4,8 @@
 
 - [Introdução ao Supercomputador - Parte 1](beginner/superpc_introduction_part_1.md)
 
+- [Introdução ao Supercomputador - Parte 2](beginner/superpc_introduction_part_2.md)
+
 - [Copiando Arquivos através de uma Interface gráfica Gnome Files (linux)](beginner/gnome_files.md)
 
 - [Copiando Arquivos através de uma Interface gráfica WinSCP (Windows)](beginner/winscp_tutorial.md)

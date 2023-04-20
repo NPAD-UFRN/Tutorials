@@ -20,7 +20,7 @@ gerenciamento de jobs. Aqui então vamos listar alguns desses comandos, muito
 
 sinfo exibe as informações das partições e nós do supercomputador.
 
-#### Exemplo
+#### Exemplo: sinfo
 
 ```bash
 scavalcanti@headnode0 ~]$ sinfo
@@ -110,7 +110,7 @@ informações dos jobs que ainda não estão em execução. Caso seja de seu int
 entender como se dá o cálculo da prioridade da fila de jobs,
 [clique aqui](http://npad.ufrn.br/uso.php#fila-jobs).
 
-#### Exemplo
+#### Exemplo: sprio
 
 ```bash
 sprio -l
@@ -177,7 +177,7 @@ Este comando possuí variações como:\
 jobs.\
 **watch squeue**: Atualiza a exibição da fila a cada 2 segundos.
 
-#### Exemplo
+#### Exemplo: squeue
 
 ```bash
 squeue
@@ -305,7 +305,7 @@ executar outro job você estará no final da fila. Entretando, você não precis
 preocupar que nenhum usuário terá acesso ao job de outro, sendo assim, não há
 riscos de alguém cancelar job's que não são seus.
 
-#### Exemplo
+#### Exemplo: scancel
 
 ```bash
 squeue -u scavalcanti

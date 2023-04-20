@@ -1,6 +1,8 @@
-[//]: # (Title: Núcleo de Processamento de Alto Desempenho - UFRN)  
-[//]: # (Author: Samuel Xavier de Souza)  
-[//]: # (description: Source code generated using layoutit.com)  
+<!--
+title: "Núcleo de Processamento de Alto Desempenho - UFRN"
+description: "Source code generated using layoutit.com"
+author: "Samuel Xavier de Souza"
+-->
 
 # Tutorial Introdução ao Supercomputador - Parte 2
 

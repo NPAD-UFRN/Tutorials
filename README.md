@@ -24,6 +24,8 @@
 
 - [Comandos Slurm](intermediate/slurm_commands.md)
 
+- [Instalação de Programas](/intermediate/install_apps.md)
+
 ## Avançado
 
 - [Tutorial OpenMP](advanced/openmp_tutorial.md)

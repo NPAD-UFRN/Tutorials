@@ -4,6 +4,8 @@
 
 - [Introdução ao Supercomputador - Parte 1](beginner/superpc_introduction_part_1.md)
 
+- [Introdução ao Supercomputador - Parte 2](beginner/superpc_introduction_part_2.md)
+
 - [Copiando Arquivos através de uma Interface gráfica Gnome Files (linux)](beginner/gnome_files.md)
 
 - [Copiando Arquivos através de uma Interface gráfica WinSCP (Windows)](beginner/winscp_tutorial.md)
@@ -18,6 +20,14 @@
   
 ## Intermediário
 
+- [Introdução ao Supercomputador - Parte 3](intermediate/superpc_introduction_part_3.md)
+
 - [Comandos Slurm](intermediate/slurm_commands.md)
 
+- [Instalação de Programas](/intermediate/install_apps.md)
+
 ## Avançado
+
+- [Tutorial OpenMP](advanced/openmp_tutorial.md)
+
+- [Tutorial MPI](advanced/mpi_tutorial.md)

@@ -1,6 +1,6 @@
 # tch-rs-example NMIST
 
-Nesse tutorial você irá aprender a usar a partição **gpu** e rust  para treinar um modelo de deep learning  para resolver o [NMIST](http://yann.lecun.com/exdb/mnist/).
+Nesse tutorial você irá aprender a usar a partição **gpu** e rust  para treinar um modelo de deep learning  para resolver o [MNIST](http://yann.lecun.com/exdb/mnist/).
 
 ## Tópicos
 

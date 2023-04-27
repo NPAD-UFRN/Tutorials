@@ -171,8 +171,7 @@ cargo r --release
 
 ```
 
-Perceba que ao carregar o shell do container nvidia high computer (nvhcp), todas as variáveis de ambiente são perdidas, sendo necessário
-recarregá-las usando `source ~/.bashrc`. Cargo é o gerenciador de pacotes official da linguagem Rust, perceba que ao executar o comando `cargo r --release`. A aplicação cargo irá compilar a aplicação utilizando flags de otimização e irá executar o programa. Caso tenha compilado a aplicação no nó de login, será necessário remover a pasta **target**, antes de submeter o script
+Cargo é o gerenciador de pacotes official da linguagem Rust, perceba que ao executar o comando `cargo r --release`. A aplicação cargo irá compilar a aplicação utilizando flags de otimização e irá executar o programa. Caso tenha compilado a aplicação no nó de login, será necessário remover a pasta **target**, antes de submeter o script
 
 ```bash
 # rm -rf target # caso tenha compilado a aplicação no nó de login.

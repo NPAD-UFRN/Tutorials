@@ -17,8 +17,8 @@ Nesse tutorial iremos aprender a função de algumas opções que podem ser inse
   - [Definir a quantidade de memória a ser utilizada](#definir-a-quantidade-de-memória-a-ser-utilizada)
   - [Carregando softwares disponíveis](#carregando-softwares-disponíveis)
   - [Utilizando a pasta /home](#utilizando-a-pasta-home)
-  - [Utilizando a pasta /scratch/local](#utilizando-a-pasta-scratchlocal)
-  - [Utilizando a pasta /scratch/global](#utilizando-a-pasta-scratchglobal)
+  - [Utilizando o scratch local](#utilizando-o-scratch-local)
+  - [Utilizando o scratch global](#utilizando-o-scratch-global)
   - [Backfill e escolha do tempo de execução](#backfill-e-escolha-do-tempo-de-execução)
 
 ## Script para multithreading
@@ -197,7 +197,7 @@ Uma vez com o script pronto, é só enviar o script com o comando **sbatch seusc
 [usuario@service0 ~]$ sbatch meu-script.sh
 ```
 
-## Utilizando a pasta /scratch/local
+## Utilizando o scratch local
 
 A pasta /scratch/local fica localizada em um disco SSD em cada nó de computação, com capacidade de 110 GB para os nós r1i\*n\* (onde * são numerais) e 19 GB para os nós service. Como a pasta /scratch/local é local de cada nó de computação, não é possível ver o conteúdo dessas pastas locais a partir do nó de login. O nó de login também possui uma pasta /scratch/local, mas ela é diferente das demais. Logo, cada pasta /scratch/local em cada nó é diferente da pasta /scratch/local de outro nó, o que não ocorre com o home. Para utilizar a pasta /scratch/local nos jobs, é necessário que, antes de submeter os jobs, os arquivos de entrada esteja em alguma pasta compartilhada (ex: /home, /scratch/global), e que o script submetido copie alguns arquivos de entrada para a pasta /scratch/local, execute o programa desejado e mova a saída de volta para uma pasta compartilhada. O script abaixo mostra um exemplo de job que utiliza a pasta /scratch/local. Nos nós de computação, a varíável de ambiente **$SCRATCH** equivale a pasta /scratch/local/<seu-nome-de-usuário>
 
@@ -219,7 +219,7 @@ cd $WRKDIR #muda para a pasta /scratch/local/$USER/JOBID
 mv $WRKDIR/ $SLURM_SUBMIT_DIR/#move os arquivos de saída para o diretório /home/$USER
 ```
 
-## Utilizando a pasta /scratch/global
+## Utilizando o scratch global
 
 Na pasta /scratch/global há a comunicação via rede da mesma forma da pasta /home, mas utiliza uma banda maior, o que faz com que seja mais rápido mas não tão rápida quanto ao /scratch/local. Sendo, ainda, que essa pasta possui um sistema de leitura e escrita de arquivos em paralelo, chamado [Lustre](http://lustre.org).
 

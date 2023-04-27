@@ -2,6 +2,18 @@
 
 Nesse tutorial você irá aprender a usar a partição **gpu** e rust  para treinar um modelo de deep learning  para resolver o [NMIST](http://yann.lecun.com/exdb/mnist/).
 
+## Tópicos
+
+- [tch-rs-example NMIST](#tch-rs-example-nmist)
+  - [Tópicos](#tópicos)
+  - [Instalando dependências](#instalando-dependências)
+  - [Criando um aplicação em rust para treinar uma rede neural](#criando-um-aplicação-em-rust-para-treinar-uma-rede-neural)
+  - [carregamento do conjunto de dados NMIST](#carregamento-do-conjunto-de-dados-nmist)
+    - [configuração do dispositivo de processamento](#configuração-do-dispositivo-de-processamento)
+    - [criando um modelo deep learning](#criando-um-modelo-deep-learning)
+    - [treinamento](#treinamento)
+  - [Executando a aplicação com cuda no supercomputador](#executando-a-aplicação-com-cuda-no-supercomputador)
+
 ## Instalando dependências
 
 Primeiro instale o rust toolchain na sua pasta HOME, no nó de login.

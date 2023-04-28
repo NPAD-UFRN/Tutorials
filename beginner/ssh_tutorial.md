@@ -13,7 +13,7 @@ Irá ser realizado uma sequência de perguntas, apenas pressione enter em todas 
 
 Para visualizar sua chave pública, digite o comando a seguir:
 
-```PS
+```ps1
 cat .\.ssh\id_rsa.pub
 ```
 

@@ -8,7 +8,7 @@ Nesse tutorial iremos aprender a função de algumas opções que podem ser inse
   - [Tópicos](#tópicos)
   - [Script para multithreading](#script-para-multithreading)
   - [Script para utilização de vários nós](#script-para-utilização-de-vários-nós)
-    - [**Compartilhamento dos nós**](#compartilhamento-dos-nós)
+    - [Compartilhamento dos nós](#compartilhamento-dos-nós)
   - [Escolha de QOS e Limite no uso do supercomputador](#escolha-de-qos-e-limite-no-uso-do-supercomputador)
     - [QOS 1](#qos-1)
     - [QOS 2](#qos-2)
@@ -16,14 +16,14 @@ Nesse tutorial iremos aprender a função de algumas opções que podem ser inse
   - [Receber e-mails sobre início e fim da execução](#receber-e-mails-sobre-início-e-fim-da-execução)
   - [Definir a quantidade de memória a ser utilizada](#definir-a-quantidade-de-memória-a-ser-utilizada)
   - [Carregando softwares disponíveis](#carregando-softwares-disponíveis)
-  - [Utilizando a pasta /home](#utilizando-a-pasta-home)
+  - [Utilizando a sua pasta home](#utilizando-a-sua-pasta-home)
   - [Utilizando o scratch local](#utilizando-o-scratch-local)
   - [Utilizando o scratch global](#utilizando-o-scratch-global)
   - [Backfill e escolha do tempo de execução](#backfill-e-escolha-do-tempo-de-execução)
 
 ## Script para multithreading
 
-Por padrão, quando não é definido o número de núcleos a ser utilizado, o supercomputador executará o job em apenas **um** núcleo do nó. Para que seu programa execute em mais de um núcleo, é necessário definir no script da seguinte forma:
+Por padrão, quando não é definido o número de núcleos a ser utilizado, o supercomputador executará o job em apenas um **um** núcleo do nó. Para que seu programa execute em mais de um núcleo, é necessário definir no script `#SBATCH --cpus-per-task`, da seguinte forma:
 
 ```bash
  #!/bin/bash
@@ -36,11 +36,11 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 ./hello_threads 32 #32 threads
 ```
 
-A opção **--hint=compute\_bound** muda a configuração para ser um thread por core.
+A opção `#SBATCH --hint=compute_bound` muda a configuração para ser um thread por core. A opção `#SBATCH --cpus-per-task=32` está definindo 32 cores ou núcleos para esse job. A variável de ambiente `SLURM_CPUS_PER_TASK` fornece a você o número de cores que seu job terá durante a execução do programa.
 
 ## Script para utilização de vários nós
 
-Por padrão, quando não é definido o número de nós a ser utilizado, o supercomputador executará o job em apenas **um** nó e em **um** núcleo desse nó. Para que seu programa execute em mais de um nó, é necessário definir no script da seguinte forma:
+Novamente, por padrão, **quando não é definido o número de nós a ser utilizado, o supercomputador executará o job em apenas um nó e em um núcleo desse nó**. Para que seu programa execute em mais de um nó, é necessário definir no script da seguinte forma:
 
 ```bash
 #!/bin/bash
@@ -51,13 +51,13 @@ Por padrão, quando não é definido o número de nós a ser utilizado, o superc
 srun prog1 #programa a ser executado. #srun: executa jobs em paralelo
 ```
 
-Onde **--nodes** indica a quantidade de nós a ser utilizada, podendo também ser definido com **-N**. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](/tutoriais/mpi.php). Para isso é necessário primeiramente definir o número de tarefas com a opção **--ntasks** ou **-n**. Com **--ntasks-per-node** é definido as tarefas por nó. Já **--cpus-per-task** define a quantidade de cpu por tarefas. Vale salientar que as duas últimas opções citadas não são dependentes. Com isso, pode ser que a nó que esteja utilizando seja compartilhado com outros jobs.
+Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](/advanced/mpi_tutorial.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`. Com `#SBATCH --ntasks-per-node` é definido as tarefas por nó. Já `#SBATCH --cpus-per-task` define a quantidade de cpu por tarefas. Vale salientar que as duas últimas opções citadas não são dependentes. Com isso, pode ser que a nó que esteja utilizando seja compartilhado com outros jobs.
 
-### **Compartilhamento dos nós**
+### Compartilhamento dos nós
 
-Outro padrão do supercomputador é, ao submeter um job o nó não será reservado exclusivamente para aquele job, podendo ser alocado mais jobs dependendo da disponibilidade dos recursos naquele nó. Caso seu programa necessite de um nó por completo, utilize a opção **--exclusive**. Por exemplo, para um programa que será executado em paralelo, o desempenho do programa será melhor se o programa puder utilizar os recursos por completo.
+Outro padrão do supercomputador é, ao submeter um job o nó **não** será reservado exclusivamente para aquele job, podendo ser alocado mais jobs dependendo da disponibilidade dos recursos naquele nó. Caso seu programa necessite de um nó por completo, utilize a opção `#SBATCH --exclusive`. Por exemplo, para um programa que será executado em paralelo, o desempenho do programa será melhor se o programa puder utilizar os recursos por completo.
 
-Outro aspecto importante do compartilhamento de nós é a não especificação da utilizaçao dos recursos. Ou seja, se seu script não conter a quantidade de nós a ser utilizado nem o número de tarefas ou outra informaçao relacionada aos recursos, será reservado os recursos completos. No caso da não especificação do nó, será reservado um nó por completo. Se foi especificado **n** nós e não tinha no script quanto de cpu ou memória iria utilizar, esses n nós serão reservados para sua tarefa.
+Outro aspecto importante do compartilhamento de nós é a não especificação da utilização dos recursos. Ou seja, se seu script não conter a quantidade de nós a ser utilizado nem o número de tarefas ou outra informação relacionada aos recursos, será reservado os recursos completos. No caso da não especificação do nó, será reservado um nó por completo. Se foi especificado **n** nós e não tinha no script quanto de cpu ou memória iria utilizar, esses n nós serão reservados para sua tarefa.
 
 ## Escolha de QOS e Limite no uso do supercomputador
 
@@ -185,7 +185,7 @@ module load nome-do-software #nome do software que aparecerá após usar o coman
 nome-do-software prog1
 ```
 
-## Utilizando a pasta /home
+## Utilizando a sua pasta home
 
 Ao logar no supercomputador, você estará na pasta home. Essa pasta possui uma comunicação via rede com o supercomputador e já está configurada para, ao submeter os scripts para o supercomputador, ler os arquivos de entrada necessários para executar o job dessa pasta, assim como arquivo log de saída que será salvo nesse mesmo local.
 

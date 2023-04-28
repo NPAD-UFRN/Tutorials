@@ -83,9 +83,6 @@ O QOS 2 é mais indicado para mais jobs que utilizam um nó inteiro ou jobs que 
 ```bash
  #!/bin/bash
  #SBATCH --time=0-0:5
- #SBATCH --cpus-per-task=32
- #SBATCH --hint=compute_bound
- #SBATCH --exclusive
  #SBATCH --qos=qos2
 
  ./prog1
@@ -98,9 +95,6 @@ Para trabalhos que necessitem rodar vários jobs simultaneamente , ou job que pr
 ```bash
  #!/bin/bash
  #SBATCH --time=0-0:5
- #SBATCH --cpus-per-task=32
- #SBATCH --hint=compute_bound
- #SBATCH --exclusive
  #SBATCH --qos=preempt
 
  ./prog1

@@ -34,4 +34,5 @@
 
 - [Executando Pytorch Rust na partição de gpu](advanced/tch-rs_tutorial.md)
 
-Encontrou algum problemas nos tutoriais por favor crie uma issue em [github.com/NPAD-UFRN/Tutorials/issues](https://github.com/NPAD-UFRN/Tutorials/issues)
+Encontrou algum problemas nos tutoriais por favor crie uma issue em
+[github.com/NPAD-UFRN/Tutorials/issues](https://github.com/NPAD-UFRN/Tutorials/issues)

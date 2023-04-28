@@ -89,7 +89,6 @@ O QOS 2 é mais indicado para mais jobs que utilizam um nó inteiro ou jobs que 
  #SBATCH --qos=qos2
 
  ./prog1
-
 ```
 
 ### preempt
@@ -105,7 +104,6 @@ Para trabalhos que necessitem rodar vários jobs simultaneamente , ou job que pr
  #SBATCH --qos=preempt
 
  ./prog1
-
 ```
 
 ## Receber e-mails sobre início e fim da execução
@@ -248,7 +246,6 @@ O tempo de início esperado depende da finalização dos jobs em execução e o 
 ```bash
  #!/bin/bash
 #SBATCH --time=0-0:5 #Formato padrão: dias-horas:minutos
-
 ```
 
 Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](/advanced/openmp_tutorial.md) e [MPI](/advanced/mpi_tutorial.md).

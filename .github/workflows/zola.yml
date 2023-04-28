@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+      - uses: taiki-e/install-action@v2
+        with:
+          python-version: 3.x
+          tool: zola@0.17.1
+  
+      - run: sudo apt-get install chromium-browser
+      - run: git checkout gh-pages
+      - run: bash build.sh
+ 

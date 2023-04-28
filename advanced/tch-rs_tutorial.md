@@ -163,12 +163,12 @@ Atualmente o supercomputador no NPAD possui uma partição chamada **gpu**, ness
 #SBATCH --job-name=neural_train
 #SBATCH --time=0-0:15
 #SBATCH --partition=gpu
+#SBATCH --exclusive
 
 # informando ao tch-rs que desejo compilar com cuda na versão 11.7
 export TORCH_CUDA_VERSION=cu117
 
 cargo r --release
-
 ```
 
 Cargo é o gerenciador de pacotes official da linguagem Rust, perceba que ao executar o comando `cargo r --release`. A aplicação cargo irá compilar a aplicação utilizando flags de otimização e irá executar o programa. Caso tenha compilado a aplicação no nó de login, será necessário remover a pasta **target**, antes de submeter o script

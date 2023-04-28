@@ -120,20 +120,20 @@ O supercomputador está configurado para atribuir, no mínimo, 4GB de memória p
 
 ```bash
 #!/bin/bash
-#SBATCH --mem-per-cpu=8000
-#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=1000
+#SBATCH --cpus-per-task=3
 
 ./prog1
 ```
 
-O script do exemplo utiliza oito cpus e para cada cpu é reservado aproximadamente 8GB de memória. Sendo que a multiplicação entre a quantidade de memória por cpu e o número de cpus usada não pode ultrapassar de 128GB, pois esse é o limite de cada nó.
+O script do exemplo utiliza 3 cpus e para cada cpu é reservado aproximadamente 1GB de memória. Sendo que a multiplicação entre a quantidade de memória por cpu e o número de cpus usada não pode ultrapassar de 4GB, pois esse é o limite de cada nó. O limite de cada nó varia de acordo com a sua partição. Um Nó pertencente a partição **cluster** ou **service**, só pode utilizar ao total 4GB. Um nó na partição **intel-256** e  **gpu**  pode usar até 8 GB e **intel-512** pode usar até 16GB. Lembrando que a partição **test** é **cluster** mais **service**.
 
 Também há a opção `#SBATCH --mem` que já especifica a quantidade de memória para o job por completo.
 
 ```bash
 #!/bin/bash
-#SBATCH --mem=64000
-#SBATCH --cpus-per-task=8
+#SBATCH --mem=3000
+#SBATCH --cpus-per-task=3
 
 ./prog1
 ```
@@ -180,7 +180,7 @@ Ao logar no supercomputador, você estará na pasta home. Essa pasta possui uma 
 
 Ou seja, não é necessário utilizar comandos extras ao utilizar essa pasta. Apenas as configurações básicas do script, como o tempo estimado de execução do programa, quantidade de cpus, a fila em que deseja alocar o job e afins.
 
-Uma vez com o script pronto, é só enviar o script com o comando **sbatch seuscript**.
+Uma vez com o script pronto, é só enviar o script com o comando `sbatch`.
 
 ```bash
 [usuario@service0 ~]$ sbatch meu-script.sh

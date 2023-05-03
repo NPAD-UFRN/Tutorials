@@ -1,5 +1,7 @@
 # Tutoriais
 
+Estão aqui listados os tutoriais para que os usuários do Núcleo de Processamento de Alto Desempenho compreender o uso e funcionamento do supercomputador da UFRN.
+
 ## Iniciante
 
 - [Introdução ao Supercomputador - Parte 1](beginner/superpc_introduction_part_1.md)

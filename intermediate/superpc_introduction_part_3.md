@@ -186,50 +186,43 @@ Uma vez com o script pronto, é só enviar o script com o comando `sbatch`.
 [usuario@service0 ~]$ sbatch meu-script.sh
 ```
 
-## Utilizando o scratch local
-
-A pasta /scratch/local fica localizada em um disco SSD em cada nó de computação, com capacidade de 110 GB para os nós r1i\*n\* (onde * são numerais) e 19 GB para os nós service. Como a pasta /scratch/local é local de cada nó de computação, não é possível ver o conteúdo dessas pastas locais a partir do nó de login. O nó de login também possui uma pasta /scratch/local, mas ela é diferente das demais. Logo, cada pasta /scratch/local em cada nó é diferente da pasta /scratch/local de outro nó, o que não ocorre com o home. Para utilizar a pasta /scratch/local nos jobs, é necessário que, antes de submeter os jobs, os arquivos de entrada esteja em alguma pasta compartilhada (ex: /home, /scratch/global), e que o script submetido copie alguns arquivos de entrada para a pasta /scratch/local, execute o programa desejado e mova a saída de volta para uma pasta compartilhada. O script abaixo mostra um exemplo de job que utiliza a pasta /scratch/local. Nos nós de computação, a varíável de ambiente `SCRATCH` equivale a pasta /scratch/local/<seu-nome-de-usuário>
-
-Exemplo de uso do /scratch/local:
-
-```bash
-#!/bin/bash
-
-#SBATCH --time=0-0:5
-#SBATCH --ntasks=1
-
-INP="input1.in input2.in" #Especifica os arquivos de entrada.
-
-WRKDIR=$SCRATCH/$SLURM_JOB_ID #Declara variável WRKDIR.
-mkdir -p $WRKDIR #Verifica se existe um diretório, se não, cria o diretório.
-cp $INP  $WRKDIR #copia os arquivos de entrada para a pasta /scratch/local/$USER
-cd $WRKDIR #muda para a pasta /scratch/local/$USER/JOBID
-./prog #execução normal do seu programa
-mv $WRKDIR/ $SLURM_SUBMIT_DIR/#move os arquivos de saída para o diretório /home/$USER
-```
 
 ## Utilizando o scratch global
 
-Na pasta /scratch/global há a comunicação via rede da mesma forma da pasta /home, mas utiliza uma banda maior, o que faz com que seja mais rápido mas não tão rápida quanto ao /scratch/local. Sendo, ainda, que essa pasta possui um sistema de leitura e escrita de arquivos em paralelo, chamado [Lustre](http://lustre.org).
+O NPAD utiliza o BeeGFS para scratch global, ou seja, armazenamento temporário de arquivos, compartilhado com todos os nós. Como usuário do sistema, tudo que você precisa fazer é copiar os arquivos relevantes pra pasta ~/scratch. Você pode inclusive submeter jobs de lá. Essa pasta na verdade é um symlink que aponta pra /scratch/global/usuario. Num job script, você também pode usar a variável de ambiente $SCRATCH_GLOBAL para pegar a localização dessa pasta. 
 
 Acessando a pasta /scratch/global destinada ao seu usuário:
+
+```bash
+[usuario@service0 ~]$ cd ~/scratch
+```
+
+ou
 
 ```bash
 [usuario@service0 ~]$ cd $SCRATCH_GLOBAL
 ```
 
-O sistema já faz a leitura e escrita de forma paralela de acordo com a configuração, não precisando determinar através do script ou qualquer outro código a ser utilizado. A utilização fica sendo da mesma forma que na pasta /home. Como se pode ver no script exemplo:
+Exemplo de utilização:
 
 ```bash
 #!/bin/bash
 
 #SBATCH --time=0-0:5
-#SBATCH --ntasks=1
 
-mv param.in $SCRATCH_GLOBAL #move os arquivos com os parâmetros de entrada para a pasta /scratch/global
-./prog #execução normal do seu programa
-mv file.out /home/usuarioNPAD/ #move os arquivos de saída para o diretório /home/<seu-nome-de-usuário>
+#move os arquivos com os parâmetros de entrada para a pasta /scratch/global
+mv entrada.in $SCRATCH_GLOBAL 
+cd $SCRATCH_GLOBAL
+
+#execução normal do seu programa
+./prog 
+
+#move os arquivos de saída para o diretório /home/usuario
+mv saida.out /home/usuario/ 
 ```
+
+O scratch global deve ser considerada como uma pasta temporária, e os arquivos lá podem ser excluídos se a equipe do NPAD determinar que eles não estão sendo usados há muito tempo. Portanto, não mantenha arquivos importantes nela. A boa prática é usar a scratch global para a geração de arquivos temporários e depois copiar os resultados importantes para fora dela.
+
 
 ## Backfill e escolha do tempo de execução
 

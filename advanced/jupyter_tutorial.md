@@ -4,7 +4,7 @@ O Jupyter é uma aplicação web de código-fonte aberto que permite você criar
 
 Para usar o jupyter no supercomputador, deve-se criar um script semelhante ao mostrado abaixo:
 
-```
+```bash
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -43,13 +43,13 @@ Com o script criado, siga as seguintes etapas para acessar o jupyter no supercom
 
 Primeiro, ative o conda forge no terminal do supercomputador. Digite:
 
-```
+```bash
 $ conda activate forge
 ```
 
 Envie o job para fila de execução com o comando sbatch:
 
-```
+```bash
 $ sbatch script-jupyter.sh 
 
 Submitted batch job JOBID 
@@ -57,20 +57,20 @@ Submitted batch job JOBID
 
 JOBID é número do job. Agora, verifique se o seu job está rodando com o comando squeue:
 
-```
+```bash
 $ squeue -lu $USER
 ```
 
  Caso o job de código JOBID esteja com estado R (RUNNING) na coluna STATE, o job já foi iniciado e podemos seguir em diante. 
 
 Use o comando cat slurm-JOBID.out (substitua JOBID com o número do job).
-```
+```bash
 $ cat slurm-JOBID.out
 ```
 
 Aparecerá uma mensagem contendo duas informações que você deveria copiar. A primeira é a seguinte:
 
-```
+```bash
 ssh -N -L PORTA:IP:PORTA -p4422 NOMEDOUSUARIO@sc2.npad.ufrn.br
 ```
 
@@ -79,7 +79,7 @@ Copie e cole e execute ele no terminal do seu computador. O terminal ficará tra
 
 A segunda informação é a seguinte:  
 
-```
+```bash
 http://127.0.0.1:PORTA/lab?token=TOKEN 
 ```
 
@@ -87,6 +87,6 @@ Copie e cole no seu navegador e o jupyter irá aparecer.
 
 Quando terminar de usar o jupyter, destrave o terminal do seu computador com Ctrl+C. E também cancele o job do supercomputador:
 
-```
+```bash
 $ scancel JOBID 
 ```

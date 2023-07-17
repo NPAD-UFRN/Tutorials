@@ -9,7 +9,7 @@ Para usar o jupyter no supercomputador, deve-se criar um script semelhante ao mo
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=10      #Quantidade de núcleos
-#SBATCH --time=4-00:00          #Tempo máximo do job no formato DIAS-HORAS:MINUTOS
+#SBATCH --time=1-00:00          #Tempo máximo do job no formato DIAS-HORAS:MINUTOS
 #SBATCH --hint=compute_bound
 
 # Execute conda activate forge

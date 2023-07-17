@@ -74,7 +74,7 @@ Aparecerá uma mensagem contendo duas informações que você deveria copiar. A 
 ssh -N -L PORTA:IP:PORTA -p4422 NOMEDOUSUARIO@sc2.npad.ufrn.br
 ```
 
-Trata-se de um comando para ser executado no terminal de seu computador. Nesse comando, PORTA é um valor númerico, IP valores numéricos separados por ponto e NOMEDOUSUARIO é o nome do seu usuário no supercomputador.
+Trata-se de um comando para ser executado no terminal de seu computador. Nesse comando, PORTA é um valor númerico, IP são valores numéricos separados por ponto e NOMEDOUSUARIO é o nome do seu usuário no supercomputador.
 Copie e cole e execute ele no terminal do seu computador. O terminal ficará travado.
 
 A segunda informação é a seguinte:  

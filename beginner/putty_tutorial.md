@@ -17,7 +17,7 @@ isso acontecer irá aparecer a seguinte tela:
 Debaixo de **Public key for pasting into OpenSSH authorized keys file:** Encontra-se
 a chave que você deve copiar colocar criar uma conta no NPAD. Lembre-se de salvar duas chaves, a publica e a privada. Você deve salvar as chaves clicando em **Save public-key** e **Save private-key**. Se você não colocar uma passphrase ele irá lhe alerta isso mas não é necessário colocar uma. *LEMBRE-SE* que se você colocar uma passphrase e esquece-la ou perder o par de chaves você terá que criar um novo par de chaves e [adicionar uma nova chave](http://npad.ufrn.br/npad/chave).
 
-## Acessando o Supercomputador através do PuTTy
+## Acessando o Supercomputador através do PuTTy2
 
 Uma vez tendo feito o cadastro com a chave publica gerada anteriormente.
 É necessário configurar o PuTTy para realizar o login no supercomputador.

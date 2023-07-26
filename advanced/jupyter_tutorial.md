@@ -1,4 +1,4 @@
-# Tutorial de uso do jupyter no supercomputador
+# Usando o Jupyter no supercomputador
 
 O Jupyter é uma aplicação web de código-fonte aberto que permite você criar e compartilhar documentos (chamados de notebooks) que contém código, equações, visualizações e texto.
 

@@ -1,9 +1,9 @@
-# rsync
+# Tutorial do rsync
 
 Outra aplicação que permite copiar arquivos é o **rsync**. Em alguns sistemas eles
 não vem instalado por padrão, certifique-se de que ele esteja instalado.
 
-## Copiar Um arquivo DO SEU COMPUTADOR para o supercomputador usando rsync
+## Copiar um arquivo DO SEU COMPUTADOR para o supercomputador usando rsync
 
 Para copiar o arquivo **meuArquivo** DO SEU COMPUTADOR para o super computador usando o programa **rsync**. Abra um terminal Linux, use o seguinte comando:
 
@@ -16,7 +16,7 @@ rsync  -aP  ~/Downloads/meuArquivo --rsh='ssh -p4422' -aP nomeDoUsuario@sc2.npad
 
 *LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que o arquivo: **meuArquivo** a será copiado na pasta home do supercomputador. Perceba que  o arquivo **meuArquivo** está localizado na pasta Downloads.
 
-## Copiar Um arquivo DO SUPERCOMPUTADOR para o seu computador usando rsync
+## Copiar um arquivo DO SUPERCOMPUTADOR para o seu computador usando rsync
 
 Para copiar o arquivo: **meuArquivo** DO SUPERCOMPUTADOR para o seu computador na pasta **Downloads** usando o programa **rsync**. Abra um terminal Linux, use o seguinte comando:
 

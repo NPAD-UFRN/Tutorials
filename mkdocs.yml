@@ -1,0 +1,61 @@
+site_name: Tutoriais do NPAD
+theme:
+   name: readthedocs
+   highlightjs: true
+   locale: pt_BR
+   features:
+      - content.code.copy   
+   #logo: assets/logo_UFRN.png
+markdown_extensions:
+
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+#  - pymdownx.emoji:
+#      emoji_index: !!python/name:materialx.emoji.twemoji
+#      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+nav:
+   - Início: index.md
+   - Iniciante:
+      - beginner/superpc_introduction_part_1.md
+      - beginner/superpc_introduction_part_2.md
+      - beginner/gnome_files.md
+      - beginner/winscp_tutorial.md
+      - beginner/scp_tutorial.md
+      - beginner/rsync_tutorial.md
+      - beginner/putty_tutorial.md
+      - beginner/mobaxterm_tutorial.md
+   - Intermediário:
+      - intermediate/superpc_introduction_part_3.md
+      - intermediate/slurm_commands.md
+      - intermediate/install_apps.md
+   - Avançado:
+      - advanced/openmp_tutorial.md
+      - advanced/mpi_tutorial.md
+      - advanced/tch-rs_tutorial.md
+      - advanced/jupyter_tutorial.md

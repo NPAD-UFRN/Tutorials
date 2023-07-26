@@ -1,4 +1,4 @@
-# Tutorial MPI
+# Tutorial de MPI
 
 Nesse tutorial iremos aprender a conduzir a execução de aplicações utilizando o Intel MPI no supercomputador, uma das melhores implementações MPI da indústria, de maneira simples e prática.
 
@@ -13,14 +13,14 @@ Definindo um padrão industrial para a troca de mensagens, existem diversas impl
 
 ## Passo 1: Conexão ao supercomputador por SSH
 
-Para se conectar ao supercomputador é necessário utilizar o SSH já disponível por padrão na maioria dos sistemas Unix como nas distribuições Linux e todas as versões do Mac OS X assim como disponível livremente na Internet como download para a plataforma Windows. O cliente SSH mais popular da plataforma Windows é o [Putty](/beginner/putty_tutorial.md)
+Para se conectar ao supercomputador é necessário utilizar o SSH já disponível por padrão na maioria dos sistemas Unix como nas distribuições Linux e todas as versões do Mac OS X assim como disponível livremente na Internet como download para a plataforma Windows. O cliente SSH mais popular da plataforma Windows é o [Putty](../beginner/putty_tutorial.md)
 
 Iremos nesse tutorial utilizar como padrão a plataforma Linux, mas sua execução no Windows segue os mesmos princípios.
 
 Para se conectar no nó de login do supercomputador basta executar o seguinte comando:
 
 ```bash
-aluno@ubuntu:~ $ ssh -p 4422 USUARIO@sc2.npad.ufrn.br
+$ ssh -p 4422 USUARIO@sc2.npad.ufrn.br
 ```
 
 Troque **USUARIO** pelo seu nome de usuário já autorizado. Você deve visualizar uma tela com notícias sobre o supercomputador e a criação dos seus diretórios pessoais.
@@ -71,8 +71,8 @@ int main (int argc, char *argv[])
 De posse do arquivo `mpi_hello.c`, você pode compilar o mesmo com o comando “mpiicc” da seguinte forma:
 
 ```bash
-[seuUsuario@service0 ~]$  mpiicc mpi_hello.c -o mpi_hello 
-[seuUsuario@service0 ~]$  ls 
+$ mpiicc mpi_hello.c -o mpi_hello 
+$ ls 
 mpi_hello.c   mpi_hello
 ```
 
@@ -95,7 +95,7 @@ srun --time=0-0:5 -n4 mpi_hello
 Para enviar esse “job” para a fila de execução usamos o comando:
 
 ```bash
-[seuUsuario@service0 ~]$  sbatch jobMPI.sh 
+$ sbatch jobMPI.sh 
 
 Submitted batch job 2230
 ```
@@ -105,11 +105,11 @@ Esse comando irá adicionar o “job” na fila de execução e retornar um id (
 Ao finalizar sua execução o SLURM cria automaticamente um arquivo chamado “slurm-JOB_ID.out” com a saída padrão de sua tarefa redirecionada para esse arquivo. O nome do arquivo contém o ID do job enviado (JOB_ID) para facilitar sua relação com o mesmo. Isso é importante se seu programa gera uma saída padrão que contém um resultado útil da sua execução. Veja abaixo o resultado da execução do simples script que criamos e sua saída em arquivos:
 
 ```bash
-[seuUsuario@service0 ~]$  sbatch jobMPI.sh 
+$ sbatch jobMPI.sh 
 
 Submitted batch job 2230
 
-[seuUsuario@service0 ~]$  cat slurm-2230.out 
+$ cat slurm-2230.out 
 
 Hello from process 3 on node r1i2n16!
 
@@ -154,7 +154,7 @@ Repare que agora o script contém vários parâmetros que foram adicionados. A d
 Observa-se, então, que foram requisitados 2 (valor de --nodes) nós para os jobs e que em cada nó serão criados 2 (valor de --ntasks-per-node) processos. O comando “srun mpi_hello” agora não deve mais conter o número de tarefas que será executada, uma vez que isso já está definido anteriormente no script. Veja sua execução:
 
 ```bash
-[seuUsuario@service0 ~]$  sbatch jobMPI.sh 
+$ sbatch jobMPI.sh 
 
 Submitted batch job 2236
 

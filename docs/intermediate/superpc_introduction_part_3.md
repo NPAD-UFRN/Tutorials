@@ -1,25 +1,8 @@
-# Tutorial Introdução ao Supercomputador - Parte 3
+# Introdução ao supercomputador - Parte&nbsp;3
 
 Nesse tutorial iremos aprender a função de algumas opções que podem ser inseridas nos scripts enviados para o supercomputador. Caso surja alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato através do e-mail **atendimento\<at>npad.ufrn.br** (substituindo \<at> por **@**).
 
-## Tópicos
-
-- [Tutorial Introdução ao Supercomputador - Parte 3](#tutorial-introdução-ao-supercomputador---parte-3)
-  - [Tópicos](#tópicos)
-  - [Script para multithreading](#script-para-multithreading)
-  - [Script para utilização de vários nós](#script-para-utilização-de-vários-nós)
-    - [Compartilhamento dos nós](#compartilhamento-dos-nós)
-  - [Escolha da qualidade de serviço e Limite no uso do supercomputador](#escolha-da-qualidade-de-serviço-e-limite-no-uso-do-supercomputador)
-    - [QOS 1](#qos-1)
-    - [QOS 2](#qos-2)
-    - [preempt](#preempt)
-  - [Receber e-mails sobre início e fim da execução](#receber-e-mails-sobre-início-e-fim-da-execução)
-  - [Definir a quantidade de memória a ser utilizada](#definir-a-quantidade-de-memória-a-ser-utilizada)
-  - [Carregando softwares disponíveis](#carregando-softwares-disponíveis)
-  - [Utilizando a sua pasta home](#utilizando-a-sua-pasta-home)
-  - [Utilizando o scratch local](#utilizando-o-scratch-local)
-  - [Utilizando o scratch global](#utilizando-o-scratch-global)
-  - [Backfill e escolha do tempo de execução](#backfill-e-escolha-do-tempo-de-execução)
+[TOC]
 
 ## Script para multithreading
 
@@ -51,7 +34,7 @@ Novamente, por padrão, **quando não é definido o número de nós a ser utiliz
 srun prog1 #programa a ser executado. #srun: executa jobs em paralelo
 ```
 
-Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](/advanced/mpi_tutorial.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`. Com `#SBATCH --ntasks-per-node` é definido as tarefas por nó. Já `#SBATCH --cpus-per-task` define a quantidade de cpu por tarefas. Vale salientar que as duas últimas opções citadas não são dependentes. Com isso, pode ser que a nó que esteja utilizando seja compartilhado com outros jobs.
+Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](../advanced/mpi_tutorial.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`. Com `#SBATCH --ntasks-per-node` é definido as tarefas por nó. Já `#SBATCH --cpus-per-task` define a quantidade de cpu por tarefas. Vale salientar que as duas últimas opções citadas não são dependentes. Com isso, pode ser que a nó que esteja utilizando seja compartilhado com outros jobs.
 
 ### Compartilhamento dos nós
 
@@ -235,4 +218,4 @@ O tempo de início esperado depende da finalização dos jobs em execução e o 
 #SBATCH --time=0-0:5 #Formato padrão: dias-horas:minutos
 ```
 
-Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](/advanced/openmp_tutorial.md) e [MPI](/advanced/mpi_tutorial.md).
+Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](../advanced/openmp_tutorial.md) e [MPI](../advanced/mpi_tutorial.md).

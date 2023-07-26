@@ -1,16 +1,9 @@
-# Tutorial de instalação de programas no supercomputador
+# Instalação de programas no supercomputador
 
 No supercomputador, há diversos programas instalados para todos os usuários. Caso deseje instalar um novo software no supercomputador, você pode solicitar que a equipe do NPAD faça a instalação, através da nossa [Página de Solicitação de Software](http://npad.ufrn.br/solicitarNovoSoftware.php). Entretanto, esse pedido de software será analisado e apenas softwares a serem utilizados por diversos pesquisadores serão aprovados. Os software aprovados entrarão na fila de tarefas da equipe do NPAD e serão instalados assim que possível. Caso sua necessidade de instalação seja urgente ou o software que você deseja instalar não seja largamente utilizado por pesquisadores, você poderá instalar o programa desejado na sua pasta pessoal seguindo uma das duas formas de instalação.
 Instalação manual ou através do gerenciador de pacotes
 
-## Tópicos
-
-- [Tutorial de instalação de programas no supercomputador](#tutorial-de-instalação-de-programas-no-supercomputador)
-  - [Tópicos](#tópicos)
-  - [Instalação manual (recomendado)](#instalação-manual-recomendado)
-    - [Exemplo: instalação manual do programa htop](#exemplo-instalação-manual-do-programa-htop)
-  - [Instalando programas utilizando o gerenciador de pacotes yumdownloader](#instalando-programas-utilizando-o-gerenciador-de-pacotes-yumdownloader)
-    - [Exemplo: Instalação do htop através do yumdownloader](#exemplo-instalação-do-htop-através-do-yumdownloader)
+[TOC]
 
 ## Instalação manual (recomendado)
 
@@ -88,7 +81,7 @@ perceba que a versão que vem instalada por padrão é a **3.0.5**
 htop 3.0.5
 ```
 
-## Instalando programas utilizando o gerenciador de pacotes yumdownloader
+## Instalando programas utilizando o yumdownloader
 
 Ao acessar sua pasta no supercomputador, execute o seguinte comando para baixar o seu programa.
 

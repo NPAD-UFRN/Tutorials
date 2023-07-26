@@ -1,21 +1,10 @@
-# Tutorial Introdução ao Supercomputador parte 1
+# Introdução ao supercomputador - Parte&nbsp;1
 
 O NPAD oferece como solução um acesso a um supercomputador através de um terminal remoto. Para acessar o supercomputador é necessário utilizar um programa chamado [ssh](https://linuxcommand.org/lc3_man_pages/ssh1.html). O ssh é uma programa que permite fazer login em uma máquina remotamente. Neste tutorial iremos aprender a gerar uma chave ssh, a acessar o supercomputador e a transferir arquivos para o supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail **atendimento\<at>npad.ufrn.br** (substituindo \<at> por @).
 
-## Tópicos
+[TOC]
 
-- [Tutorial Introdução ao Supercomputador parte 1](#tutorial-introdução-ao-supercomputador-parte-1)
-  - [Tópicos](#tópicos)
-  - [Instale os Prerrequisitos](#instale-os-prerrequisitos)
-  - [Gerando uma chave SSH pública](#gerando-uma-chave-ssh-pública)
-  - [Criando uma conta no NPAD](#criando-uma-conta-no-npad)
-  - [Acessando o supercomputador](#acessando-o-supercomputador)
-    - [Dica: Crie uma configuração para ssh](#dica-crie-uma-configuração-para-ssh)
-  - [Acessando arquivos do supercomputador](#acessando-arquivos-do-supercomputador)
-    - [Através de uma interface gráfica](#através-de-uma-interface-gráfica)
-    - [Através do terminal](#através-do-terminal)
-
-## Instale os Prerrequisitos
+## Instale os pré-requisitos
 
 Como dito anteriormente, acessar o supercomputador requer ssh. O ssh é apenas uma das ferramentas do [OpenSSH](https://www.openssh.com/). Então Caso você esteja utilizando Windows você pode seguir por três caminhos:
 
@@ -33,7 +22,7 @@ Recomendamos utilizar o cliente ssh e terminal oficiais do sistema operacional q
 
 ## Gerando uma chave SSH pública
 
-Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo **rsa**. Caso esteja utilizando o **PuTTy** veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](/beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa). Para as demais opções é necessário você abrir um terminal.
+Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo **rsa**. Caso esteja utilizando o **PuTTy** veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](../beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa). Para as demais opções é necessário você abrir um terminal.
 
 - Windows + MobaXterm: abra a aplicação e clique no botão **start local terminal**
 - Windows com  Windows PowerShell: procure o programa **Windows PowerShell** e abra-o
@@ -63,7 +52,9 @@ Para utilizar o supercomputador é necessário criar uma conta na nossa [Página
 Uma vez que tenha cadastro no NPAD, você pode acessar o supercomputador de
 duas formas:
 
-- Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](/beginner/putty_tutorial.md#acessando-o-supercomputador-através-do-putty).
+- Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](../beginner/putty_tutorial.md#acessando-o-supercomputador-atraves-do-putty).
+
+
 
 - através de um terminal como: **Windows PowerShell**, **MobaXterm**, usando o comando **ssh**
 
@@ -135,7 +126,7 @@ ssh super-pc
 ```
 
 Caso você esteja usando MobaXterm, você pode criar uma nova sessão para facilitar
-o acesso ao supercomputador: [MobaXterm tutoriais: criando uma sessão com NPAD](/beginner/mobaxterm_tutorial.md)
+o acesso ao supercomputador: [MobaXterm tutoriais: criando uma sessão com NPAD](../beginner/mobaxterm_tutorial.md)
 
 ## Acessando arquivos do supercomputador
 
@@ -151,11 +142,11 @@ Para isso você pode utilizar o **WinSCP** no caso do Windows ou configurar o
 próprio navegador de arquivos do ubuntu: **Gnome Files** para essa tarefa.
 Foi feito dois tutoriais:
 
-- [Copiando Arquivos através de uma Interface gráfica WinSCP (Windows)](/beginner/winscp_tutorial.md)
+- [Copiando Arquivos através de uma Interface gráfica WinSCP (Windows)](../beginner/winscp_tutorial.md)
 
-- [Copiando Arquivos através de uma Interface gráfica Gnome Files (linux)](/beginner/gnome_files.md)
+- [Copiando Arquivos através de uma Interface gráfica Gnome Files (linux)](../beginner/gnome_files.md)
 
 ### Através do terminal
 
 É possível transferir arquivos através das aplicações de linhas de comando como:
-[scp](https://linux.die.net/man/1/scp) e [rsync](https://linux.die.net/man/1/rsync). Sendo o **rsync** apenas para linux e **scp** funciona no Windows apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Para usar como usar o **scp** veja o [tutorial: scp](/beginner/scp_tutorial.md) e para o **rsync** veja o [tutorial: rsync](/beginner/rsync_tutorial.md).
+[scp](https://linux.die.net/man/1/scp) e [rsync](https://linux.die.net/man/1/rsync). Sendo o **rsync** apenas para linux e **scp** funciona no Windows apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Para usar como usar o **scp** veja o [tutorial: scp](../beginner/scp_tutorial.md) e para o **rsync** veja o [tutorial: rsync](../beginner/rsync_tutorial.md).

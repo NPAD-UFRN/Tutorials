@@ -1,4 +1,4 @@
-# Tutorial OpenMP
+# Tutorial de OpenMP
 
 Veremos neste tutorial como executar um job contendo códigos escritos com OpenMP no supercomputador. OpenMP é um modelo de programação paralela para sistemas de memória compartilhada. Nesse modelo, o programa cria diversas threads que são coordenadas por um thread mestre. O programador define algumas seções do código como paralelas utilizando diretivas de preprocessamento específicas.
 
@@ -52,25 +52,25 @@ Note a configuração da variável de ambiente `OMP_NUM_THREADS` para 32. Isso c
 Para enviar arquivos para o supercomputador recomenda-se utilizar o comando rsync.
 
 ```bash
-aluno@ubuntu:~ $  rsync -azP -e "ssh -p 4422" ~/pastaLocal/{hello_openmp.c,run.slurm} seuUsuario@sc2.npad.ufrn.brr:~/pastaRemota
+$ rsync -azP -e "ssh -p 4422" ~/pastaLocal/{hello_openmp.c,run.slurm} seuUsuario@sc2.npad.ufrn.brr:~/pastaRemota
 ```
 
 O acesso ao supercomputador pode ser feito através do protocolo SSH (Secure Shell).
 
 ```bash
-aluno@ubuntu:~ $  ssh -p4422 nome_do_usuario@sc2.npad.ufrn.brr
+$ ssh -p4422 nome_do_usuario@sc2.npad.ufrn.brr
 ```
 
 Em seguida, acesse a pasta onde estão o código fonte em OpenMP e o script de execução.
 
 ```bash
-[seuUsuario@service0 ~]$ cd pastaRemota/
+$ cd pastaRemota/
 ```
 
 Compile o código fonte com a flag de otimização "-O_" desejada. No exemplo abaixo, é utilizada a flag -O2 (a flag é habilitada pela letra "O" e não o número "0").
 
 ```bash
-[seuUsuario@service0 ~]$ icc -O2 hello_openmp.c -o hello_openmp -openmp
+$ icc -O2 hello_openmp.c -o hello_openmp -openmp
 ```
 
 ### Flags de otimização
@@ -87,13 +87,13 @@ Quanto maior o nível de otimização, mais liberdade o compilador terá para fa
 Submeta o job.
 
 ```bash
-[seuUsuario@service0 ~]$ sbatch run.slurm
+$ sbatch run.slurm
 ```
 
 O job entrará em uma fila para ser executado. Quando isso acontecer, será possível verificar as saídas que foram salvas nos arquivos configurados nas tags "--output" e "--error".
 
 ```bash
-[seuUsuario@service0 ~]$ cat slurm.out
+$ cat slurm.out
 
   Thread 0 says: Hello Word!
 

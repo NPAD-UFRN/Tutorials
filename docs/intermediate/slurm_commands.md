@@ -1,4 +1,4 @@
-# Tutorial de comandos do supercomputador
+# Comandos do supercomputador
 
 O [Slurm](https://slurm.schedmd.com/) é o gerenciador de recursos usado no
 supercomputador. Ele que auxilia o usuário na utilização do supercomputador,

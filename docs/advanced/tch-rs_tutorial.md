@@ -1,25 +1,15 @@
-# tch-rs-example NMIST
+# tch-rs-example MNIST
 
-Nesse tutorial você irá aprender a usar a partição **gpu** e rust  para treinar um modelo de deep learning  para resolver o [MNIST](http://yann.lecun.com/exdb/mnist/).
+Nesse tutorial você irá aprender a usar a partição **gpu** e rust  para treinar um modelo de deep learning para resolver o [MNIST](http://yann.lecun.com/exdb/mnist/).
 
-## Tópicos
-
-- [tch-rs-example NMIST](#tch-rs-example-nmist)
-  - [Tópicos](#tópicos)
-  - [Instalando dependências](#instalando-dependências)
-  - [Criando um aplicação em rust para treinar uma rede neural](#criando-um-aplicação-em-rust-para-treinar-uma-rede-neural)
-  - [carregamento do conjunto de dados NMIST](#carregamento-do-conjunto-de-dados-nmist)
-    - [configuração do dispositivo de processamento](#configuração-do-dispositivo-de-processamento)
-    - [criando um modelo deep learning](#criando-um-modelo-deep-learning)
-    - [treinamento](#treinamento)
-  - [Executando a aplicação com cuda no supercomputador](#executando-a-aplicação-com-cuda-no-supercomputador)
+[TOC]
 
 ## Instalando dependências
 
 Primeiro instale o rust toolchain na sua pasta HOME, no nó de login.
 
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 segundo crie um novo projeto rust com cargo chamado pytorch-example. Para esse projeto Adicione as dependências:
@@ -37,12 +27,12 @@ cargo add tch
 ## Criando um aplicação em rust para treinar uma rede neural
 
 A aplicação escrita  em rust, deverá selecionar qual dispositivo de processamento, CPU ou GPU, deverá ser usado para a execução dos cálculos numéricos.
-Carregar o conjunto de dados NMIST para ser computado em tal dispositivo. Criar um modelo deep learning e treinar o modelo. Portanto podemos entender
-a aplicação em  4 partes importantes:  carregamento do conjunto de dados NMIST, configuração do dispositivo, criando um modelo deep learning, treinamento.
+Carregar o conjunto de dados MNIST para ser computado em tal dispositivo. Criar um modelo deep learning e treinar o modelo. Portanto podemos entender
+a aplicação em  4 partes importantes:  carregamento do conjunto de dados MNIST, configuração do dispositivo, criando um modelo deep learning, treinamento.
 
-## carregamento do conjunto de dados NMIST
+## Carregamento do conjunto de dados MNIST
 
-Como o NMIST é um conjunto de dados muito famoso, o próprio pytorch possui mecanismos de carregá-lo, desde que você tenha ele baixado e descompactado.
+Como o MNIST é um conjunto de dados muito famoso, o próprio pytorch possui mecanismos de carregá-lo, desde que você tenha ele baixado e descompactado.
 Para baixar o dataset, você pode criar um script similar ao [get_inputs.sh](https://github.com/samuel-cavalcanti/tch-rs-example/blob/main/get_inputs.sh). Onde basicamente ele cria o diretório chamado **data**
 e baixa os arquivos do dataset e os extrai com **gunzip**
 
@@ -66,7 +56,7 @@ let dataset = match tch::vision::mnist::load_dir("data") { Dataset
 };
 ```
 
-### configuração do dispositivo de processamento
+### Configuração do dispositivo de processamento
 
 Utilizando um framework pytorch podemos selecionar o dispositivo da seguinte forma, se uma **GPU** estiver disponível, então utilize GPU. Caso o contrário utilize
 **CPU**. Com o dispositivo podemos criar um conjunto de tensores cujo seus valores **variam** e que esses valores deverão ser capazes de serem armazenados, ou seja
@@ -98,7 +88,7 @@ fn dataset_to_device(dataset: Dataset, device: &Device) -> Dataset {
 let dataset = dataset_to_device(dataset, &device);
 ```
 
-### criando um modelo deep learning
+### Criando um modelo deep learning
 
 O modelo deep learning utilizado nesse exemplo será um modelo sequencial simples e com poucas camadas. Em rust o modelo
 ficou assim:
@@ -126,7 +116,7 @@ let net = net(&vs.root());
 
 Observe que vs (VarStore) é passada na função **net**, de modo que criar uma camada, ou módulo (layer) é alocar novos de tensores, para a variável.
 
-### treinamento
+### Treinamento
 
 Para treinar uma rede neural, pode-se utilizar vários algoritmos de otimização, porém nesse exemplo foi utilizado o [Adam](https://pytorch.org/docs/stable/generated/torch.optim.Adam.html),
 com uma taxa de aprendizado de **0.001**. O modelo será treinado durante 200 interações. Em rust a implementação do treinamento fica da seguinte forma

@@ -33,4 +33,11 @@ Clique em **Save** para salvar todas as configurações feitas até o momento.
 Dessa forma sempre que quiser acessar o NPAD através do PuTTy é só selecionar o
 nome da sessão, clicar em **Load** e depois no botão **Open**.
 
-![PuTTY Config Session](../assets/putty_tutorial/putty_config_session.png)
+
+![PuTTY Config Session](../assets/putty_tutorial/putty_session.png) 
+
+![PuTTY Config Session](../assets/putty_tutorial/putty_private_key.png)
+
+![PuTTY Config Session](../assets/putty_tutorial/putty_username.png)
+
+

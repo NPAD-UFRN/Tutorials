@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Tutorial do PuTTy - Tutoriais do NPAD</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tutorial do PuTTy";
+        var mkdocs_page_input_path = "beginner\\putty_tutorial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iniciante</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../superpc_introduction_part_1/">Introdução ao supercomputador - Parte&nbsp;1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../superpc_introduction_part_2/">Introdução ao supercomputador - Parte&nbsp;2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../winscp_tutorial/">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scp_tutorial/">Tutorial do scp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rsync_tutorial/">Tutorial do rsync</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Tutorial do PuTTy</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#gerando-um-par-de-chaves-publicoprivada-tipo-rsa">Gerando um par de chaves público/privada tipo RSA</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acessando-o-supercomputador-atraves-do-putty">Acessando o supercomputador através do PuTTy</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mobaxterm_tutorial/">Tutorial do MobaXterm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intermediário</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/superpc_introduction_part_3/">Introdução ao supercomputador - Parte&nbsp;3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/slurm_commands/">Comandos do supercomputador</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/install_apps/">Instalação de programas no supercomputador</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Avançado</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/openmp_tutorial/">Tutorial de OpenMP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/mpi_tutorial/">Tutorial de MPI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/tch-rs_tutorial/">tch-rs-example MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/jupyter_tutorial/">Usando o Jupyter no supercomputador</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Tutoriais do NPAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
+          <li>Iniciante &raquo;</li>
+      <li>Tutorial do PuTTy</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tutorial-do-putty">Tutorial do PuTTy<a class="headerlink" href="#tutorial-do-putty" title="Permanent link">&para;</a></h1>
+<p>Nesses tutoriais foi utilizado o PuTTy na sua versão <strong>0.78</strong></p>
+<h2 id="gerando-um-par-de-chaves-publicoprivada-tipo-rsa">Gerando um par de chaves público/privada tipo RSA<a class="headerlink" href="#gerando-um-par-de-chaves-publicoprivada-tipo-rsa" title="Permanent link">&para;</a></h2>
+<p>Procure nos seus aplicativos e abra o programa <strong>puttygen</strong>.
+Em <strong>Type of Key to generate</strong> selecione <strong>RSA</strong>. Clique em <strong>Generate</strong>.</p>
+<p><img alt="PuTTyGen" src="../../assets/putty_tutorial/puttygen_before.png" /></p>
+<p>Faça movimentos aleatórios com o mouse até preencher toda a barra verde. Quando
+isso acontecer irá aparecer a seguinte tela:</p>
+<p><img alt="PuTTyGen after" src="../../assets/putty_tutorial/puttygen_after.png" /></p>
+<p>Debaixo de <strong>Public key for pasting into OpenSSH authorized keys file:</strong> Encontra-se
+a chave que você deve copiar colocar criar uma conta no NPAD. Lembre-se de salvar duas chaves, a publica e a privada. Você deve salvar as chaves clicando em <strong>Save public-key</strong> e <strong>Save private-key</strong>. Se você não colocar uma passphrase ele irá lhe alerta isso mas não é necessário colocar uma. <em>LEMBRE-SE</em> que se você colocar uma passphrase e esquece-la ou perder o par de chaves você terá que criar um novo par de chaves e <a href="http://npad.ufrn.br/npad/chave">adicionar uma nova chave</a>.</p>
+<h2 id="acessando-o-supercomputador-atraves-do-putty">Acessando o supercomputador através do PuTTy<a class="headerlink" href="#acessando-o-supercomputador-atraves-do-putty" title="Permanent link">&para;</a></h2>
+<p>Uma vez tendo feito o cadastro com a chave publica gerada anteriormente.
+É necessário configurar o PuTTy para realizar o login no supercomputador.
+Três configurações precisam ser feitas.</p>
+<ul>
+<li>Adicionar a chave privada que você criou com <strong>PuTTYgen</strong> em <strong>Connection -&gt; SSH -&gt; Auth -&gt; Credentials</strong></li>
+<li>Adicionar o seu nome de usuário cadastrado no NPAD em <strong>Connection -&gt; Data</strong></li>
+<li>Adicionar o hostname: <strong>sc2.npad.ufrn.br</strong> e port: <strong>4422</strong> em <strong>Session</strong></li>
+</ul>
+<p>Certifique-se que em <strong>Session</strong>, a caixa <strong>SSH</strong> em Connection type está marcada.
+Abaixo de <strong>Saved Sessions</strong> escreva um nome dessa sessão, como por exemplo NPAD.
+Clique em <strong>Save</strong> para salvar todas as configurações feitas até o momento.
+Dessa forma sempre que quiser acessar o NPAD através do PuTTy é só selecionar o
+nome da sessão, clicar em <strong>Load</strong> e depois no botão <strong>Open</strong>.</p>
+<p><img alt="PuTTY Config Session" src="../../assets/putty_tutorial/putty_config_session.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
+        <a href="../rsync_tutorial/" class="btn btn-neutral float-left" title="Tutorial do rsync"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../mobaxterm_tutorial/" class="btn btn-neutral float-right" title="Tutorial do MobaXterm">Seguinte <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versões">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../rsync_tutorial/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../mobaxterm_tutorial/" style="color: #fcfcfc">Seguinte &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

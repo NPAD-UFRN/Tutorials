@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Copiando arquivos através de uma interface gráfica WinSCP (Windows) - Tutoriais do NPAD</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Copiando arquivos atrav\u00e9s de uma interface gr\u00e1fica WinSCP (Windows)";
+        var mkdocs_page_input_path = "beginner\\winscp_tutorial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iniciante</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../superpc_introduction_part_1/">Introdução ao supercomputador - Parte&nbsp;1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../superpc_introduction_part_2/">Introdução ao supercomputador - Parte&nbsp;2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#putty">PuTTy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#openssh-windows-powershell">OpenSSH + Windows PowerShell</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mobaxterm">MobaXterm</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#informacoes-extras-sobre-a-aplicacao-utilizada">Informações extras sobre a aplicação utilizada</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scp_tutorial/">Tutorial do scp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rsync_tutorial/">Tutorial do rsync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../putty_tutorial/">Tutorial do PuTTy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mobaxterm_tutorial/">Tutorial do MobaXterm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intermediário</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/superpc_introduction_part_3/">Introdução ao supercomputador - Parte&nbsp;3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/slurm_commands/">Comandos do supercomputador</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/install_apps/">Instalação de programas no supercomputador</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Avançado</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/openmp_tutorial/">Tutorial de OpenMP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/mpi_tutorial/">Tutorial de MPI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/tch-rs_tutorial/">tch-rs-example MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/jupyter_tutorial/">Usando o Jupyter no supercomputador</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Tutoriais do NPAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
+          <li>Iniciante &raquo;</li>
+      <li>Copiando arquivos através de uma interface gráfica WinSCP (Windows)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="copiando-arquivos-atraves-de-uma-interface-grafica-winscp-windows">Copiando arquivos através de uma interface gráfica WinSCP (Windows)<a class="headerlink" href="#copiando-arquivos-atraves-de-uma-interface-grafica-winscp-windows" title="Permanent link">&para;</a></h1>
+<p>Ao contrário do linux, o windows explorer não possui suporte ao <strong>scp</strong>, tendo
+que fazer uso de um programa de terceiros chamado <strong>WinSCP</strong>. Para instalar o
+WinSCP vá no <a href="https://winscp.net/eng/download.php">site oficial</a> e clique em <strong>Download</strong>. Após a finalização do download, clique no executável e instale a aplicação. Ao executar a aplicação irá aparecer a seguinte interface:</p>
+<p><img alt="WinSCP" src="../../assets/winscp_tutorial/winSCP.png" />      </p>
+<ul>
+<li>
+<p><em>HostName</em> coloque: <strong>sc2.npad.ufrn.br</strong></p>
+</li>
+<li>
+<p><em>Port number</em> coloque <strong>4422</strong>  </p>
+</li>
+<li>
+<p><em>User name</em> coloque o seu nome de usuário</p>
+</li>
+<li>
+<p>IMPORTANTE: deixe o campo <em>Password</em> vazio</p>
+</li>
+</ul>
+<p>Depois clique em <strong>Advanced...</strong></p>
+<p><img alt="WinSCP Advanced" src="../../assets/winscp_tutorial/winSCP_Advanced.png" /></p>
+<p>Em Advanced, vá em <strong>Authentication</strong>, um submenu de <strong>SSH</strong>. Procure por <strong>Private
+key file</strong> e clique nos três pontinhos (<strong>...</strong>). Agora você precisa procurar a
+chave <strong>privada</strong> que foi criada anteriormente, no meu caso o nome dela é <strong>id_rsa</strong>.</p>
+<p><img alt="SELECT FILE" src="../../assets/winscp_tutorial/select_file.png" /></p>
+<h2 id="putty">PuTTy<a class="headerlink" href="#putty" title="Permanent link">&para;</a></h2>
+<p>Caso você esteja utilizando o <strong>Putty</strong> vá onde você salvou a chave privada pelo <strong>PuttyGen</strong>.</p>
+<h2 id="openssh-windows-powershell">OpenSSH + Windows PowerShell<a class="headerlink" href="#openssh-windows-powershell" title="Permanent link">&para;</a></h2>
+<p>Caso você tenha esteja usando OpenSSH e Windows PowerShell e não tenha mudado o nome da chave, o caminho até a chave privada é <strong>C:\Users\NomeDoSeuUsuário\.ssh\id_rsa</strong>. Para visualiza-lá terá que selecionar a opção: <strong>todos os tipos de arquivo</strong>.</p>
+<h2 id="mobaxterm">MobaXterm<a class="headerlink" href="#mobaxterm" title="Permanent link">&para;</a></h2>
+<p>No caso em que você esteja usando o MobaXterm, saiba que o local padrão em que
+o MobaXterm salva as chaves é <strong>C:\Users\NomeDoSeuUsuário\AppData\Roaming\MobaXterm\home\.ssh</strong>.  Para visualizar a chave terá que selecionar a opção: <strong>todos os tipos de arquivo</strong>.</p>
+<p>Se tudo der certo o WinSCP irá pedir para converter a Chave em formato <em>OpenSSH</em> para um formado <em>PuTTY</em> caso precise. Concorde, converta, salve e saída das configurações avançadas através do botão <strong>OK</strong>. Quando você pressionar o botão <strong>Login</strong>. Você terá acesso ao seu sistema de arquivos do supercomputador. O WinSCP irá parecer como uma dessas duas telas dependendo do layout escolhido durante a instalação.</p>
+<p><img alt="WinSCP works1" src="../../assets/winscp_tutorial/work1.png" /></p>
+<p><img alt="WinSCP works2" src="../../assets/winscp_tutorial/work2.png" /></p>
+<h2 id="informacoes-extras-sobre-a-aplicacao-utilizada">Informações extras sobre a aplicação utilizada<a class="headerlink" href="#informacoes-extras-sobre-a-aplicacao-utilizada" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>WinSCP</strong>: <a href="https://winscp.net/eng/docs/start">winscp docs</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
+        <a href="../gnome_files/" class="btn btn-neutral float-left" title="Copiando arquivos através de uma interface gráfica Gnome Files (linux)"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../scp_tutorial/" class="btn btn-neutral float-right" title="Tutorial do scp">Seguinte <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versões">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../gnome_files/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../scp_tutorial/" style="color: #fcfcfc">Seguinte &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

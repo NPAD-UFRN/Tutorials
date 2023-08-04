@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Introdução ao supercomputador - Parte&nbsp;2 - Tutoriais do NPAD</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introdu\u00e7\u00e3o ao supercomputador - Parte\u0026nbsp;2";
+        var mkdocs_page_input_path = "beginner\\superpc_introduction_part_2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iniciante</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../superpc_introduction_part_1/">Introdução ao supercomputador - Parte&nbsp;1</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Introdução ao supercomputador - Parte&nbsp;2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#criando-um-script-para-um-programa-ja-existente-no-supercomputador">Criando um script para um programa já existente no supercomputador</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#executando-um-programa-ja-existente-no-supercomputador">Executando um programa já existente no supercomputador</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#execucao-de-programas-no-no-de-login">Execução de programas no nó de login</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#execucao-de-programas-no-no-de-computacao">Execução de programas no nó de computação</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#verificacao-da-execucao">Verificação da execução</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#criando-um-script-para-executar-um-programa-criado-a-partir-do-codigo-fonte">Criando um script para executar um programa criado a partir do código-fonte</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#executando-um-programa-criado-a-partir-do-codigo-fonte">Executando um programa criado a partir do código-fonte</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../winscp_tutorial/">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scp_tutorial/">Tutorial do scp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rsync_tutorial/">Tutorial do rsync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../putty_tutorial/">Tutorial do PuTTy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mobaxterm_tutorial/">Tutorial do MobaXterm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intermediário</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/superpc_introduction_part_3/">Introdução ao supercomputador - Parte&nbsp;3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/slurm_commands/">Comandos do supercomputador</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/install_apps/">Instalação de programas no supercomputador</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Avançado</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/openmp_tutorial/">Tutorial de OpenMP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/mpi_tutorial/">Tutorial de MPI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/tch-rs_tutorial/">tch-rs-example MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/jupyter_tutorial/">Usando o Jupyter no supercomputador</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Tutoriais do NPAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
+          <li>Iniciante &raquo;</li>
+      <li>Introdução ao supercomputador - Parte&nbsp;2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introducao-ao-supercomputador-parte2">Introdução ao supercomputador - Parte&nbsp;2<a class="headerlink" href="#introducao-ao-supercomputador-parte2" title="Permanent link">&para;</a></h1>
+<p>Nesse tutorial iremos aprender a criar um script e executar um programa utilizando o supercomputador. Caso surja alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail <strong>atendimento\<at>npad.ufrn.br</strong> (substituindo \<at> por <strong>@</strong>).</p>
+<div class="toc">
+<ul>
+<li><a href="#introducao-ao-supercomputador-parte2">Introdução ao supercomputador - Parte&nbsp;2</a><ul>
+<li><a href="#criando-um-script-para-um-programa-ja-existente-no-supercomputador">Criando um script para um programa já existente no supercomputador</a></li>
+<li><a href="#executando-um-programa-ja-existente-no-supercomputador">Executando um programa já existente no supercomputador</a><ul>
+<li><a href="#execucao-de-programas-no-no-de-login">Execução de programas no nó de login</a></li>
+<li><a href="#execucao-de-programas-no-no-de-computacao">Execução de programas no nó de computação</a></li>
+<li><a href="#verificacao-da-execucao">Verificação da execução</a></li>
+</ul>
+</li>
+<li><a href="#criando-um-script-para-executar-um-programa-criado-a-partir-do-codigo-fonte">Criando um script para executar um programa criado a partir do código-fonte</a></li>
+<li><a href="#executando-um-programa-criado-a-partir-do-codigo-fonte">Executando um programa criado a partir do código-fonte</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="criando-um-script-para-um-programa-ja-existente-no-supercomputador">Criando um script para um programa já existente no supercomputador<a class="headerlink" href="#criando-um-script-para-um-programa-ja-existente-no-supercomputador" title="Permanent link">&para;</a></h2>
+<p>Para criar um <strong>script</strong> para executar programas no supercomputador é necessário informar o nome do programa que irá ser executado e o tempo máximo de sua execução (saiba como escolher o tempo de execução <a href="http://npad.ufrn.br/tutoriais/introducao-parte3.php#backfill">aqui</a>). <strong>O tempo máximo depende do tipo de nó escolhido.</strong> Acesse o supercomputador e siga as orientações a seguir.</p>
+<p><strong>Exemplo: criação de um script para executar o programa factor.</strong></p>
+<p>No terminal, entre com o comando abaixo no terminal do Linux, seguido de enter.</p>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>nomeScript<span class="w">    </span><span class="c1"># Substitua nomeScript pelo nome que você deseja dar ao seu script</span>
+</code></pre></div>
+<p>Após abrir o programa <strong>nano</strong>, execute os comandos abaixo no terminal do Linux:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --time=0-0:5    # Especifica o tempo máximo de execução do job, dado no padrão dias-horas:minutos</span>
+factor<span class="w"> </span><span class="m">120</span><span class="w">     </span><span class="c1"># Especifica o programa a ser executado (no caso, factor) e o parâmetro de entrada (120)</span>
+</code></pre></div>
+<p>Em sequência aperte ctrl+o, depois enter e, então, aperte ctrl+x para sair do <strong>nano</strong>. Vale ressaltar que também é possível abrir o arquivo correspondente ao script e fazer alterações diretamente nele, via <a href="../superpc_introduction_part_1/#atraves-de-uma-interface-grafica">interface gráfica</a>.</p>
+<h2 id="executando-um-programa-ja-existente-no-supercomputador">Executando um programa já existente no supercomputador<a class="headerlink" href="#executando-um-programa-ja-existente-no-supercomputador" title="Permanent link">&para;</a></h2>
+<p>Para executar um programa no supercomputador, você precisará criar um script, conforme descrito anteriormente, e escolher em qual tipo de nó o programa vai ser executado:</p>
+<h3 id="execucao-de-programas-no-no-de-login">Execução de programas no nó de login<a class="headerlink" href="#execucao-de-programas-no-no-de-login" title="Permanent link">&para;</a></h3>
+<p>O nó de login é mais indicado para execução de softwares de teste, ou seja, que requerem um tempo de execução menor. O tempo limite para execução neste nó é de 30 minutos, considerando que o usuário está utilizando apenas um núcleo e 100% de sua capacidade. Um usuário que decide utilizar esse nó para execução de um processo que ocupa 100% de 10 CPUs, por exemplo, será terminado automaticamente após 3 minutos de uso, como pode ser visto na tabela abaixo (<strong>Figura 1</strong>), junto com demais exemplos. Isso ocorre mesmo que o script tenha tempo maior configurado. Desse modo, recomenda-se utilizar o nó de login apenas para fins de teste.</p>
+<p><img alt="Figura 1" src="../../assets/superpc_introduction_part_2/Tabela_Uso_Noh_Login.jpg" /></p>
+<p><strong>Figura 1 - Tabela com exemplos de tempo de execução de programas no nó de login, para várias configurações</strong></p>
+<p>Para executar um programa no supercomputador no nó de login, use o comando a seguir no terminal do Linux:</p>
+<div class="highlight"><pre><span></span><code>./meuPrimeiroScript
+</code></pre></div>
+<p>Onde <strong>meuPrimeiroScript</strong> é o script com os dados de execução.</p>
+<h3 id="execucao-de-programas-no-no-de-computacao">Execução de programas no nó de computação<a class="headerlink" href="#execucao-de-programas-no-no-de-computacao" title="Permanent link">&para;</a></h3>
+<p>O Nó de Computação, por sua vez, é o mais indicado para uso de softwares gerais, que necessitem de um tempo de execução elevado. É nele que você irá utilizar a maioria dos programas disponíveis no supercomputador, podendo deixá-los em execução por longos períodos. A seguir, você irá aprender como criar scripts e executar programas no nó de computação.</p>
+<p>Para executar um programa no supercomputador no nó de computação, use o comando a seguir no terminal do Linux:</p>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>meuPrimeiroScript
+</code></pre></div>
+<p>Onde <strong>meuPrimeiroScript</strong> é o script com os dados de execução.</p>
+<h3 id="verificacao-da-execucao">Verificação da execução<a class="headerlink" href="#verificacao-da-execucao" title="Permanent link">&para;</a></h3>
+<p>Caso o job tenha sido submetido corretamente, aparecerá a mensagem:</p>
+<p><code>Submitted batch job JobID</code></p>
+<p>Onde JobID será substituído pelo número que identificará o job. A saída do programa não aparecerá na tela. Ela será escrita em um arquivo de nome <strong>slurm-JobID.out</strong>, onde JobID será o mesmo valor do id do job submetido.</p>
+<p>Para ver a saída do programa, use o comando:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>slurm-JobID.out
+</code></pre></div>
+<p>Substituindo JobID pelo id do job que você deseja ver a saída.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>nomeDoUsuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sbatch<span class="w"> </span>meuPrimeiroScript
+Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">14518</span>
+<span class="o">[</span>nomeDoUsuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>cat<span class="w"> </span>slurm-14518.out
+<span class="m">120</span>:<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<p>A execução de um programa no supercomputador está sujeita à disponibilidade de nós, desse modo, o resultado pode demorar. Para acompanhar o andamento da fila, bem como a prioridade do job submetido por você na mesma, a seção de <a href="../../intermediate/slurm_commands/">Comandos</a> pode ser bastante útil.</p>
+<h2 id="criando-um-script-para-executar-um-programa-criado-a-partir-do-codigo-fonte">Criando um script para executar um programa criado a partir do código-fonte<a class="headerlink" href="#criando-um-script-para-executar-um-programa-criado-a-partir-do-codigo-fonte" title="Permanent link">&para;</a></h2>
+<p><strong>Caso o programa tenha sido criado a partir do códido-fonte deve-se acrescentar ao nome do programa a pasta onde este se encontra.</strong></p>
+<p><strong>Exemplo:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --time=0-0:5 #especifica o tempo máximo de execução do job, dado no padrão dias-horas:minutos</span>
+
+./helloWorld<span class="w"> </span><span class="c1">#o ponto e a barra indicam o caminho até a pasta atual.</span>
+</code></pre></div>
+<p>Saiba como escolher o tempo de execução <a href="../../intermediate/superpc_introduction_part_3/#backfill-e-escolha-do-tempo-de-execução">aqui</a>.</p>
+<h2 id="executando-um-programa-criado-a-partir-do-codigo-fonte">Executando um programa criado a partir do código-fonte<a class="headerlink" href="#executando-um-programa-criado-a-partir-do-codigo-fonte" title="Permanent link">&para;</a></h2>
+<p>Para executar um programa a partir do código-fonte o usuário deverá, em sua pasta no supercomputador, gerar o programa executável.</p>
+<p>Para criar o executável do programa digite:</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>helloWorld.c<span class="w"> </span>-o<span class="w"> </span>helloWorld
+</code></pre></div>
+<p>Onde <strong>helloWorld.c</strong> é o código-fonte e <strong>helloWorld</strong> é o código executável.</p>
+<p>Para executar o programa gerado, você deverá executar o script gerado anteriormente utilizando o comando <code>sbatch jobHelloWorld</code> ou <code>sbatch -p test jobHelloWorld</code> de acordo com o tipo de nó desejado.</p>
+<p>Caso o job tenha sido submetido corretamente, aparecerá a mensagem:</p>
+<p><code>Submitted batch job JobID</code></p>
+<p>Onde JobID será substituído pelo número que identificará o job. A saída do programa não aparecerá na tela. Ela será escrita em um arquivo de nome <strong>slurm-JobID.out</strong>, onde JobID será o mesmo valor do id do job submetido.</p>
+<p>Para ver a saída do programa, use o comando:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>slurm-JobID.out
+</code></pre></div>
+<p>Substituindo JobID pelo id do job que você deseja ver a saída.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>nomeDoUsuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>gcc<span class="w"> </span>helloWorld.c<span class="w"> </span>-o<span class="w"> </span>helloWorld
+<span class="o">[</span>nomeDoUsuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sbatch<span class="w"> </span>jobHelloWorld
+Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">14520</span>
+<span class="o">[</span>nomeDoUsuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>cat<span class="w"> </span>slurm-14520.out
+Hello<span class="w"> </span>World!
+</code></pre></div>
+<p>Para executar programas em paralelo no supercomputador, leia os tutorias de <a href="../../advanced/openmp_tutorial/">OpenMP</a> e <a href="../../advanced/mpi_tutorial/">MPI</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
+        <a href="../superpc_introduction_part_1/" class="btn btn-neutral float-left" title="Introdução ao supercomputador - Parte&nbsp;1"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../gnome_files/" class="btn btn-neutral float-right" title="Copiando arquivos através de uma interface gráfica Gnome Files (linux)">Seguinte <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versões">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../superpc_introduction_part_1/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../gnome_files/" style="color: #fcfcfc">Seguinte &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Tutorial de OpenMP - Tutoriais do NPAD</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tutorial de OpenMP";
+        var mkdocs_page_input_path = "advanced\\openmp_tutorial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iniciante</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_1/">Introdução ao supercomputador - Parte&nbsp;1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_2/">Introdução ao supercomputador - Parte&nbsp;2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/winscp_tutorial/">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/scp_tutorial/">Tutorial do scp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/rsync_tutorial/">Tutorial do rsync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/putty_tutorial/">Tutorial do PuTTy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/mobaxterm_tutorial/">Tutorial do MobaXterm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intermediário</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/superpc_introduction_part_3/">Introdução ao supercomputador - Parte&nbsp;3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/slurm_commands/">Comandos do supercomputador</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/install_apps/">Instalação de programas no supercomputador</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Avançado</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Tutorial de OpenMP</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo-hello-world">Exemplo: Hello World</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#submissao-de-um-job">Submissão de um job</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#flags-de-otimizacao">Flags de otimização</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mpi_tutorial/">Tutorial de MPI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tch-rs_tutorial/">tch-rs-example MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../jupyter_tutorial/">Usando o Jupyter no supercomputador</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Tutoriais do NPAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
+          <li>Avançado &raquo;</li>
+      <li>Tutorial de OpenMP</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tutorial-de-openmp">Tutorial de OpenMP<a class="headerlink" href="#tutorial-de-openmp" title="Permanent link">&para;</a></h1>
+<p>Veremos neste tutorial como executar um job contendo códigos escritos com OpenMP no supercomputador. OpenMP é um modelo de programação paralela para sistemas de memória compartilhada. Nesse modelo, o programa cria diversas threads que são coordenadas por um thread mestre. O programador define algumas seções do código como paralelas utilizando diretivas de preprocessamento específicas.</p>
+<p>Os nós do supercomputador não compartilham memória. Por isso, não é possível executar em mais de um nó um job que utiliza somente OpenMP como ferramenta de programação parelela. Contudo, um programa escrito com OpenMP pode ser executado em múltiplos cores em um mesmo nó. Para que um job seja executado em vários nós, deve-se utilizar um modelo de programçáo paralela para sistemas de memória distribuída (e.g. MPI). Também é possível utilizar OpenMP e MPI em um mesmo código.</p>
+<h2 id="exemplo-hello-world">Exemplo: Hello World<a class="headerlink" href="#exemplo-hello-world" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1">//Arquivo hello_openmp.c </span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="c1"> </span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nthreads</span><span class="p">,</span><span class="w"> </span><span class="n">thread_id</span><span class="p">;</span><span class="w"> </span>
+<span class="w"> </span><span class="cp">#pragma omp parallel private(nthreads, thread_id) </span>
+<span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="n">thread_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">();</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thread %d says: Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">thread_id</span><span class="p">);</span><span class="w"> </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">thread_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span>
+<span class="w">   </span><span class="n">nthreads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_num_threads</span><span class="p">();</span>
+<span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thread %d reports: the number of threads are %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">thread_id</span><span class="p">,</span><span class="w"> </span><span class="n">nthreads</span><span class="p">);</span><span class="w"> </span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Em seguida, é necessário escrever um script para executar o programa.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash </span>
+<span class="c1">#SBATCH --job-name=OMP_hello </span>
+<span class="c1">#SBATCH --time=0-0:5</span>
+<span class="c1">#SBATCH --cpus-per-task=8</span>
+<span class="c1">#SBATCH --hint=compute_bound</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">32</span>
+
+./hello_openmp
+</code></pre></div>
+<p>A descrição dos valores dos campos do script é informada abaixo:</p>
+<p>job-name: Nome que aparecerá na fila de jobs
+time: Tempo máximo para execução do job (neste exemplo = 5 min). Caso o job ainda não tenha terminado, após esse tempo ele será cancelado. Formato: dias-horas:minutos.</p>
+<p>Note a configuração da variável de ambiente <code>OMP_NUM_THREADS</code> para 32. Isso controla quantas threads serão utilizadas nos jobs que usam OpenMP. Configurar essa variável para um número maior que 32 provavelmente não irá melhorar o desempenho do programa uma vez que cada nó do supercomputador possui 32 cores.</p>
+<h2 id="submissao-de-um-job">Submissão de um job<a class="headerlink" href="#submissao-de-um-job" title="Permanent link">&para;</a></h2>
+<p>Para enviar arquivos para o supercomputador recomenda-se utilizar o comando rsync.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rsync<span class="w"> </span>-azP<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ssh -p 4422&quot;</span><span class="w"> </span>~/pastaLocal/<span class="o">{</span>hello_openmp.c,run.slurm<span class="o">}</span><span class="w"> </span>seuUsuario@sc2.npad.ufrn.brr:~/pastaRemota
+</code></pre></div>
+<p>O acesso ao supercomputador pode ser feito através do protocolo SSH (Secure Shell).</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>-p4422<span class="w"> </span>nome_do_usuario@sc2.npad.ufrn.brr
+</code></pre></div>
+<p>Em seguida, acesse a pasta onde estão o código fonte em OpenMP e o script de execução.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pastaRemota/
+</code></pre></div>
+<p>Compile o código fonte com a flag de otimização "-O_" desejada. No exemplo abaixo, é utilizada a flag -O2 (a flag é habilitada pela letra "O" e não o número "0").</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>icc<span class="w"> </span>-O2<span class="w"> </span>hello_openmp.c<span class="w"> </span>-o<span class="w"> </span>hello_openmp<span class="w"> </span>-openmp
+</code></pre></div>
+<h3 id="flags-de-otimizacao">Flags de otimização<a class="headerlink" href="#flags-de-otimizacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>-O0</strong> Desabilita todas as otimizações.</p>
+</li>
+<li>
+<p><strong>-O1</strong> Habilita otimização para melhorar velocidade, entretanto desabilita  algumas otimizações que aumentam o tamanho do código e afetam a velocidade.</p>
+</li>
+<li>
+<p><strong>-O2</strong> Habilita otimização para melhorar velocidade. Esse é o nível de otimização normalente recomendável e padrão para o icc. Vetorização é habilitada em O2 e níveis maiores.</p>
+</li>
+<li><strong>-O3</strong> Realiza otimizações O2 e habilita transformações de loop mais agressivos. Essas otimizações podem deixar o código mais lento em alguns casos quando comparados a O2. A opção O3 é recomendada para aplicações que têm loops que utilizam fortemente cálculos de ponto flutante e processam grandes conjuntos de dados.</li>
+</ul>
+<p>Quanto maior o nível de otimização, mais liberdade o compilador terá para fazer suposições sobre o seu código, podendo produzir resultados indesejados.</p>
+<p>Submeta o job.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>run.slurm
+</code></pre></div>
+<p>O job entrará em uma fila para ser executado. Quando isso acontecer, será possível verificar as saídas que foram salvas nos arquivos configurados nas tags "--output" e "--error".</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>slurm.out
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">0</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">0</span><span class="w"> </span>reports:<span class="w"> </span>the<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>threads<span class="w"> </span>are<span class="w"> </span><span class="m">8</span>
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">7</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">4</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">6</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">1</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">3</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">5</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+
+<span class="w">  </span>Thread<span class="w"> </span><span class="m">2</span><span class="w"> </span>says:<span class="w"> </span>Hello<span class="w"> </span>Word!
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
+        <a href="../../intermediate/install_apps/" class="btn btn-neutral float-left" title="Instalação de programas no supercomputador"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../mpi_tutorial/" class="btn btn-neutral float-right" title="Tutorial de MPI">Seguinte <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versões">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../intermediate/install_apps/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../mpi_tutorial/" style="color: #fcfcfc">Seguinte &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

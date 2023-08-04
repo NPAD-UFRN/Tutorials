@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Introdução ao supercomputador - Parte&nbsp;3 - Tutoriais do NPAD</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introdu\u00e7\u00e3o ao supercomputador - Parte\u0026nbsp;3";
+        var mkdocs_page_input_path = "intermediate\\superpc_introduction_part_3.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iniciante</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_1/">Introdução ao supercomputador - Parte&nbsp;1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_2/">Introdução ao supercomputador - Parte&nbsp;2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/winscp_tutorial/">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/scp_tutorial/">Tutorial do scp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/rsync_tutorial/">Tutorial do rsync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/putty_tutorial/">Tutorial do PuTTy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/mobaxterm_tutorial/">Tutorial do MobaXterm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intermediário</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Introdução ao supercomputador - Parte&nbsp;3</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#script-para-multithreading">Script para multithreading</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#script-para-utilizacao-de-varios-nos">Script para utilização de vários nós</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#compartilhamento-dos-nos">Compartilhamento dos nós</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador">Escolha da qualidade de serviço e Limite no uso do supercomputador</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#qos-1">QOS 1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#qos-2">QOS 2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preempt">preempt</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#receber-e-mails-sobre-inicio-e-fim-da-execucao">Receber e-mails sobre início e fim da execução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#definir-a-quantidade-de-memoria-a-ser-utilizada">Definir a quantidade de memória a ser utilizada</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#carregando-softwares-disponiveis">Carregando softwares disponíveis</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilizando-a-sua-pasta-home">Utilizando a sua pasta home</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilizando-o-scratch-global">Utilizando o scratch global</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#backfill-e-escolha-do-tempo-de-execucao">Backfill e escolha do tempo de execução</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_commands/">Comandos do supercomputador</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_apps/">Instalação de programas no supercomputador</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Avançado</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/openmp_tutorial/">Tutorial de OpenMP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/mpi_tutorial/">Tutorial de MPI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/tch-rs_tutorial/">tch-rs-example MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/jupyter_tutorial/">Usando o Jupyter no supercomputador</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Tutoriais do NPAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
+          <li>Intermediário &raquo;</li>
+      <li>Introdução ao supercomputador - Parte&nbsp;3</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introducao-ao-supercomputador-parte3">Introdução ao supercomputador - Parte&nbsp;3<a class="headerlink" href="#introducao-ao-supercomputador-parte3" title="Permanent link">&para;</a></h1>
+<p>Nesse tutorial iremos aprender a função de algumas opções que podem ser inseridas nos scripts enviados para o supercomputador. Caso surja alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato através do e-mail <strong>atendimento\<at>npad.ufrn.br</strong> (substituindo \<at> por <strong>@</strong>).</p>
+<div class="toc">
+<ul>
+<li><a href="#introducao-ao-supercomputador-parte3">Introdução ao supercomputador - Parte&nbsp;3</a><ul>
+<li><a href="#script-para-multithreading">Script para multithreading</a></li>
+<li><a href="#script-para-utilizacao-de-varios-nos">Script para utilização de vários nós</a><ul>
+<li><a href="#compartilhamento-dos-nos">Compartilhamento dos nós</a></li>
+</ul>
+</li>
+<li><a href="#escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador">Escolha da qualidade de serviço e Limite no uso do supercomputador</a><ul>
+<li><a href="#qos-1">QOS 1</a></li>
+<li><a href="#qos-2">QOS 2</a></li>
+<li><a href="#preempt">preempt</a></li>
+</ul>
+</li>
+<li><a href="#receber-e-mails-sobre-inicio-e-fim-da-execucao">Receber e-mails sobre início e fim da execução</a></li>
+<li><a href="#definir-a-quantidade-de-memoria-a-ser-utilizada">Definir a quantidade de memória a ser utilizada</a></li>
+<li><a href="#carregando-softwares-disponiveis">Carregando softwares disponíveis</a></li>
+<li><a href="#utilizando-a-sua-pasta-home">Utilizando a sua pasta home</a></li>
+<li><a href="#utilizando-o-scratch-global">Utilizando o scratch global</a></li>
+<li><a href="#backfill-e-escolha-do-tempo-de-execucao">Backfill e escolha do tempo de execução</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="script-para-multithreading">Script para multithreading<a class="headerlink" href="#script-para-multithreading" title="Permanent link">&para;</a></h2>
+<p>Por padrão, quando não é definido o número de núcleos a ser utilizado, o supercomputador executará o job em apenas um <strong>um</strong> núcleo do nó. Para que seu programa execute em mais de um núcleo, é necessário definir no script <code>#SBATCH --cpus-per-task</code>, da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=multithreading_example</span>
+<span class="c1">#SBATCH --time=0-0:5</span>
+<span class="c1">#SBATCH --cpus-per-task=32</span>
+<span class="c1">#SBATCH --hint=compute_bound</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+
+./hello_threads<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="c1">#32 threads</span>
+</code></pre></div>
+<p>A opção <code>#SBATCH --hint=compute_bound</code> muda a configuração para ser um thread por core. A opção <code>#SBATCH --cpus-per-task=32</code> está definindo 32 cores ou núcleos para esse job. A variável de ambiente <code>SLURM_CPUS_PER_TASK</code> fornece a você o número de cores que seu job terá durante a execução do programa.</p>
+<h2 id="script-para-utilizacao-de-varios-nos">Script para utilização de vários nós<a class="headerlink" href="#script-para-utilizacao-de-varios-nos" title="Permanent link">&para;</a></h2>
+<p>Novamente, por padrão, <strong>quando não é definido o número de nós a ser utilizado, o supercomputador executará o job em apenas um nó e em um núcleo desse nó</strong>. Para que seu programa execute em mais de um nó, é necessário definir no script da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --nodes=2 #número de nós</span>
+<span class="c1">#SBATCH --ntasks=4 #número total de tarefas</span>
+<span class="c1">#SBATCH --ntasks-per-node=2 #número de tarefas por nó</span>
+
+srun<span class="w"> </span>prog1<span class="w"> </span><span class="c1">#programa a ser executado. #srun: executa jobs em paralelo</span>
+</code></pre></div>
+<p>Onde <code>#SBATCH --nodes</code> indica a quantidade de nós a ser utilizada, podendo também ser definido com <code>#SBATCH -N</code>. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com <a href="../../advanced/mpi_tutorial/">MPI</a>. Para isso é necessário primeiramente definir o número de tarefas com a opção <code>#SBATCH --ntasks</code> ou <code>#SBATCH -n</code>. Com <code>#SBATCH --ntasks-per-node</code> é definido as tarefas por nó. Já <code>#SBATCH --cpus-per-task</code> define a quantidade de cpu por tarefas. Vale salientar que as duas últimas opções citadas não são dependentes. Com isso, pode ser que a nó que esteja utilizando seja compartilhado com outros jobs.</p>
+<h3 id="compartilhamento-dos-nos">Compartilhamento dos nós<a class="headerlink" href="#compartilhamento-dos-nos" title="Permanent link">&para;</a></h3>
+<p>Outro padrão do supercomputador é, ao submeter um job o nó <strong>não</strong> será reservado exclusivamente para aquele job, podendo ser alocado mais jobs dependendo da disponibilidade dos recursos naquele nó. Caso seu programa necessite de um nó por completo, utilize a opção <code>#SBATCH --exclusive</code>. Por exemplo, para um programa que será executado em paralelo, o desempenho do programa será melhor se o programa puder utilizar os recursos por completo.</p>
+<h2 id="escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador">Escolha da qualidade de serviço e Limite no uso do supercomputador<a class="headerlink" href="#escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador" title="Permanent link">&para;</a></h2>
+<p>O usuário poderá enviar múltiplos jobs para o supercomputador. Porém, para permitir que mais pesquisadores compartilhem esse recurso com menos tempo de espera foram impostos limites no uso do supercomputador a partir da <strong>qualidade do serviço em inglês Quality of Service (QOS)</strong> utilizado. Comando a ser acrescentado no script de execução:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --qos=qosN #Subistitua N pelo tipo de QOS desejado</span>
+</code></pre></div>
+<h3 id="qos-1">QOS 1<a class="headerlink" href="#qos-1" title="Permanent link">&para;</a></h3>
+<p>O QOS 1 é o QOS padrão, com ele o usuário poderá enviar até 100 jobs para o supercomputador, sendo somente 4 jobs em execução ou 256 núcleos físicos (4 nós completos) em utilização, o que ocorrer primeiro. O job tem limite de tempo de até <strong>2 dias</strong> Ex.:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="w"> </span><span class="c1">#SBATCH --time=0-0:5</span>
+
+<span class="w"> </span>./prog1
+</code></pre></div>
+<h3 id="qos-2">QOS 2<a class="headerlink" href="#qos-2" title="Permanent link">&para;</a></h3>
+<p>O QOS 2 é mais indicado para mais jobs que utilizam um nó inteiro ou jobs que utilizam alguns poucos nós. Com ele, o usuário poderá colocar 100 jobs na fila, mas apenas <strong>1 job</strong> em execução  com até 256 núcleos físicos (4 nós completos) em utilização, o que ocorrer primeiro. Tendo o job o limite de tempo de até <strong>7 dias</strong> Ex.:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="w"> </span><span class="c1">#SBATCH --time=0-0:5</span>
+<span class="w"> </span><span class="c1">#SBATCH --qos=qos2</span>
+
+<span class="w"> </span>./prog1
+</code></pre></div>
+<h3 id="preempt">preempt<a class="headerlink" href="#preempt" title="Permanent link">&para;</a></h3>
+<p>Para trabalhos que necessitem rodar vários jobs simultaneamente , ou job que precisa de mais de até 20 dias para ser executado. Recomenda-se utilizar preempt, nele o usuário pode deixar rodando até 100 jobs simultâneos. No entanto, por falta de recurso o seus jobs poderão ser cancelados a qualquer momento. Ex:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="w"> </span><span class="c1">#SBATCH --time=0-0:5</span>
+<span class="w"> </span><span class="c1">#SBATCH --qos=preempt</span>
+
+<span class="w"> </span>./prog1
+</code></pre></div>
+<h2 id="receber-e-mails-sobre-inicio-e-fim-da-execucao">Receber e-mails sobre início e fim da execução<a class="headerlink" href="#receber-e-mails-sobre-inicio-e-fim-da-execucao" title="Permanent link">&para;</a></h2>
+<p>Caso deseje receber notificações por e-mail sobre início e fim de execução, utiliza-se a opção <strong>--mail-type</strong> onde se pode definir que tipo de notificação deseja receber. Se for definido <code>ALL</code>, as notificações recebidas serão sobre <code>BEGIN</code>, <code>END</code>, <code>FAIL</code>, <code>REQUEUE</code> e <code>STAGE_OUT</code>. Caso deseje apenas um evento específico utilize uma das opções, sendo as opções disponíveis: <code>NONE</code>, <code>BEGIN</code>, <code>END</code>, <code>FAIL</code>, <code>REQUEUE</code>, <code>STAGE_OUT</code>, <code>TIME_LITMIT</code>, <code>TIME_LIMIT_90</code> (alcançou 90% do tempo limite), <code>TIME_LIMIT_50</code> e <code>ARRAY_TASKS</code> (enviar e-mail para cada array task).</p>
+<p>Também é necessário definir o e-mail que irá receber as notificações com <code>#SBATCH --mail-user</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mail-user=meuemail@mail.com</span>
+<span class="c1">#SBATCH --mail-type=ALL</span>
+
+./prog1
+</code></pre></div>
+<h2 id="definir-a-quantidade-de-memoria-a-ser-utilizada">Definir a quantidade de memória a ser utilizada<a class="headerlink" href="#definir-a-quantidade-de-memoria-a-ser-utilizada" title="Permanent link">&para;</a></h2>
+<p>O supercomputador está configurado para atribuir, no mínimo, 4GB de memória por núcleo. Caso queira modificar a quantidade de memória padrão, você pode utilizar a opção <code>#SBATCH --mem-per-cpu</code>, como demonstrado no exemplo a seguir:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mem-per-cpu=1000</span>
+<span class="c1">#SBATCH --cpus-per-task=3</span>
+
+./prog1
+</code></pre></div>
+<p>O script do exemplo utiliza 3 cpus e para cada cpu é reservado aproximadamente 1GB de memória. Sendo que a multiplicação entre a quantidade de memória por cpu e o número de cpus usada não pode ultrapassar de 4GB, pois esse é o limite de cada nó. O limite de cada nó varia de acordo com a sua partição. Um Nó pertencente a partição <strong>cluster</strong> ou <strong>service</strong>, só pode utilizar ao total 4GB. Um nó na partição <strong>intel-256</strong> e  <strong>gpu</strong>  pode usar até 8 GB e <strong>intel-512</strong> pode usar até 16GB. Lembrando que a partição <strong>test</strong> é <strong>cluster</strong> mais <strong>service</strong>.</p>
+<p>Também há a opção <code>#SBATCH --mem</code> que já especifica a quantidade de memória para o job por completo.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mem=3000</span>
+<span class="c1">#SBATCH --cpus-per-task=3</span>
+
+./prog1
+</code></pre></div>
+<h2 id="carregando-softwares-disponiveis">Carregando softwares disponíveis<a class="headerlink" href="#carregando-softwares-disponiveis" title="Permanent link">&para;</a></h2>
+<p>A grande maioria dos softwares científicos instalados no supercomputador são executados por módulo e, portanto, será preciso carregar seus módulos. Para verificar quais módulos estão disponíveis no supercomputador, digite no terminal do Linux o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>avail
+</code></pre></div>
+<p>Depois de verificar os módulos disponíveis, você poderá carregar aqueles dos quais você precisa utilizando um comando semelhante ao mostrado a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>libraries/zlib/1.2.11-intel-16.0.1<span class="w">     </span><span class="c1"># Substitua libraries/zlib/1.2.11-intel-16.0.1 pelo módulo desejado, inserindo seu caminho completo fornecido pelo comando module avail</span>
+</code></pre></div>
+<p>Para verificar quais módulos você tem atualmente carregados, utilize o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>list
+</code></pre></div>
+<p>Para limpar todos os módulos que você tem atualmente carregados, utilize o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>clear
+</code></pre></div>
+<p>Os módulos podem ser adicionados ao script criado usando o editor de textos disponível de sua preferência, caso queira editar via linha comando, pode utilizar o editor <strong>Nano</strong>, basta você efetuar o devido carregamento dos módulos necessários, através dos comandos supracitados. Tome o cuidado apenas de, no script, carregar os módulos antes de fazer a execução do programa propriamente dito.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --time=0-0:5</span>
+
+module<span class="w"> </span>load<span class="w"> </span>nome-do-software<span class="w"> </span><span class="c1">#nome do software que aparecerá após usar o comando module avail</span>
+nome-do-software<span class="w"> </span>prog1
+</code></pre></div>
+<h2 id="utilizando-a-sua-pasta-home">Utilizando a sua pasta home<a class="headerlink" href="#utilizando-a-sua-pasta-home" title="Permanent link">&para;</a></h2>
+<p>Ao logar no supercomputador, você estará na pasta home. Essa pasta possui uma comunicação via rede com o supercomputador e já está configurada para, ao submeter os scripts para o supercomputador, ler os arquivos de entrada necessários para executar o job dessa pasta, assim como arquivo log de saída que será salvo nesse mesmo local.</p>
+<p>Ou seja, não é necessário utilizar comandos extras ao utilizar essa pasta. Apenas as configurações básicas do script, como o tempo estimado de execução do programa, quantidade de cpus, a fila em que deseja alocar o job e afins.</p>
+<p>Uma vez com o script pronto, é só enviar o script com o comando <code>sbatch</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>usuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>sbatch<span class="w"> </span>meu-script.sh
+</code></pre></div>
+<h2 id="utilizando-o-scratch-global">Utilizando o scratch global<a class="headerlink" href="#utilizando-o-scratch-global" title="Permanent link">&para;</a></h2>
+<p>O NPAD utiliza o BeeGFS para scratch global, ou seja, armazenamento temporário de arquivos, compartilhado com todos os nós. Como usuário do sistema, tudo que você precisa fazer é copiar os arquivos relevantes pra pasta ~/scratch. Você pode inclusive submeter jobs de lá. Essa pasta na verdade é um symlink que aponta pra /scratch/global/usuario. Num job script, você também pode usar a variável de ambiente $SCRATCH_GLOBAL para pegar a localização dessa pasta. </p>
+<p>Acessando a pasta /scratch/global destinada ao seu usuário:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>usuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/scratch
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>usuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCH_GLOBAL</span>
+</code></pre></div>
+<p>Exemplo de utilização:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --time=0-0:5</span>
+
+<span class="c1">#move os arquivos com os parâmetros de entrada para a pasta /scratch/global</span>
+mv<span class="w"> </span>entrada.in<span class="w"> </span><span class="nv">$SCRATCH_GLOBAL</span><span class="w"> </span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCH_GLOBAL</span>
+
+<span class="c1">#execução normal do seu programa</span>
+./prog<span class="w"> </span>
+
+<span class="c1">#move os arquivos de saída para o diretório /home/usuario</span>
+mv<span class="w"> </span>saida.out<span class="w"> </span>/home/usuario/<span class="w"> </span>
+</code></pre></div>
+<p>O scratch global deve ser considerada como uma pasta temporária, e os arquivos lá podem ser excluídos se a equipe do NPAD determinar que eles não estão sendo usados há muito tempo. Portanto, não mantenha arquivos importantes nela. A boa prática é usar a scratch global para a geração de arquivos temporários e depois copiar os resultados importantes para fora dela.</p>
+<h2 id="backfill-e-escolha-do-tempo-de-execucao">Backfill e escolha do tempo de execução<a class="headerlink" href="#backfill-e-escolha-do-tempo-de-execucao" title="Permanent link">&para;</a></h2>
+<p>O Supercomputador por padrão aloca os jobs de acordo com suas prioridades, ou seja, jobs com alta prioridade executam antes. Porém a opção backfill é utilizada para uma melhor utilização do sistema. Com isso é possível que jobs com prioridades menores sejam alocados e executados antes de jobs com alta prioridade. Isso acontece apenas no caso em que o tempo de início esperado do jobs de alta prioridade for maior que o tempo limite de execução do job de baixa prioridade.</p>
+<p>O tempo de início esperado depende da finalização dos jobs em execução e o tempo limite de execução depende da opção <strong>--time</strong> no script do job. Logo, uma escolha razoável do tempo estimado de execução pode fazer com que o job comece a executar mais rápido. Ex.:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="c1">#SBATCH --time=0-0:5 #Formato padrão: dias-horas:minutos</span>
+</code></pre></div>
+<p>Para executar programas em paralelo no supercomputador, leia os tutorias de <a href="../../advanced/openmp_tutorial/">OpenMP</a> e <a href="../../advanced/mpi_tutorial/">MPI</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
+        <a href="../../beginner/mobaxterm_tutorial/" class="btn btn-neutral float-left" title="Tutorial do MobaXterm"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../slurm_commands/" class="btn btn-neutral float-right" title="Comandos do supercomputador">Seguinte <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versões">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../beginner/mobaxterm_tutorial/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../slurm_commands/" style="color: #fcfcfc">Seguinte &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

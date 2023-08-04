@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Usando o Jupyter no supercomputador - Tutoriais do NPAD</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Usando o Jupyter no supercomputador";
+        var mkdocs_page_input_path = "advanced\\jupyter_tutorial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iniciante</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_1/">Introdução ao supercomputador - Parte&nbsp;1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_2/">Introdução ao supercomputador - Parte&nbsp;2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/winscp_tutorial/">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/scp_tutorial/">Tutorial do scp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/rsync_tutorial/">Tutorial do rsync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/putty_tutorial/">Tutorial do PuTTy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/mobaxterm_tutorial/">Tutorial do MobaXterm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intermediário</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/superpc_introduction_part_3/">Introdução ao supercomputador - Parte&nbsp;3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/slurm_commands/">Comandos do supercomputador</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/install_apps/">Instalação de programas no supercomputador</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Avançado</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../openmp_tutorial/">Tutorial de OpenMP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mpi_tutorial/">Tutorial de MPI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tch-rs_tutorial/">tch-rs-example MNIST</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Usando o Jupyter no supercomputador</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Tutoriais do NPAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
+          <li>Avançado &raquo;</li>
+      <li>Usando o Jupyter no supercomputador</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="usando-o-jupyter-no-supercomputador">Usando o Jupyter no supercomputador<a class="headerlink" href="#usando-o-jupyter-no-supercomputador" title="Permanent link">&para;</a></h1>
+<p>O Jupyter é uma aplicação web de código-fonte aberto que permite você criar e compartilhar documentos (chamados de notebooks) que contém código, equações, visualizações e texto.</p>
+<p>Para usar o jupyter no supercomputador, deve-se criar um script semelhante ao mostrado abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH --cpus-per-task=10      #Quantidade de núcleos</span>
+<span class="c1">#SBATCH --time=1-00:00          #Tempo máximo do job no formato DIAS-HORAS:MINUTOS</span>
+<span class="c1">#SBATCH --hint=compute_bound</span>
+
+<span class="c1"># Execute conda activate forge</span>
+<span class="c1"># antes de submeter este script de job</span>
+
+<span class="c1">## Parametros iniciais</span>
+<span class="nv">XDG_RUNTIME_DIR</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nv">ipnport</span><span class="o">=</span><span class="k">$(</span>shuf<span class="w"> </span>-i8000-9999<span class="w"> </span>-n1<span class="k">)</span>
+<span class="nv">ipnip</span><span class="o">=</span><span class="k">$(</span>hostname<span class="w"> </span>-i<span class="k">)</span>
+
+<span class="c1">## Imprime na saída slurm-{jobid}.out</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">    Copy/Paste this in your local terminal to ssh tunnel with remote</span>
+<span class="s2">    Copie e cole no terminal local da sua máquina o comando abaixo</span>
+<span class="s2">    -----------------------------------------------------------------</span>
+
+<span class="s2">    ssh -N -L </span><span class="nv">$ipnport</span><span class="s2">:</span><span class="nv">$ipnip</span><span class="s2">:</span><span class="nv">$ipnport</span><span class="s2"> -p4422 </span><span class="nv">$USER</span><span class="s2">@sc2.npad.ufrn.br</span>
+
+<span class="s2">    -----------------------------------------------------------------</span>
+<span class="s2">    &quot;</span>
+
+<span class="c1">## start an ipcluster instance and launch jupyter server</span>
+<span class="c1">## Inicia servidor Jupyter</span>
+
+jupyter-lab<span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="nv">$ipnport</span><span class="w"> </span>--ip<span class="o">=</span><span class="nv">$ipnip</span><span class="w">  </span>
+</code></pre></div>
+<p>No nosso exemplo, o script foi salvo com nome script_jupyter.sh.</p>
+<p>Com o script criado, siga as seguintes etapas para acessar o jupyter no supercomputador. </p>
+<p>Primeiro, ative o conda forge no terminal do supercomputador. Digite:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>forge
+</code></pre></div>
+<p>Envie o job para fila de execução com o comando sbatch:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>script-jupyter.sh<span class="w"> </span>
+
+Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span>JOBID<span class="w"> </span>
+</code></pre></div>
+<p>JOBID é número do job. Agora, verifique se o seu job está rodando com o comando squeue:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>squeue<span class="w"> </span>-lu<span class="w"> </span><span class="nv">$USER</span>
+</code></pre></div>
+<p>Caso o job de código JOBID esteja com estado R (RUNNING) na coluna STATE, o job já foi iniciado e podemos seguir em diante. </p>
+<p>Use o comando cat slurm-JOBID.out (substitua JOBID com o número do job).
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>slurm-JOBID.out
+</code></pre></div></p>
+<p>Aparecerá uma mensagem contendo duas informações que você deveria copiar. A primeira é a seguinte:</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-N<span class="w"> </span>-L<span class="w"> </span>PORTA:IP:PORTA<span class="w"> </span>-p4422<span class="w"> </span>NOMEDOUSUARIO@sc2.npad.ufrn.br
+</code></pre></div>
+<p>Trata-se de um comando para ser executado no terminal de seu computador. Nesse comando, PORTA é um valor númerico, IP são valores numéricos separados por ponto e NOMEDOUSUARIO é o nome do seu usuário no supercomputador.
+Copie e cole e execute ele no terminal do seu computador. O terminal ficará travado.</p>
+<p>A segunda informação é a seguinte:  </p>
+<div class="highlight"><pre><span></span><code>http://127.0.0.1:PORTA/lab?token<span class="o">=</span>TOKEN<span class="w"> </span>
+</code></pre></div>
+<p>Copie e cole no seu navegador e o jupyter irá aparecer. </p>
+<p>Quando terminar de usar o jupyter, destrave o terminal do seu computador com Ctrl+C. E também cancele o job do supercomputador:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>scancel<span class="w"> </span>JOBID<span class="w"> </span>
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
+        <a href="../tch-rs_tutorial/" class="btn btn-neutral float-left" title="tch-rs-example MNIST"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versões">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../tch-rs_tutorial/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

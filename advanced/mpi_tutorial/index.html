@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Tutorial de MPI - Tutoriais do NPAD</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tutorial de MPI";
+        var mkdocs_page_input_path = "advanced\\mpi_tutorial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iniciante</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_1/">Introdução ao supercomputador - Parte&nbsp;1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/superpc_introduction_part_2/">Introdução ao supercomputador - Parte&nbsp;2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/winscp_tutorial/">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/scp_tutorial/">Tutorial do scp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/rsync_tutorial/">Tutorial do rsync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/putty_tutorial/">Tutorial do PuTTy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../beginner/mobaxterm_tutorial/">Tutorial do MobaXterm</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intermediário</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/superpc_introduction_part_3/">Introdução ao supercomputador - Parte&nbsp;3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/slurm_commands/">Comandos do supercomputador</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/install_apps/">Instalação de programas no supercomputador</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Avançado</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../openmp_tutorial/">Tutorial de OpenMP</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Tutorial de MPI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#passo-1-conexao-ao-supercomputador-por-ssh">Passo 1: Conexão ao supercomputador por SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#passo-2-criacao-de-um-programa-mpi">Passo 2: Criação de um programa MPI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#passo-3-compilacao-do-programa-mpi">Passo 3: Compilação do programa MPI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#passo-4-execucao-do-programa-no-supercomputador">Passo 4: Execução do programa no supercomputador</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-script-mais-simples">Exemplo de script mais simples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-script-mais-detalhado">Exemplo de script mais detalhado</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tch-rs_tutorial/">tch-rs-example MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../jupyter_tutorial/">Usando o Jupyter no supercomputador</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Tutoriais do NPAD</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
+          <li>Avançado &raquo;</li>
+      <li>Tutorial de MPI</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tutorial-de-mpi">Tutorial de MPI<a class="headerlink" href="#tutorial-de-mpi" title="Permanent link">&para;</a></h1>
+<p>Nesse tutorial iremos aprender a conduzir a execução de aplicações utilizando o Intel MPI no supercomputador, uma das melhores implementações MPI da indústria, de maneira simples e prática.</p>
+<p>O MPI é um padrão de troca de mensagens para uso em computação paralela, oferecendo uma infraestrutura para a criação de programas que utilizem recursos de CPU e memória de múltiplos computadores em um cluster ou nós em um supercomputador, além de permitir a passagem coordenada de mensagens entre processos.</p>
+<p>Definindo um padrão industrial para a troca de mensagens, existem diversas implementações do MPI. Iremos utilizar o Intel MPI juntamente com o gerenciador de recursos SLURM de acordo com os passos a seguir:</p>
+<ol>
+<li>Conexão ao supercomputador por SSH</li>
+<li>Criação de um programa MPI</li>
+<li>Compilação do programa MPI</li>
+<li>Execução do programa no supercomputador</li>
+</ol>
+<h2 id="passo-1-conexao-ao-supercomputador-por-ssh">Passo 1: Conexão ao supercomputador por SSH<a class="headerlink" href="#passo-1-conexao-ao-supercomputador-por-ssh" title="Permanent link">&para;</a></h2>
+<p>Para se conectar ao supercomputador é necessário utilizar o SSH já disponível por padrão na maioria dos sistemas Unix como nas distribuições Linux e todas as versões do Mac OS X assim como disponível livremente na Internet como download para a plataforma Windows. O cliente SSH mais popular da plataforma Windows é o <a href="../../beginner/putty_tutorial/">Putty</a></p>
+<p>Iremos nesse tutorial utilizar como padrão a plataforma Linux, mas sua execução no Windows segue os mesmos princípios.</p>
+<p>Para se conectar no nó de login do supercomputador basta executar o seguinte comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">4422</span><span class="w"> </span>USUARIO@sc2.npad.ufrn.br
+</code></pre></div>
+<p>Troque <strong>USUARIO</strong> pelo seu nome de usuário já autorizado. Você deve visualizar uma tela com notícias sobre o supercomputador e a criação dos seus diretórios pessoais.</p>
+<p>Nesse momento você já está conectado ao supercomputador no ambiente Linux da máquina em sua área pessoal de arquivos. Todos os comandos padrão da distribuição CentOS assim como alguns editores de texto como o 'Emacs' e 'Vi' estão disponíveis para que você possa manipular seus arquivos e pastas pessoais. Nesse momento você já está conectado ao supercomputador no ambiente Linux da máquina em sua área pessoal de arquivos. Todos os comandos padrão da distribuição CentOS assim como alguns editores de texto como o 'Emacs' e 'Vi' estão disponíveis para que você possa manipular seus arquivos e pastas pessoais.</p>
+<h2 id="passo-2-criacao-de-um-programa-mpi">Passo 2: Criação de um programa MPI<a class="headerlink" href="#passo-2-criacao-de-um-programa-mpi" title="Permanent link">&para;</a></h2>
+<p>O esqueleto de um programa MPI é estruturado da seguinte forma:</p>
+<ul>
+<li>Inclusão do cabeçalho mpi.h e dos demais cabeçalhos necessários ao programa</li>
+<li>Início do programa indicado pela linha de código "int main (int argc, char *argv[])"</li>
+<li>Código sequencial opcional, por exemplo: inicialização de variáveis</li>
+<li>Inicialização do código paralelo indicado pela linha de código "MPI_Init(&amp;argc, &amp;argv);"</li>
+<li>Leitura da quantidade de processos criados indicado pela linha de código "MPI_Comm_size(MPI_COMM_WORLD, &amp;comm_sz);"</li>
+<li>Leitura do rank do processo utilizado, indicado pela linha de código "MPI_Comm_rank(MPI_COMM_WORLD, &amp;comm_sz);"</li>
+<li>Código paralelo</li>
+<li>Finalização do código paralelo indicado pela linha de código "MPI_Finalize();"</li>
+<li>Código sequencial opcional e finalização do programa</li>
+</ul>
+<p>Um exemplo de programa MPI é ilustrado abaixo. Copie esse programa para um arquivo na sua pasta pessoal e salve com o nome "mpi_hello.c". A função desse programa é imprimir uma mensagem de forma paralela a partir de processos diferentes. Esses processos podem estar no mesmo nó, utilizando diferentes núcleos, ou podem estar em nós diferentes. Essa escolha é feita pelo usuário a partir dos parâmetros utilizados no script de submissão que será mostrado numa seção (ou passo) posterior.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mpi.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">  </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="n">comm_sz</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">hostname</span><span class="p">[</span><span class="n">MPI_MAX_PROCESSOR_NAME</span><span class="p">];</span>
+
+<span class="w">  </span><span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+<span class="w">  </span><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">comm_sz</span><span class="p">);</span>
+<span class="w">  </span><span class="n">MPI_Comm_rank</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rank</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">MPI_Get_processor_name</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Hello from process %d on node %s!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="n">hostname</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rank</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;From process %d: Number of MPI processes is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="n">comm_sz</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">MPI_Finalize</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="passo-3-compilacao-do-programa-mpi">Passo 3: Compilação do programa MPI<a class="headerlink" href="#passo-3-compilacao-do-programa-mpi" title="Permanent link">&para;</a></h2>
+<p>De posse do arquivo <code>mpi_hello.c</code>, você pode compilar o mesmo com o comando “mpiicc” da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mpiicc<span class="w"> </span>mpi_hello.c<span class="w"> </span>-o<span class="w"> </span>mpi_hello<span class="w"> </span>
+$<span class="w"> </span>ls<span class="w"> </span>
+mpi_hello.c<span class="w">   </span>mpi_hello
+</code></pre></div>
+<p>A compilação gerou com sucesso o arquivo binário “mpi_hello” que será executado em vários núcleos de processadores do supercomputador no próximo passo.</p>
+<h2 id="passo-4-execucao-do-programa-no-supercomputador">Passo 4: Execução do programa no supercomputador<a class="headerlink" href="#passo-4-execucao-do-programa-no-supercomputador" title="Permanent link">&para;</a></h2>
+<p>No supercomputador é utilizado o gerenciador de recursos SLURM para se executar tarefas em diversos processadores da máquina. Tradicionalmente usuários do MPI utilizam o comando “mpirun” ou “mpiexec”, mas no nosso ambiente iremos utilizar o SLURM com o comando “sbatch” que recebe um script bash contendo configurações específicas sobre os recursos desejados, assim como que programa será executado pela sua tarefa. Esse script é chamado oficialmente de “Job submission file”.</p>
+<h3 id="exemplo-de-script-mais-simples">Exemplo de script mais simples<a class="headerlink" href="#exemplo-de-script-mais-simples" title="Permanent link">&para;</a></h3>
+<p>Para executar 4 tarefas do programa “mpi_hello” devemos criar um script chamado, por exemplo, de “jobMPI.sh” com o conteúdo abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+srun<span class="w"> </span>--time<span class="o">=</span><span class="m">0</span>-0:5<span class="w"> </span>-n4<span class="w"> </span>mpi_hello
+</code></pre></div>
+<p>Para enviar esse “job” para a fila de execução usamos o comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>jobMPI.sh<span class="w"> </span>
+
+Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">2230</span>
+</code></pre></div>
+<p>Esse comando irá adicionar o “job” na fila de execução e retornar um id (nesse caso 2230) dessa nova tarefa adicionada. Para monitorar a tarefa você pode usar o comando <code>squeue</code> para visualizar todas as tarefas em andamento. Se desejar cancelar uma tarefa em execução utilize o comando <code>scancel JOB_ID</code>.</p>
+<p>Ao finalizar sua execução o SLURM cria automaticamente um arquivo chamado “slurm-JOB_ID.out” com a saída padrão de sua tarefa redirecionada para esse arquivo. O nome do arquivo contém o ID do job enviado (JOB_ID) para facilitar sua relação com o mesmo. Isso é importante se seu programa gera uma saída padrão que contém um resultado útil da sua execução. Veja abaixo o resultado da execução do simples script que criamos e sua saída em arquivos:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>jobMPI.sh<span class="w"> </span>
+
+Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">2230</span>
+
+$<span class="w"> </span>cat<span class="w"> </span>slurm-2230.out<span class="w"> </span>
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">3</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i2n16!
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">2</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i2n16!
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">1</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i2n16!
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">0</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i2n16!
+
+From<span class="w"> </span>process<span class="w"> </span><span class="m">0</span>:<span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>MPI<span class="w"> </span>processes<span class="w"> </span>is<span class="w"> </span><span class="m">4</span>
+</code></pre></div>
+<p>Repare que todas as 4 tarefas foram executadas no mesmo nó (neste caso o r1i2n16), pois o SLURM só foi instruído para executar 4 tarefas e nada mais.</p>
+<h3 id="exemplo-de-script-mais-detalhado">Exemplo de script mais detalhado<a class="headerlink" href="#exemplo-de-script-mais-detalhado" title="Permanent link">&para;</a></h3>
+<p>Um exemplo de script que solicita que 4 tarefas do programa “mpi_hello” executem em 2 nós diferentes é mostrado abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=MPI_hello  </span>
+<span class="c1">#SBATCH --output=saida%j.out</span>
+<span class="c1">#SBATCH --error=erro%j.err</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --ntasks-per-node=2</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --time=0-0:5</span>
+
+srun<span class="w"> </span>mpi_hello
+</code></pre></div>
+<p>Repare que agora o script contém vários parâmetros que foram adicionados. A descrição desses parâmetros é informada abaixo:</p>
+<ul>
+<li><code>job-name</code>: Nome que aparecerá na fila de jobs</li>
+<li><code>output</code>: Arquivo de saída padrão do programa</li>
+<li><code>error</code>: Arquivo de saída de erro do programa</li>
+<li><code>nodes</code>: Quantidade de nós alocados para o programa</li>
+<li><code>ntasks-per-node</code>: Número de processos em um mesmo nó (normalmente 1 para jobs OpenMP) - Útil para jobs MPI</li>
+<li><code>cpus-per-task</code>: Número de núcleos de CPU alocados para um processo do programa</li>
+<li><code>time</code>: Tempo máximo para execução do job (nesse exemplo = 5 min). Caso o job ainda não tenha terminado, após esse tempo ele será cancelado. Formato: dias-horas:minutos</li>
+</ul>
+<p>Observa-se, então, que foram requisitados 2 (valor de --nodes) nós para os jobs e que em cada nó serão criados 2 (valor de --ntasks-per-node) processos. O comando “srun mpi_hello” agora não deve mais conter o número de tarefas que será executada, uma vez que isso já está definido anteriormente no script. Veja sua execução:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>jobMPI.sh<span class="w"> </span>
+
+Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">2236</span>
+
+<span class="o">[</span>seuUsuario@service0<span class="w"> </span>~<span class="o">]</span>$<span class="w">  </span>cat<span class="w"> </span>slurm-2236.out<span class="w"> </span>
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">3</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i1n2!
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">2</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i1n2!
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">1</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i3n5!
+
+Hello<span class="w"> </span>from<span class="w"> </span>process<span class="w"> </span><span class="m">0</span><span class="w"> </span>on<span class="w"> </span>node<span class="w"> </span>r1i3n5!
+
+From<span class="w"> </span>process<span class="w"> </span><span class="m">0</span>:<span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>MPI<span class="w"> </span>processes<span class="w"> </span>is<span class="w"> </span><span class="m">4</span>
+</code></pre></div>
+<p>Repare que agora as 4 tarefas foram executadas em dois nós distintos (r1i1n2 e r1i3n5), exatamente da forma que instruímos.</p>
+<p>Assim finalizamos nosso tutorial Intel MPI. Para mais informações sobre o Intel MPI e o SLURM acesse os links abaixo:</p>
+<ul>
+<li><a href="http://slurm.schedmd.com/">http://slurm.schedmd.com/</a></li>
+<li><a href="https://software.intel.com/en-us/intel-mpi-library">https://software.intel.com/en-us/intel-mpi-library</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
+        <a href="../openmp_tutorial/" class="btn btn-neutral float-left" title="Tutorial de OpenMP"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
+        <a href="../tch-rs_tutorial/" class="btn btn-neutral float-right" title="tch-rs-example MNIST">Seguinte <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versões">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../openmp_tutorial/" style="color: #fcfcfc">&laquo; Anterior</a></span>
+    
+    
+      <span><a href="../tch-rs_tutorial/" style="color: #fcfcfc">Seguinte &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

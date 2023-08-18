@@ -1,4 +1,5 @@
 site_name: Tutoriais do NPAD
+repo_url: https://github.com/NPAD-UFRN/Tutorials
 theme:
    name: readthedocs
    highlightjs: true

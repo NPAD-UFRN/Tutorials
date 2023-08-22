@@ -111,7 +111,7 @@ $ conda create --name meu-amb38 python=3.8 numpy=1.23.4 pandas
 Para gerenciar um ambiente virtual, primeiro ative ele. Por exemplo:
 
 ```bash
-$ conda activate meu-ambz
+$ conda activate meu-amb
 ```
 
 Então, pode-se adicionar mais pacotes ao ambiente ativado. Por exemplo:

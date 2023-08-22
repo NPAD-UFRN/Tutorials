@@ -55,6 +55,7 @@ nav:
       - intermediate/superpc_introduction_part_3.md
       - intermediate/slurm_commands.md
       - intermediate/install_apps.md
+      - intermediate/conda.md
    - Avançado:
       - advanced/openmp_tutorial.md
       - advanced/mpi_tutorial.md

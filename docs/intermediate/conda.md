@@ -117,18 +117,19 @@ $ conda activate meu-amb
 Então, pode-se adicionar mais pacotes ao ambiente ativado. Por exemplo:
 
 ```bash
-$ conda install pacote1 
+$ conda install pacote1 pacote2 
 ```
 
 O conda procura os pacotes para instalar nos repositórios padrão (default). Para instalar de pacote de outros repositórios, basta especificar o nome do repositório usando a opção `--channel`.  Por exemplo,
 
 ```bash
-$ conda install pacote1 --channel=conda-forge
+$ conda install --channel=conda-forge pacote1 pacote2 
 ```
+
 Para remover um pacote específico, use o comando `conda remove` seguido do nome do pacote a ser removido. Exemplo:
 
 ```bash
-$ conda remove pacote 
+$ conda remove pacote1 
 ```
 
 Para remover um ambiente virtual, primeiro desative o ambiente e em seguida remova o ambiente como neste exemplo: 
@@ -168,9 +169,9 @@ dependencies:
   - matplotlib
 ```
 
-### Acelerando a instalação de pacotes com Mamba
+### Acelerando a instalação de pacotes com mamba
 
-A instalação de pacotes pelo conda pode demorar bastante devido a resolução de dependências. Neste caso, você pode usar o Mamba para acelerar a instalação. O Mamba é um reimplementação do conda em linguagem C++ para tornar mais eficiente e rápido a instalação dos pacotes do conda.
+A instalação de pacotes pelo conda pode demorar bastante devido a resolução de dependências. Neste caso, você pode usar o mamba para acelerar a instalação. O mamba é uma reimplementação do conda em linguagem C++ para tornar mais eficiente e rápido a instalação dos pacotes do conda.
 
 O Mamba pode ser instalado como se fosse um pacote:
 

@@ -12,7 +12,7 @@ Para fazer isso, usa-se a diretiva `--array`  no script de job. Por exemplo,
 
 Isto fará com que o mesmo script de job seja executado 10 vezes onde cada um dos 10 jobs é independente um do outro. 
 
-Em geral, a diretiva `--array` é usada em conjunto com variável de ambiente `SLURM_ARRAY_TASK_ID` que fornece o indice do array de jobs, ou seja, o índice do job em execução que pode ser usado para selecionar os dados de entrada, configurações, comandos etc.
+Em geral, a diretiva `--array` é usada em conjunto com variável de ambiente `SLURM_ARRAY_TASK_ID` que fornece o indice do array de jobs, ou seja, o índice do job em execução. Este índice pode ser usado para selecionar dados de entrada, configurações, comandos etc.
 
 ## Exemplo
 

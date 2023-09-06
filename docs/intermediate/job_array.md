@@ -16,7 +16,7 @@ Em geral, a diretiva `--array` é usada em conjunto com variável de ambiente `S
 
 ## Exemplo
 
-Suponha a situação onde um programa, digamos, `meuprograma`, deve ser executado para cada um dos dez arquivos de entrada: entrada1.txt,  entrada2.txt, entrada3.txt etc.  Ao invés de criar 10 jobs diferentes para cada arquivo, podemos usar este único script de array de jobs (`script_job_array.sh`): 
+Suponha a situação onde um programa, digamos, `meuprograma`, deve ser executado para cada um dos dez arquivos de entrada: entrada1.txt,  entrada2.txt, entrada3.txt etc.  Ao invés de criar 10 scripts de jobs diferentes para cada arquivo, podemos usar um único script de array de jobs, como este:
 
 ```bash
 #!/bin/bash 
@@ -26,14 +26,14 @@ Suponha a situação onde um programa, digamos, `meuprograma`, deve ser executad
 ./meuprograma entrada${SLURM_ARRAY_TASK_ID}.txt
 ```
 
-A variável  `$SLURM_ARRAY_TASK_ID`  fornece o índice do array de jobs.  Ela é usada na última linha para selecionar o arquivo de entrada para o programa `meuprograma`. Então submetemos este script de arrays de jobs:
+A variável  `$SLURM_ARRAY_TASK_ID`  fornece o índice do array de jobs.  Ela é usada na última linha para selecionar o arquivo de entrada para o programa `meuprograma`. Digamos que o script tenha nome de `script_job_array.sh`. Então submetemos este script de arrays de jobs:
 
 ```bash
 $ sbatch script_job_array.sh 
 Submitted batch job 123456
 ```
 
-Para visualizar como estão os Jobs na fila de execução, digite:
+E para visualizar como estão os Jobs na fila de execução, digite:
 
 ```bash
 $ squeue -u $USER
@@ -63,7 +63,7 @@ Para deletar um array de jobs inteiro, digite `scancel` seguido do jobId do arra
 $ scancel 123456
 ```
 
-E para deletar um job específico, use `scancel` seguido do jobId do job. Por exemplo:
+E para deletar um job específico, use `scancel` seguido do jobID do job. Por exemplo:
 
 ```bash
 $ scancel 123456_5

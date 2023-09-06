@@ -53,10 +53,13 @@ nav:
       - beginner/mobaxterm_tutorial.md
    - Intermediário:
       - intermediate/superpc_introduction_part_3.md
-      - intermediate/slurm_commands.md
+      - intermediate/slurm_commands.md      
+      - intermediate/job_array.md       
       - intermediate/install_apps.md
-   - Avançado:
+      - intermediate/conda.md     
+   - Avançado:    
       - advanced/openmp_tutorial.md
       - advanced/mpi_tutorial.md
       - advanced/tch-rs_tutorial.md
       - advanced/jupyter_tutorial.md
+      

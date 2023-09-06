@@ -1,5 +1,7 @@
 # Tutorial de Array de Jobs (Job Array)
 
+[TOC]
+
 ## Para que serve um array de jobs?
 
 O array de jobs ou de tarefas (tasks) permite rodar um mesmo job várias vezes com variações em cada rodada, por exemplo, na entrada de dados ou nas configurações.
@@ -57,13 +59,13 @@ Nota-se que foi criado um job array de 10 jobs independentes e como um jobID dif
 
 ## Deletando jobs
 
-Para deletar um array de jobs inteiro, digite `scancel` seguido do jobId do array de jobs. Por exemplo
+Para deletar um array de jobs inteiro, digite `scancel` seguido do job ID do array de jobs. Por exemplo
 
 ```bash
 $ scancel 123456
 ```
 
-E para deletar um job específico, use `scancel` seguido do jobID do job. Por exemplo:
+E para deletar um job específico, use `scancel` seguido do job ID do job. Por exemplo:
 
 ```bash
 $ scancel 123456_5
@@ -132,45 +134,42 @@ IFS=$' ' read -d '' -r -a ARG <<< ${ARGS[${SLURM_ARRAY_TASK_ID}]}
 
 ## Acessando variáveis de ambiente
 
-As linguagem de programação, em geral, possui comandos para ler a varivais de embiente. Por exemplo, para ler variavel `SLURM_ARRAY_TASK_ID` 
+As linguagens de programação, em geral, possuem comandos para ler a variáveis de ambiente. Por exemplo, para ler variável  `SLURM_ARRAY_TASK_ID` 
 
-Em Python
+Em Python:
 
 ```python
 import sys
 task_id = sys.getenv('SLURM_ARRAY_TASK_ID')
 ```
 
-Em R
+Em R:
 
 ```r
 task_id <- Sys.getenv("SLURM_ARRAY_TASK_ID")
 ```
 
-Em C
+Em C:
 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     char* task_id = getenv("SLURM_ARRAY_TASK_ID");
     printf("SLURM_ARRAY_TASK_ID: %s\n", task_id ? task_id : "null");
     return 0;
 }
 ```
 
-Em C++
+Em C++:
 
 ```cpp
 #include <cstdlib>
 #include <iostream>
-
 using namespace std;
 
-int main()
-{
+int main() {
     char* task_id = getenv("SLURM_ARRAY_TASK_ID");
     if (task_id != NULL) {
         cout << "SLURM_ARRAY_TASK_ID: " << task_id << endl;
@@ -179,7 +178,7 @@ int main()
 }
 ```
 
-Em Fortran
+Em Fortran:
 
 ```fortran
 program exemplo
@@ -191,7 +190,7 @@ end
 
 ## Nome dos arquivos de saída e erro
 
-Noa scripts de job array, usa-se os códigos `%A` e `%a` para indicar o job ID do array de jobs e o índice do job, respectivamente. Por exemplo 
+Nos scripts de job array, usa-se os códigos `%A` e `%a` para indicar o job ID do array de jobs e o índice do job, respectivamente. Por exemplo 
 
 ```bash
 #SBATCH --output=saida_%A_%a.out
@@ -230,13 +229,15 @@ Um exemplo mais complexo seria:
 SBATCH --array=3,5,11-13,22-26:2
 ```
 
-O operador `%` é usado para limitar o números de jobs que são executados simultaneamente. Por exemplo
+O operador `%` é usado para limitar o números de jobs que são executados simultaneamente. Por exemplo:
+
+
 
 ```bash
 SBATCH --array=1-10%3
 ```
 
-Aqui serão submetidos 10 jobs, mas no máximo apenas 3 deles serão executados simultaneamente. Ou seja, ao visualizarmos os jobs usando `squeue`, veremos que no máximo três em execução e o restante da fila de espera. Por exemplo,
+Aqui serão submetidos 10 jobs, mas, no máximo três deles serão executados simultaneamente. Ao visualizarmos os jobs usando `squeue`, veremos que no máximo três em execução e o restante da fila de espera. Por exemplo,
 
 ```bash
 $ squeue -u $USER
@@ -249,4 +250,5 @@ $ squeue -u $USER
 
 ## Quando não usar o Array de Jobs
 
-Quando se tem muitas tarefas (tasks) de curta duração (poucos minutos) para serem executadas, fará com que o agendador de jobs do Slurm perca muito tempo tentando agendar todos esses jobs. Neste caso, por exemplo, talvez fosse mais rápido submeter 8 jobs com 250 tarefas do que 2000 jobs com apenas uma tarefa. Além disso, a submissão de muitos jobs acaba impactando negativamente a submissão de jobs de outros usuários. 
+Quando se tem muitas tarefas de curta duração (poucos minutos) para serem executadas, usar um array de jobs para executar todas estas tarefas fará com que o agendador de jobs do Slurm perca muito tempo tentando agendar jobs. Neste caso, por exemplo, talvez fosse mais rápido submeter 8 arrays de jobs com 250 tarefas do que um único array de jobs com 2000 tarefas. Além disso, a submissão de muitos jobs acaba impactando negativamente a submissão de jobs de outros usuários. 
+. 

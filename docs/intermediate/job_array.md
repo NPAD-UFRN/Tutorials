@@ -139,8 +139,8 @@ As linguagens de programação, em geral, possuem comandos para ler a variáveis
 Em Python:
 
 ```python
-import sys
-task_id = sys.getenv('SLURM_ARRAY_TASK_ID')
+import os
+task_id = os.getenv('SLURM_ARRAY_TASK_ID')
 ```
 
 Em R:

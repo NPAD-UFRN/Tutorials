@@ -11,7 +11,7 @@ Para copiar o arquivo **meuArquivo** DO SEU COMPUTADOR para o super computador u
 # caso tenha configurado o ~/.ssh/config 
 rsync  -aP  ~/Downloads/meuArquivo super-pc:~/
 # caso não tenha configurado 
-rsync  -aP  ~/Downloads/meuArquivo --rsh='ssh -p4422' -aP nomeDoUsuario@sc2.npad.ufrn.br:~/
+rsync  -aP  ~/Downloads/meuArquivo --rsh='ssh -p4422' nomeDoUsuario@sc2.npad.ufrn.br:~/
 ```
 
 *LEMBRE-SE* de substituir o **nomeDoUsuario** para o seu usuário. Perceba que o arquivo: **meuArquivo** a será copiado na pasta home do supercomputador. Perceba que  o arquivo **meuArquivo** está localizado na pasta Downloads.

@@ -70,7 +70,7 @@ $ cd pastaRemota/
 Compile o código fonte com a flag de otimização "-O_" desejada. No exemplo abaixo, é utilizada a flag -O2 (a flag é habilitada pela letra "O" e não o número "0").
 
 ```bash
-$ icc -O2 hello_openmp.c -o hello_openmp -openmp
+$ gcc -O2 hello_openmp.c -o hello_openmp -openmp
 ```
 
 ### Flags de otimização

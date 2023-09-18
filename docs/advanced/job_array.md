@@ -1,4 +1,4 @@
-# Tutorial de Array de Jobs (Job Array)
+# Tutorial de Job Array
 
 [TOC]
 
@@ -248,7 +248,4 @@ $ squeue -u $USER
           123456_3   cluster job_arra usuario   R       0:20      1 r1i3n2
 ```
 
-## Quando não usar o Array de Jobs
 
-Quando se tem muitas tarefas de curta duração (poucos minutos) para serem executadas, usar um array de jobs para executar todas estas tarefas fará com que o agendador de jobs do Slurm perca muito tempo tentando agendar jobs. Neste caso, por exemplo, talvez fosse mais rápido submeter 8 arrays de jobs com 250 tarefas do que um único array de jobs com 2000 tarefas. Além disso, a submissão de muitos jobs acaba impactando negativamente a submissão de jobs de outros usuários. 
-. 

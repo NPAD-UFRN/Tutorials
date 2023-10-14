@@ -18,7 +18,7 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
-
+      toc_depth: 2-5
   # Python Markdown Extensions
   - pymdownx.arithmatex:
       generic: true

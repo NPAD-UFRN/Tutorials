@@ -6,13 +6,25 @@ O NPAD oferece como solução um acesso a um supercomputador através de um term
 
 ## Instale os pré-requisitos
 
-Como dito anteriormente, acessar o supercomputador requer ssh. O ssh é apenas uma das ferramentas do [OpenSSH](https://www.openssh.com/). Então Caso você esteja utilizando Windows você pode seguir por três caminhos:
+Como dito anteriormente, acessar o supercomputador requer ssh. O ssh é apenas uma das ferramentas do [OpenSSH](https://www.openssh.com/). A seguir veremos como instalar o ssh em cada sistema operacional:
 
-- [Instalar OpenSSH e utilizar o Windows PowerShell como terminal (Recomendado)](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse)
+### Windows 11
+
+O Windows 11 já tem instalado o OpenSSH e, portanto, nenhuma ação é necessária.
+
+### Outros Windows
+
+Você pode seguir por um desses caminhos:
+
 - [Instalar o MobaXterm Home Edition que já vem com OpenSSH](https://mobaxterm.mobatek.net/download-home-edition.html)
 - [Instalar o PuTTY que possui o seu próprio cliente ssh](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+- [Instalar OpenSSH e utilizar o Windows PowerShell como terminal](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse)
 
-Se você utiliza Linux  procure por openssh nos repositórios oficiais. No caso do ubuntu para instalar o openssh é:
+
+
+### Linux
+
+Procure por openssh nos repositórios oficiais. No caso do ubuntu para instalar o openssh é:
 
 ```bash
 sudo apt install openssh-client
@@ -22,13 +34,52 @@ Recomendamos utilizar o cliente ssh e terminal oficiais do sistema operacional q
 
 ## Gerando uma chave SSH pública
 
-Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo **rsa**. Caso esteja utilizando o **PuTTy** veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](../beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa). Para as demais opções é necessário você abrir um terminal.
+Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo **rsa**. Esta seção mostrará como gerar uma chave pública
 
-- Windows + MobaXterm: abra a aplicação e clique no botão **start local terminal**
-- Windows com  Windows PowerShell: procure o programa **Windows PowerShell** e abra-o
-- Ubuntu: procure por gnome-terminal ou gnome-console ou aperte **Ctrl + Alt + T**
+### Windows 11
+
+Procure pelo Windows Terminal e abra-o.
+
+![winterminal](../assets/superpc_introduction_part_1/winterminal.png)
+
+Para gerar sua chave ssh do tipo **rsa**, digite o comando a seguir que irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas:
+```
+ssh-keygen -t rsa
+```
+Para visualizar sua chave pública, digite o comando a seguir:
+```bash
+type .ssh\id_rsa.pub
+```
+Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh\id_rsa** e uma chave pública em **.ssh\id_rsa.pub**.
+
+###  Windows com MobaXterm
+
+Abra o MobaXterm e clique no botão **start local terminal**
 
 Para gerar sua chave ssh do tipo **rsa** , e digite o comando a seguir:
+
+```bash
+ssh-keygen -t rsa
+```
+
+Irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas. Para visualizar sua chave pública, digite o comando a seguir:
+
+```bash
+cat .ssh/id_rsa.pub
+```
+
+Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh/id_rsa** e uma
+chave pública **.ssh/id_rsa.pub**.
+
+###  Windows com PuTTy
+
+Veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](../beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa)
+
+### Linux
+
+Abra o terminal do linux ou aperte **Ctrl + Alt + T**
+
+Para gerar sua chave ssh do tipo **rsa**, digite o comando a seguir:
 
 ```bash
 ssh-keygen -t rsa
@@ -53,8 +104,6 @@ Uma vez que tenha cadastro no NPAD, você pode acessar o supercomputador de
 duas formas:
 
 - Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](../beginner/putty_tutorial.md#acessando-o-supercomputador-atraves-do-putty).
-
-
 
 - através de um terminal como: **Windows PowerShell**, **MobaXterm**, usando o comando **ssh**
 
@@ -105,10 +154,14 @@ substituindo o termo **nomeDoUsuario** pelo nome de usuário criado. Caso tenha 
 │                                                                                      │
 |                                      ...........                                     |
 ╰──────────────────────────────────────────────────────────────────────────────────────╯
-[nomeDoUsuario@service0 ~]$
+$
 ```
 
-### Dica: Crie uma configuração para ssh
+!!! Warning "Aviso: usuários não tem permissão para usar o comando sudo"  
+    Sudo significa “super user do” e é um comando para elevar seus privilégios ao poderoso usuário root que tem acesso total a todo o sistema. Por isso, você não tem permissão para usar o sudo.
+    Se precisar fazer algo que necessite do poder de administrador do sistema, entre em contato com o atendimento do NPAD para obter assistência.
+
+### Crie uma configuração para ssh
 
 Se você criar ou adicionar a seguinte configuração no arquivo **~/.ssh/config**:
 
@@ -149,4 +202,4 @@ Foi feito dois tutoriais:
 ### Através do terminal
 
 É possível transferir arquivos através das aplicações de linhas de comando como:
-[scp](https://linux.die.net/man/1/scp) e [rsync](https://linux.die.net/man/1/rsync). Sendo o **rsync** apenas para linux e **scp** funciona no Windows apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Para usar como usar o **scp** veja o [tutorial: scp](../beginner/scp_tutorial.md) e para o **rsync** veja o [tutorial: rsync](../beginner/rsync_tutorial.md).
+[scp](https://linux.die.net/man/1/scp) e [rsync](https://linux.die.net/man/1/rsync). Sendo o **rsync** apenas para linux e **scp** funciona também no Windows 11 pelo Windows Terminal. Nos demais Windows,  apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Para aprender a usar o **scp** veja o [tutorial: scp](../beginner/scp_tutorial.md) e para o **rsync** veja o [tutorial: rsync](../beginner/rsync_tutorial.md).

@@ -6,7 +6,7 @@ theme:
    locale: pt_BR
    features:
       - content.code.copy   
-   #logo: assets/logo_UFRN.png
+   logo: assets/logo_npad.png
 markdown_extensions:
 
   # Python Markdown
@@ -34,7 +34,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+ # - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:

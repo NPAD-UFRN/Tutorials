@@ -55,7 +55,7 @@ $ squeue -u $USER
 Nota-se que foi criado um job array de 10 jobs independentes e como um jobID diferenciado apenas pelo índice do array de jobs.  
 
 !!! Nota
-    As especificações no script do array de jobs tais como --nodes, --cpus-per-task, --mem, etc refere-se apenas a execução de um único job do array de jobs. Por isso, não precisamos alocar recursos para todas os jobs do array, mas somente para um único job e o slurm repetirá a mesma alocação para todas os outros.
+    As especificações no script do array de jobs tais como --nodes, --cpus-per-task, --mem, etc refere-se apenas a execução de um único job do array de jobs. Por isso, não precisamos alocar recursos para todos os jobs do array, mas somente para um único job e o slurm repetirá a mesma alocação para todas os outros.
 
 ## Deletando jobs
 

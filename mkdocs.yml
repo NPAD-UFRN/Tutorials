@@ -1,7 +1,8 @@
 site_name: Tutoriais do NPAD
 repo_url: https://github.com/NPAD-UFRN/Tutorials
 theme:
-   name: readthedocs
+   #name: readthedocs 
+   name: material
    highlightjs: true
    locale: pt_BR
    features:
@@ -34,7 +35,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
- # - pymdownx.superfences
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:

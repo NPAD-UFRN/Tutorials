@@ -8,6 +8,10 @@ theme:
    features:
       - content.code.copy   
    logo: assets/logo_npad.png
+   
+extra_css:
+  - stylesheets/extra.css   
+   
 markdown_extensions:
 
   # Python Markdown

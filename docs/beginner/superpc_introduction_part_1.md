@@ -1,26 +1,20 @@
 # Introdução ao supercomputador - Parte&nbsp;1
 
-O NPAD oferece como solução um acesso a um supercomputador através de um terminal remoto. Para acessar o supercomputador é necessário utilizar um programa chamado [ssh](https://linuxcommand.org/lc3_man_pages/ssh1.html). O ssh é uma programa que permite fazer login em uma máquina remotamente. Neste tutorial iremos aprender a gerar uma chave ssh, a acessar o supercomputador e a transferir arquivos para o supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail **atendimento\<at>npad.ufrn.br** (substituindo \<at> por @).
-
 [TOC]
+
+O NPAD oferece como solução um acesso a um supercomputador através de um terminal remoto. Para acessar o supercomputador é necessário utilizar um programa chamado [ssh](https://linuxcommand.org/lc3_man_pages/ssh1.html). O ssh é uma programa que permite fazer login em uma máquina remotamente. Neste tutorial iremos aprender a gerar uma chave ssh, a acessar o supercomputador e a transferir arquivos para o supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail **atendimento\<at>npad.ufrn.br** (substituindo \<at> por @).
 
 ## Instale os pré-requisitos
 
 Como dito anteriormente, acessar o supercomputador requer ssh. O ssh é apenas uma das ferramentas do [OpenSSH](https://www.openssh.com/). A seguir veremos como instalar o ssh em cada sistema operacional:
 
-### Windows 11
+### Windows
 
-O Windows 11 já tem instalado o OpenSSH e, portanto, nenhuma ação é necessária.
-
-### Outros Windows
-
-Você pode seguir por um desses caminhos:
+O Windows 11 já vem com o OpenSSH e, portanto, você pode usar o ssh ou gerar a chave no Windows Terminal. Nos demais Windows, você pode seguir por um desses caminhos:
 
 - [Instalar o MobaXterm Home Edition que já vem com OpenSSH](https://mobaxterm.mobatek.net/download-home-edition.html)
 - [Instalar o PuTTY que possui o seu próprio cliente ssh](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - [Instalar OpenSSH e utilizar o Windows PowerShell como terminal](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse)
-
-
 
 ### Linux
 
@@ -36,23 +30,27 @@ Recomendamos utilizar o cliente ssh e terminal oficiais do sistema operacional q
 
 Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo **rsa**. Esta seção mostrará como gerar uma chave pública
 
-### Windows 11
+### Como gerar a chave pública no Windows 11
 
 Procure pelo Windows Terminal e abra-o.
 
 ![winterminal](../assets/superpc_introduction_part_1/winterminal.png)
 
 Para gerar sua chave ssh do tipo **rsa**, digite o comando a seguir que irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas:
+
 ```
 ssh-keygen -t rsa
 ```
+
 Para visualizar sua chave pública, digite o comando a seguir:
+
 ```bash
 type .ssh\id_rsa.pub
 ```
-Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh\id_rsa** e uma chave pública em **.ssh\id_rsa.pub**.
 
-###  Windows com MobaXterm
+Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh\id_rsa** e uma chave pública em **.ssh\id_rsa.pub**. Vale observar que o Windows uma barra invertida para separar as pastas dos arquivos, enquando o Linux usa uma barra normal. 
+
+### Como gerar a chave pública no Windows com MobaXterm
 
 Abra o MobaXterm e clique no botão **start local terminal**
 
@@ -71,11 +69,11 @@ cat .ssh/id_rsa.pub
 Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh/id_rsa** e uma
 chave pública **.ssh/id_rsa.pub**.
 
-###  Windows com PuTTy
+### Como gerar a chave pública no Windows com PuTTy
 
 Veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](../beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa)
 
-### Linux
+### Como gerar a chave pública no Linux
 
 Abra o terminal do linux ou aperte **Ctrl + Alt + T**
 
@@ -161,7 +159,7 @@ $
     Sudo significa “super user do” e é um comando para elevar seus privilégios ao poderoso usuário root que tem acesso total a todo o sistema. Por isso, você não tem permissão para usar o sudo.
     Se precisar fazer algo que necessite do poder de administrador do sistema, entre em contato com o atendimento do NPAD para obter assistência.
 
-### Crie uma configuração para ssh
+## Crie uma configuração para ssh
 
 Se você criar ou adicionar a seguinte configuração no arquivo **~/.ssh/config**:
 

@@ -22,6 +22,7 @@ Suponha a situação onde um programa, digamos, `meuprograma`, deve ser executad
 
 ```bash
 #!/bin/bash 
+#SBATCH --partition=amd-512  # partição para a qual o job é enviado
 #SBATCH --time=0-0:10
 #SBATCH --array=1-10
 
@@ -77,6 +78,7 @@ Nem sempre os arquivos de entrada estão numerados sequencialmente como no exemp
 
 ```bash
 #!/bin/bash 
+#SBATCH --partition=amd-512  # partição para a qual o job é enviado
 #SBATCH --time=0-0:10
 #SBATCH --array=1-5
 
@@ -96,6 +98,7 @@ $ cat lista.txt
 
 ```bash
 #!/bin/bash 
+#SBATCH --partition=amd-512 
 #SBATCH --time=0-0:10
 #SBATCH --array=1-5
 
@@ -124,6 +127,7 @@ E então usar:
 
 ```bash
 #!/bin/bash 
+#SBATCH --partition=amd-512
 #SBATCH --time=0-0:10
 #SBATCH --array=1-5
 

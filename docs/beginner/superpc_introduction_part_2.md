@@ -93,11 +93,24 @@ A execução de um programa no supercomputador está sujeita à disponibilidade 
 #!/bin/bash
 
 #SBATCH --time=0-0:5 #especifica o tempo máximo de execução do job, dado no padrão dias-horas:minutos
+#SBATCH --partition=amd-512 # Especifica a partição na qual o job será submetido
 
 ./helloWorld #o ponto e a barra indicam o caminho até a pasta atual.
 ```
 
-Saiba como escolher o tempo de execução [aqui](../intermediate/superpc_introduction_part_3.md#backfill-e-escolha-do-tempo-de-execução).
+Saiba como escolher o tempo de execução [aqui](../intermediate/superpc_introduction_part_3.md#backfill-e-escolha-do-tempo-de-execucao).
+
+## Partições
+
+Partição é a forma com que os administradores do NPAD organizam/agrupam os nós do cluster.  
+
+Quando submeter um job, deve-se informar qual a partição em que seu job será executado usando a diretiva `#SBATCH --partition`. Por exemplo:
+
+```bash
+#SBATCH --partition=amd-512
+```
+
+Na dúvida de qual partição usar, utilize as partições amd-512 ou as intel-*. Para mais informações sobre partições, veja a página de hardware do site do NPAD: [http://npad.ufrn.br](http://npad.ufrn.br/). 
 
 ## Executando um programa criado a partir do código-fonte
 

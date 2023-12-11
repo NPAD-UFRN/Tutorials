@@ -1,4 +1,4 @@
-# Tutorial do Conda
+# Tutorial do Conda (miniconda ou Anaconda)
 
 [TOC]
 
@@ -56,6 +56,7 @@ O ambiente virtual deve ser ativado antes da submissão do job ao supercomputado
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512  # partição para a qual o job é enviado
 #SBATCH --time=0-00:10
 #SBATCH --nodes=1
 

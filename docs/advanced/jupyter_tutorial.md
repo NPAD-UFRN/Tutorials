@@ -6,6 +6,7 @@ Para usar o jupyter no supercomputador, deve-se criar um script semelhante ao mo
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512 #partição para a qual o job é enviado
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=10      #Quantidade de núcleos

@@ -48,7 +48,9 @@ Para visualizar sua chave pública, digite o comando a seguir:
 type .ssh\id_rsa.pub
 ```
 
-Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh\id_rsa** e uma chave pública em **.ssh\id_rsa.pub**. Vale observar que o Windows uma barra invertida para separar as pastas dos arquivos, enquando o Linux usa uma barra normal. 
+Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh\id_rsa** e uma chave pública em **.ssh\id_rsa.pub**. 
+
+Vale observar que o Windows usa uma barra invertida para separar as pastas em um caminho (path) para arquivos ou pastas. Enquanto, no Linux usa-se uma barra normal. Por exemplo, se no Windows o caminho é caminho\para\arquivo.txt, no Linux seria caminho/para/arquivo.txt.
 
 ### Como gerar a chave pública no Windows com MobaXterm
 
@@ -101,7 +103,7 @@ Para utilizar o supercomputador é necessário criar uma conta na nossa [Página
 Uma vez que tenha cadastro no NPAD, você pode acessar o supercomputador de
 duas formas:
 
-- Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](../beginner/putty_tutorial.md#acessando-o-supercomputador-atraves-do-putty).
+- Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](../beginner/putty_tutorial.md#acessando-o-supercomputador-atraves-do-putty). 
 
 - através de um terminal como: **Windows PowerShell**, **MobaXterm**, usando o comando **ssh**
 
@@ -113,47 +115,8 @@ ssh -p4422 nomeDoUsuario@sc2.npad.ufrn.br
 
 substituindo o termo **nomeDoUsuario** pelo nome de usuário criado. Caso tenha feito tudo corretamente será apresentada a tela inicial do supercomputador:
 
-```bash
-╭──────────────────────────────────────── NPAD ────────────────────────────────────────╮
-│  Núcleo de Processamento de Alto Desempenho - Universidade Federal do Rio Grande do  │
-│                                        Norte                                         │
-│                                                                                      │
-│ ────────────────────────────────────── ALERTA ────────────────────────────────────── │
-│                                                                                      │
-│ O uso deste sistema é restrito apenas a usuários autorizados. Você deve possuir      │
-│ permissões explícitas para acessar ou configurar este servidor. Todas as atividades  │
-│ realizadas neste dispositivo estão sujeitas a monitoramento e gravação e poderão ser │
-│ devidamente reportadas em caso de uso ilegal. Obrigado.                              │
-│                                                                                      │
-│ ─────────────────────────────────────── FAQ ──────────────────────────────────────── │
-│                                                                                      │
-│ Dúvidas? Veja nosso FAQ em http://npad.ufrn.br/faq.php                               │
-│                                                                                      │
-│ ─────────────────────────────────────── USO ──────────────────────────────────────── │
-│                                                                                      │
-│                            Uso atual dos nós do sistema                              │
-│                  ┏━━━━━━━━━━━┳━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┓                   │
-│                  ┃ Partição  ┃ Idle ┃ Mixed ┃ Alloc ┃ Maint/Down ┃                   │
-│                  ┡━━━━━━━━━━━╇━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━┩                   │
-│                  │ cluster   │ 10   │ 9     │ 31    │ 1          │                   │
-│                  │ service   │ 3    │ 0     │ 1     │ 0          │                   │
-│                  │ test      │ 13   │ 9     │ 32    │ 1          │                   │
-│                  │ intel-512 │ 0    │ 0     │ 6     │ 0          │                   │
-│                  │ intel-256 │ 3    │ 3     │ 0     │ 1          │                   │
-│                  │ gpu       │ 2    │ 0     │ 0     │ 0          │                   │
-│                  └───────────┴──────┴───────┴───────┴────────────┘                   │
-│                                                                                      │
-│ ────────────────────────────────────── QUOTA ─────────────────────────────────────── │
-│                                                                                      │
-│                     Você utilizou 81.5 % de sua quota de disco.                      │
-│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ │
-│                                                                                      │
-│ ───────────────────────────────────── NOTÍCIAS ───────────────────────────────────── │
-│                                                                                      │
-|                                      ...........                                     |
-╰──────────────────────────────────────────────────────────────────────────────────────╯
-$
-```
+![tela_inicial](../assets/superpc_introduction_part_1/tela_inicial.png)
+
 
 !!! Warning "Aviso: usuários não tem permissão para usar o comando sudo"  
     Sudo significa “super user do” e é um comando para elevar seus privilégios ao poderoso usuário root que tem acesso total a todo o sistema. Por isso, você não tem permissão para usar o sudo.

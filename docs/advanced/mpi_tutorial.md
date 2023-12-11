@@ -88,6 +88,7 @@ Para executar 4 tarefas do programa “mpi_hello” devemos criar um script cham
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512 #partição para a qual o job é enviado
 
 srun --time=0-0:5 -n4 mpi_hello
 ```
@@ -133,6 +134,7 @@ Um exemplo de script que solicita que 4 tarefas do programa “mpi_hello” exec
 #SBATCH --job-name=MPI_hello  
 #SBATCH --output=saida%j.out
 #SBATCH --error=erro%j.err
+#SBATCH --partition=amd-512
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=2
 #SBATCH --cpus-per-task=1

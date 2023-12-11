@@ -23,7 +23,7 @@ sinfo exibe as informações das partições e nós do supercomputador.
 #### Exemplo: sinfo
 
 ```bash
-scavalcanti@headnode0 ~]$ sinfo
+$ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 cluster*     up 20-00:00:0      1  down* r1i2n14
 cluster*     up 20-00:00:0     18  alloc r1i0n[1-2,4-7,11-12,14-16],r1i1n[7,9,15],r1i2n[1-2,11],r1i3n1
@@ -113,7 +113,7 @@ entender como se dá o cálculo da prioridade da fila de jobs,
 #### Exemplo: sprio
 
 ```bash
-sprio -l
+$ sprio -l
           JOBID PARTITION     USER   PRIORITY       SITE        AGE      ASSOC  FAIRSHARE    JOBSIZE  PARTITION        QOS        NICE
          164854 intel-512 dnpinhei      25031          0       1000          0         31          0          0      24000           0
          165887 intel-512 dnpinhei      25031          0       1000          0         31          0          0      24000           0
@@ -180,7 +180,7 @@ jobs.\
 #### Exemplo: squeue
 
 ```bash
-squeue
+$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
             167884   cluster   tupi10 dnpinhei PD       0:00     21 (Resources)
             170642   cluster   MIN_06 rbdpasso PD       0:00      2 (Priority)
@@ -280,11 +280,12 @@ referente à introdução ao supercomputador).
 #### Exemplo
 
 ```bash
-squeue -u scavalcanti
+$ squeue -u scavalcanti
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 sbatch run_pascalanalyzer.sh
 Submitted batch job 170926
-squeue -u scavalcanti
+
+$ squeue -u scavalcanti
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
             170926   cluster PascalAn scavalca PD       0:00      1 (Priority)
 ```
@@ -308,11 +309,12 @@ riscos de alguém cancelar job's que não são seus.
 #### Exemplo: scancel
 
 ```bash
-squeue -u scavalcanti
+$ squeue -u scavalcanti
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
             170926   cluster PascalAn scavalca PD       0:00      1 (Priority)
 scancel 170926
-squeue -u scavalcanti
+
+$ squeue -u scavalcanti
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 ```
 

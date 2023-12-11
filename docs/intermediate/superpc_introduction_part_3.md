@@ -12,11 +12,12 @@ Por padrão, quando não é definido o número de núcleos a ser utilizado, o su
  #!/bin/bash
 #SBATCH --job-name=multithreading_example
 #SBATCH --time=0-0:5
+#SBATCH --partition=amd-512
 #SBATCH --cpus-per-task=32
 #SBATCH --hint=compute_bound
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-./hello_threads 32 #32 threads
+./hello_threads 
 ```
 
 A opção `#SBATCH --hint=compute_bound` muda a configuração para ser um thread por core. A opção `#SBATCH --cpus-per-task=32` está definindo 32 cores ou núcleos para esse job. A variável de ambiente `SLURM_CPUS_PER_TASK` fornece a você o número de cores que seu job terá durante a execução do programa.
@@ -27,6 +28,7 @@ Novamente, por padrão, **quando não é definido o número de nós a ser utiliz
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512  # partição para a qual o job é enviado
 #SBATCH --nodes=2 #número de nós
 #SBATCH --ntasks=4 #número total de tarefas
 #SBATCH --ntasks-per-node=2 #número de tarefas por nó
@@ -54,6 +56,7 @@ O QOS 1 é o QOS padrão, com ele o usuário poderá enviar até 100 jobs para o
 
 ```bash
  #!/bin/bash
+ #SBATCH --partition=amd-512
  #SBATCH --time=0-0:5
 
  ./prog1
@@ -65,6 +68,7 @@ O QOS 2 é mais indicado para mais jobs que utilizam um nó inteiro ou jobs que 
 
 ```bash
  #!/bin/bash
+ #SBATCH --partition=amd-512
  #SBATCH --time=0-0:5
  #SBATCH --qos=qos2
 
@@ -77,6 +81,7 @@ Para trabalhos que necessitem rodar vários jobs simultaneamente , ou job que pr
 
 ```bash
  #!/bin/bash
+ #SBATCH --partition=amd-512
  #SBATCH --time=0-0:5
  #SBATCH --qos=preempt
 
@@ -91,6 +96,7 @@ Também é necessário definir o e-mail que irá receber as notificações com `
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512
 #SBATCH --mail-user=meuemail@mail.com
 #SBATCH --mail-type=ALL
 
@@ -103,6 +109,7 @@ O supercomputador está configurado para atribuir, no mínimo, 4GB de memória p
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512
 #SBATCH --mem-per-cpu=1000
 #SBATCH --cpus-per-task=3
 
@@ -115,6 +122,7 @@ Também há a opção `#SBATCH --mem` que já especifica a quantidade de memóri
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512
 #SBATCH --mem=3000
 #SBATCH --cpus-per-task=3
 
@@ -151,6 +159,7 @@ Os módulos podem ser adicionados ao script criado usando o editor de textos dis
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512
 #SBATCH --time=0-0:5
 
 module load nome-do-software #nome do software que aparecerá após usar o comando module avail
@@ -166,7 +175,7 @@ Ou seja, não é necessário utilizar comandos extras ao utilizar essa pasta. Ap
 Uma vez com o script pronto, é só enviar o script com o comando `sbatch`.
 
 ```bash
-[usuario@service0 ~]$ sbatch meu-script.sh
+$ sbatch meu-script.sh
 ```
 
 
@@ -177,20 +186,20 @@ O NPAD utiliza o BeeGFS para scratch global, ou seja, armazenamento temporário 
 Acessando a pasta /scratch/global destinada ao seu usuário:
 
 ```bash
-[usuario@service0 ~]$ cd ~/scratch
+$ cd ~/scratch
 ```
 
 ou
 
 ```bash
-[usuario@service0 ~]$ cd $SCRATCH_GLOBAL
+$ cd $SCRATCH_GLOBAL
 ```
 
 Exemplo de utilização:
 
 ```bash
 #!/bin/bash
-
+#SBATCH --partition=amd-512
 #SBATCH --time=0-0:5
 
 #move os arquivos com os parâmetros de entrada para a pasta /scratch/global
@@ -214,7 +223,8 @@ O Supercomputador por padrão aloca os jobs de acordo com suas prioridades, ou s
 O tempo de início esperado depende da finalização dos jobs em execução e o tempo limite de execução depende da opção **--time** no script do job. Logo, uma escolha razoável do tempo estimado de execução pode fazer com que o job comece a executar mais rápido. Ex.:
 
 ```bash
- #!/bin/bash
+#!/bin/bash
+#SBATCH --partition=amd-512
 #SBATCH --time=0-0:5 #Formato padrão: dias-horas:minutos
 ```
 

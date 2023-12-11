@@ -31,6 +31,7 @@ Em seguida, é necessário escrever um script para executar o programa.
 
 ```bash
 #!/bin/bash 
+#SBATCH --partition=amd-512 #partição para a qual o job é enviado
 #SBATCH --job-name=OMP_hello 
 #SBATCH --time=0-0:5
 #SBATCH --cpus-per-task=8

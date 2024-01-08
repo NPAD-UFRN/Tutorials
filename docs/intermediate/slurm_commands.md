@@ -312,7 +312,8 @@ riscos de alguém cancelar job's que não são seus.
 $ squeue -u scavalcanti
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
             170926   cluster PascalAn scavalca PD       0:00      1 (Priority)
-scancel 170926
+
+$ scancel 170926
 
 $ squeue -u scavalcanti
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)

@@ -38,7 +38,8 @@ srun prog1 #programa a ser executado. #srun: executa jobs em paralelo
 
 Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](../advanced/mpi_tutorial.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`. Com `#SBATCH --ntasks-per-node` é definido as tarefas por nó. Já `#SBATCH --cpus-per-task` define a quantidade de cpu por tarefas. Vale salientar que as duas últimas opções citadas não são dependentes. Com isso, pode ser que a nó que esteja utilizando seja compartilhado com outros jobs.
 
-### Compartilhamento dos nós
+
+## Compartilhamento dos nós
 
 Outro padrão do supercomputador é, ao submeter um job o nó **não** será reservado exclusivamente para aquele job, podendo ser alocado mais jobs dependendo da disponibilidade dos recursos naquele nó. Caso seu programa necessite de um nó por completo, utilize a opção `#SBATCH --exclusive`. Por exemplo, para um programa que será executado em paralelo, o desempenho do programa será melhor se o programa puder utilizar os recursos por completo.
 

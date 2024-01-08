@@ -83,7 +83,8 @@ nav:
       - beginner/mobaxterm_tutorial.md
    - Intermediário:
       - intermediate/superpc_introduction_part_3.md
-      - intermediate/slurm_commands.md             
+      - intermediate/slurm_commands.md  
+      - intermediate/gpu.md            
       - intermediate/install_apps.md
       - intermediate/conda.md     
    - Avançado:    

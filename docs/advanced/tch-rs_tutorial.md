@@ -152,8 +152,8 @@ Atualmente o supercomputador no NPAD possui uma partição chamada **gpu**, ness
 #!/bin/bash 
 #SBATCH --job-name=neural_train
 #SBATCH --time=0-0:15
-#SBATCH --partition=gpu
-#SBATCH --exclusive
+#SBATCH --partition=gpu-8-v100 
+#SBATCH --gpus-per-node=1
 
 # informando ao tch-rs que desejo compilar com cuda na versão 11.7
 export TORCH_CUDA_VERSION=cu117

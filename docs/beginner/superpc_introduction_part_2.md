@@ -10,21 +10,22 @@ Para criar um **script** para executar programas no supercomputador é necessár
 
 **Exemplo: criação de um script para executar o programa factor.**
 
-No terminal, entre com o comando abaixo no terminal do Linux, seguido de enter.
+Neste exemplo, usaremos um programa simples como `factor` que mostra os fatores primos de um número. No terminal, entre com o comando abaixo, seguido de `enter`.
 
 ```bash
 nano nomeScript    # Substitua nomeScript pelo nome que você deseja dar ao seu script
 ```
 
-Após abrir o programa **nano**, execute os comandos abaixo no terminal do Linux:
+Após abrir o editor de textos **nano**, digite os comandos abaixo:
 
 ```bash
 #!/bin/bash
+#SBATCH --partition=amd-512  # partição para a qual o job é enviado
 #SBATCH --time=0-0:5    # Especifica o tempo máximo de execução do job, dado no padrão dias-horas:minutos
 factor 120     # Especifica o programa a ser executado (no caso, factor) e o parâmetro de entrada (120)
 ```
 
-Em sequência aperte ctrl+o, depois enter e, então, aperte ctrl+x para sair do **nano**. Vale ressaltar que também é possível abrir o arquivo correspondente ao script e fazer alterações diretamente nele, via [interface gráfica](superpc_introduction_part_1.md#atraves-de-uma-interface-grafica).
+Em sequência, aperte `ctrl+o` para salvar, depois `enter` e, então, aperte `ctrl+x` para sair do **nano**. Vale ressaltar que também é possível abrir o arquivo correspondente ao script e fazer alterações diretamente nele, via [interface gráfica](superpc_introduction_part_1.md#atraves-de-uma-interface-grafica).
 
 ## Executando um programa já existente no supercomputador
 
@@ -91,9 +92,8 @@ A execução de um programa no supercomputador está sujeita à disponibilidade 
 
 ```bash
 #!/bin/bash
-
 #SBATCH --time=0-0:5 #especifica o tempo máximo de execução do job, dado no padrão dias-horas:minutos
-#SBATCH --partition=amd-512 # Especifica a partição na qual o job será submetido
+#SBATCH --partition=amd-512  # partição para a qual o job é enviado
 
 ./helloWorld #o ponto e a barra indicam o caminho até a pasta atual.
 ```

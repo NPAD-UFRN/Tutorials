@@ -1,0 +1,951 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../install_apps/">
+      
+      
+        <link rel="next" href="../../advanced/openmp_tutorial/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>Tutorial do Conda (miniconda ou Anaconda) - Tutoriais do NPAD</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#o-que-e-conda" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tutoriais do NPAD" class="md-header__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutoriais do NPAD
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial do Conda (miniconda ou Anaconda)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tutoriais do NPAD" class="md-nav__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    Tutoriais do NPAD
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Início
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Iniciante
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Iniciante
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/superpc_introduction_part_1/" class="md-nav__link">
+        Introdução ao supercomputador - Parte&nbsp;1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/superpc_introduction_part_2/" class="md-nav__link">
+        Introdução ao supercomputador - Parte&nbsp;2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/gnome_files/" class="md-nav__link">
+        Copiando arquivos através de uma interface gráfica Gnome Files (linux)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/winscp_tutorial/" class="md-nav__link">
+        Copiando arquivos através de uma interface gráfica WinSCP (Windows)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/scp_tutorial/" class="md-nav__link">
+        Tutorial do scp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/rsync_tutorial/" class="md-nav__link">
+        Tutorial do rsync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/putty_tutorial/" class="md-nav__link">
+        Tutorial do PuTTy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/mobaxterm_tutorial/" class="md-nav__link">
+        Tutorial do MobaXterm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Intermediário
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Intermediário
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../superpc_introduction_part_3/" class="md-nav__link">
+        Introdução ao supercomputador - Parte&nbsp;3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm_commands/" class="md-nav__link">
+        Comandos do supercomputador
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu/" class="md-nav__link">
+        Uso da GPU
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_apps/" class="md-nav__link">
+        Instalação de programas no supercomputador
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tutorial do Conda (miniconda ou Anaconda)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tutorial do Conda (miniconda ou Anaconda)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-conda" class="md-nav__link">
+    O que é conda?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-usar-os-ambientes-virtuais" class="md-nav__link">
+    Como usar os ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submissao-de-jobs-usando-os-ambientes-virtuais" class="md-nav__link">
+    Submissão de jobs usando os ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-de-ambientes-virtuais" class="md-nav__link">
+    Criação de ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gerenciando-os-ambientes-virtuais" class="md-nav__link">
+    Gerenciando os ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-ambiente-a-partir-de-um-arquivo" class="md-nav__link">
+    Criando um ambiente a partir de um arquivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acelerando-a-instalacao-de-pacotes-com-mamba" class="md-nav__link">
+    Acelerando a instalação de pacotes com mamba
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-o-uso-de-pip-e-conda-juntos" class="md-nav__link">
+    Sobre o uso de pip e conda juntos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Avançado
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Avançado
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/openmp_tutorial/" class="md-nav__link">
+        Tutorial de OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/mpi_tutorial/" class="md-nav__link">
+        Tutorial de MPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/job_array/" class="md-nav__link">
+        Tutorial de Job Array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/tch-rs_tutorial/" class="md-nav__link">
+        tch-rs-example MNIST
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/jupyter_tutorial/" class="md-nav__link">
+        Usando o Jupyter no supercomputador
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-conda" class="md-nav__link">
+    O que é conda?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-usar-os-ambientes-virtuais" class="md-nav__link">
+    Como usar os ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submissao-de-jobs-usando-os-ambientes-virtuais" class="md-nav__link">
+    Submissão de jobs usando os ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-de-ambientes-virtuais" class="md-nav__link">
+    Criação de ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gerenciando-os-ambientes-virtuais" class="md-nav__link">
+    Gerenciando os ambientes virtuais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-ambiente-a-partir-de-um-arquivo" class="md-nav__link">
+    Criando um ambiente a partir de um arquivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acelerando-a-instalacao-de-pacotes-com-mamba" class="md-nav__link">
+    Acelerando a instalação de pacotes com mamba
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-o-uso-de-pip-e-conda-juntos" class="md-nav__link">
+    Sobre o uso de pip e conda juntos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="tutorial-do-conda-miniconda-ou-anaconda">Tutorial do Conda (miniconda ou Anaconda)<a class="headerlink" href="#tutorial-do-conda-miniconda-ou-anaconda" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#o-que-e-conda">O que é conda?</a></li>
+<li><a href="#como-usar-os-ambientes-virtuais">Como usar os ambientes virtuais</a></li>
+<li><a href="#submissao-de-jobs-usando-os-ambientes-virtuais">Submissão de jobs usando os ambientes virtuais</a></li>
+<li><a href="#criacao-de-ambientes-virtuais">Criação de ambientes virtuais</a></li>
+<li><a href="#gerenciando-os-ambientes-virtuais">Gerenciando os ambientes virtuais</a></li>
+<li><a href="#criando-um-ambiente-a-partir-de-um-arquivo">Criando um ambiente a partir de um arquivo</a></li>
+<li><a href="#acelerando-a-instalacao-de-pacotes-com-mamba">Acelerando a instalação de pacotes com mamba</a></li>
+<li><a href="#sobre-o-uso-de-pip-e-conda-juntos">Sobre o uso de pip e conda juntos</a></li>
+</ul>
+</div>
+<h3 id="o-que-e-conda">O que é conda?<a class="headerlink" href="#o-que-e-conda" title="Permanent link">&para;</a></h3>
+<p>É um gerenciador de pacotes e um sistema de gerenciamento de ambientes virtuais para várias linguagens como: Python, R, Ruby, Lua, Scala, Java, JavaScript, Go, C/ C++, FORTRAN. É também um software de código aberto e pode ser utilizado no Windows, Linux e MacOs. </p>
+<p>Atualmente, o conda é muito popular como gerenciador de pacotes do Python and R.  Originalmente, o conda foi desenvolvido para superar as dificuldades enfrentadas pelos cientistas de dados no gerenciamento de pacotes do Python (Wikipedia: Conda).</p>
+<h3 id="como-usar-os-ambientes-virtuais">Como usar os ambientes virtuais<a class="headerlink" href="#como-usar-os-ambientes-virtuais" title="Permanent link">&para;</a></h3>
+<p>No NPAD, existem diversos ambientes virtuais do conda com pacotes do Python pré-instalados a fim de atender os usuários.</p>
+<p>Para visualizar os ambientes conda disponíveis no NPAD,  digite:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>list
+
+<span class="c1"># conda environments:</span>
+<span class="c1">#</span>
+bioinformatics<span class="w">           </span>/opt/npad/shared/conda/bioinformatics
+biology<span class="w">                  </span>/opt/npad/shared/conda/biology
+forge<span class="w">                    </span>/opt/npad/shared/conda/forge
+forge2023<span class="w">                </span>/opt/npad/shared/conda/forge2023
+geral<span class="w">                    </span>/opt/npad/shared/conda/geral
+gpu<span class="w">                      </span>/opt/npad/shared/conda/gpu
+base<span class="w">                  </span>*<span class="w">  </span>/usr
+</code></pre></div>
+<p>A lista de ambientes mostrada pode ser diferente da lista acima por que os ambientes estão sempre sendo atualizados.</p>
+<p>Para ativar, por exemplo, o ambiente virtual forge2023 da lista acima, digite:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>forge2023
+</code></pre></div>
+<p>Uma vez ativado, o usuário já pode utilizar o python e os pacotes disponíveis naquele ambiente. A versão do python e dos pacotes variam de ambiente para ambiente.</p>
+<p>Para visualizar os pacotes disponíveis, digite:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>list
+</code></pre></div>
+<p>Para desativar um ambiente, digite:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>deactivate<span class="w"> </span>
+</code></pre></div>
+<h3 id="submissao-de-jobs-usando-os-ambientes-virtuais">Submissão de jobs usando os ambientes virtuais<a class="headerlink" href="#submissao-de-jobs-usando-os-ambientes-virtuais" title="Permanent link">&para;</a></h3>
+<p>O ambiente virtual deve ser ativado antes da submissão do job ao supercomputador. Por exemplo, considere o seguinte script de job chamado de my-job.sh:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512  # partição para a qual o job é enviado</span>
+<span class="c1">#SBATCH --time=0-00:10</span>
+<span class="c1">#SBATCH --nodes=1</span>
+
+python<span class="w"> </span>meuprograma.py<span class="w"> </span>
+</code></pre></div>
+<p>Para submeter my-job.sh ao supercomputador usando o ambiente virtual forge2023, digite:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>forge2023
+$<span class="w"> </span>sbatch<span class="w"> </span>my-job.sh
+</code></pre></div>
+<p>Caso seja necessário ativar o ambiente no próprio script de job,  você pode usar o seguinte exemplo: </p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --time=0-00:10</span>
+<span class="c1">#SBATCH --nodes=1</span>
+
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>conda<span class="w"> </span>shell.bash<span class="w"> </span>hook<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="c1"># inclua esta linha antes executar o conda</span>
+conda<span class="w"> </span>activate<span class="w"> </span>forge2023
+python<span class="w"> </span>meuprograma.py<span class="w"> </span>
+</code></pre></div>
+<h3 id="criacao-de-ambientes-virtuais">Criação de ambientes virtuais<a class="headerlink" href="#criacao-de-ambientes-virtuais" title="Permanent link">&para;</a></h3>
+<p>Se os ambientes disponíveis no sistema não forem satisfatórios para o usuário, ele mesmo pode criar seu próprio ambiente virtual.</p>
+<p>Para criar um ambiente virtual básico digite:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>meu-amb<span class="w"> </span>python
+</code></pre></div>
+<p>A opção <code>--name</code> é usada para definir o nome do ambiente virtual. Neste exemplo, foi utilizado o nome meu-amb. Em seguida, pode-se especificar uma lista de pacotes a serem instalados . Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>meu-amb<span class="w"> </span>python<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>matplotlib
+</code></pre></div>
+<p>Usando o sinal de igual "=", pode-se definir a versão do Python ou do pacote a ser instalado:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>meu-amb38<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8<span class="w"> </span><span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.23.4<span class="w"> </span>pandas
+</code></pre></div>
+<div class="admonition dica">
+<p class="admonition-title">Dica</p>
+<p>Apesar de poder adicionar pacotes ao ambiente após a sua criação, é recomendado instalar todos os pacotes ao mesmo tempo para evitar conflitos com dependência de pacotes. </p>
+</div>
+<h3 id="gerenciando-os-ambientes-virtuais">Gerenciando os ambientes virtuais<a class="headerlink" href="#gerenciando-os-ambientes-virtuais" title="Permanent link">&para;</a></h3>
+<p>Para gerenciar um ambiente virtual, primeiro ative ele. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>meu-amb
+</code></pre></div>
+<p>Então, pode-se adicionar mais pacotes ao ambiente ativado. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>pacote1<span class="w"> </span>pacote2<span class="w"> </span>
+</code></pre></div>
+<p>O conda procura os pacotes para instalar nos repositórios padrão (default). Para instalar de pacote de outros repositórios, basta especificar o nome do repositório usando a opção <code>--channel</code>.  Por exemplo,</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>--channel<span class="o">=</span>conda-forge<span class="w"> </span>pacote1<span class="w"> </span>pacote2<span class="w"> </span>
+</code></pre></div>
+<p>Para remover um pacote específico, use o comando <code>conda remove</code> seguido do nome do pacote a ser removido. Exemplo:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>remove<span class="w"> </span>pacote1<span class="w"> </span>
+</code></pre></div>
+<p>Para remover um ambiente virtual, primeiro desative o ambiente e em seguida remova o ambiente como neste exemplo: </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>deactivate<span class="w"> </span>
+$<span class="w"> </span>conda<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"> </span>meu-amb<span class="w"> </span>--all<span class="w"> </span>
+</code></pre></div>
+<h3 id="criando-um-ambiente-a-partir-de-um-arquivo">Criando um ambiente a partir de um arquivo<a class="headerlink" href="#criando-um-ambiente-a-partir-de-um-arquivo" title="Permanent link">&para;</a></h3>
+<p>Pode-se criar um ambiente a partir de um arquivo <code>environment.yml</code> contendo a relação de pacotes a serem instalados. Por exemplo</p>
+<div class="highlight"><pre><span></span><code>name:<span class="w"> </span>meu-amb
+dependencies:
+<span class="w">  </span>-<span class="w"> </span>numpy
+<span class="w">  </span>-<span class="w"> </span>pandas
+</code></pre></div>
+<p>Então crie o ambiente de nome meu-amb, digitando:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</code></pre></div>
+<p>Pode-se especificar também canais de repositórios e versões do pacote. Por exemplo</p>
+<div class="highlight"><pre><span></span><code>name:<span class="w"> </span>meu-amb
+channels:
+<span class="w">  </span>-<span class="w"> </span>conda-forge
+dependencies:
+<span class="w">  </span>-<span class="w"> </span><span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.23.4
+<span class="w">  </span>-<span class="w"> </span>pandas
+<span class="w">  </span>-<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8<span class="w"> </span>
+<span class="w">  </span>-<span class="w"> </span>matplotlib
+</code></pre></div>
+<h3 id="acelerando-a-instalacao-de-pacotes-com-mamba">Acelerando a instalação de pacotes com mamba<a class="headerlink" href="#acelerando-a-instalacao-de-pacotes-com-mamba" title="Permanent link">&para;</a></h3>
+<p>A instalação de pacotes pelo conda pode demorar bastante devido a resolução de dependências. Neste caso, você pode usar o mamba para acelerar a instalação. O mamba é uma reimplementação do conda em linguagem C++ para tornar mais eficiente e rápido a instalação dos pacotes do conda.</p>
+<p>O Mamba pode ser instalado como se fosse um pacote:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>mamba
+</code></pre></div>
+<p>Mamba utiliza uma linha de comando compatível com a do conda. Ou seja, usar  mamba é similar a usar conda. Exemplos:</p>
+<p>Instalação de pacotes:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mamba<span class="w"> </span>install<span class="w"> </span>pacote1
+</code></pre></div>
+<p>Remoção de pacotes:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mamba<span class="w"> </span>remove<span class="w"> </span>pacote1
+</code></pre></div>
+<p>Lista de pacotes instalados:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mamba<span class="w"> </span>list
+</code></pre></div>
+<h3 id="sobre-o-uso-de-pip-e-conda-juntos">Sobre o uso de pip e conda juntos<a class="headerlink" href="#sobre-o-uso-de-pip-e-conda-juntos" title="Permanent link">&para;</a></h3>
+<p>pip é o instalador de pacotes do Python. É possivel usar pip para instalar pacotes do Python em um ambiente virtual do conda. Geralmente, pip já está instalado quando for criado um ambiente virtual. Caso não esteja, é só instalar:</p>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>pip
+</code></pre></div>
+<p>De acordo com o site do <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#using-pip-in-an-environment">conda</a>, podem surgir problemas ao usar pip e conda juntos. Somente após o conda ter sido usado para instalar tantos pacotes quanto possível, o pip deve ser usado para instalar qualquer pacote restante. Se forem necessárias modificações no ambiente, é melhor criar um novo ambiente em vez de executar conda após pip.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.code.select", "navigation.sections", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

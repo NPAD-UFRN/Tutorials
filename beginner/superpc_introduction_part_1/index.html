@@ -1,174 +1,961 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="pt_BR" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Introdução ao supercomputador - Parte&nbsp;1 - Tutoriais do NPAD</title>
-    <link rel="stylesheet" href="../../css/theme.css" />
-    <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Introdu\u00e7\u00e3o ao supercomputador - Parte\u0026nbsp;1";
-        var mkdocs_page_input_path = "beginner\\superpc_introduction_part_1.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../superpc_introduction_part_2/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
-    <!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
-</head>
+    
+      
+        <title>Introdução ao supercomputador - Parte 1 - Tutoriais do NPAD</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> Tutoriais do NPAD
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Digite o termo a ser buscado aqui" />
-  </form>
-</div>
-      </div>
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instale-os-pre-requisitos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Iniciante</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Introdução ao supercomputador - Parte&nbsp;1</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#instale-os-pre-requisitos">Instale os pré-requisitos</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#gerando-uma-chave-ssh-publica">Gerando uma chave SSH pública</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#criando-uma-conta-no-npad">Criando uma conta no NPAD</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#acessando-o-supercomputador">Acessando o supercomputador</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#dica-crie-uma-configuracao-para-ssh">Dica: Crie uma configuração para ssh</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#acessando-arquivos-do-supercomputador">Acessando arquivos do supercomputador</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#atraves-de-uma-interface-grafica">Através de uma interface gráfica</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#atraves-do-terminal">Através do terminal</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../superpc_introduction_part_2/">Introdução ao supercomputador - Parte&nbsp;2</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../gnome_files/">Copiando arquivos através de uma interface gráfica Gnome Files (linux)</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../winscp_tutorial/">Copiando arquivos através de uma interface gráfica WinSCP (Windows)</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../scp_tutorial/">Tutorial do scp</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../rsync_tutorial/">Tutorial do rsync</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../putty_tutorial/">Tutorial do PuTTy</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../mobaxterm_tutorial/">Tutorial do MobaXterm</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Intermediário</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/superpc_introduction_part_3/">Introdução ao supercomputador - Parte&nbsp;3</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/slurm_commands/">Comandos do supercomputador</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../intermediate/install_apps/">Instalação de programas no supercomputador</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Avançado</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/openmp_tutorial/">Tutorial de OpenMP</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/mpi_tutorial/">Tutorial de MPI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/tch-rs_tutorial/">tch-rs-example MNIST</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../advanced/jupyter_tutorial/">Usando o Jupyter no supercomputador</a>
-                  </li>
-              </ul>
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tutoriais do NPAD" class="md-header__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutoriais do NPAD
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introdução ao supercomputador - Parte&nbsp;1
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navegação em dispositivo móvel">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">Tutoriais do NPAD</a>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" aria-label="Documentos"></a> &raquo;</li>
-          <li>Iniciante &raquo;</li>
-      <li>Introdução ao supercomputador - Parte&nbsp;1</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="introducao-ao-supercomputador-parte1">Introdução ao supercomputador - Parte&nbsp;1<a class="headerlink" href="#introducao-ao-supercomputador-parte1" title="Permanent link">&para;</a></h1>
-<p>O NPAD oferece como solução um acesso a um supercomputador através de um terminal remoto. Para acessar o supercomputador é necessário utilizar um programa chamado <a href="https://linuxcommand.org/lc3_man_pages/ssh1.html">ssh</a>. O ssh é uma programa que permite fazer login em uma máquina remotamente. Neste tutorial iremos aprender a gerar uma chave ssh, a acessar o supercomputador e a transferir arquivos para o supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail <strong>atendimento\<at>npad.ufrn.br</strong> (substituindo \<at> por @).</p>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tutoriais do NPAD" class="md-nav__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    Tutoriais do NPAD
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Início
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Iniciante
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Iniciante
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introdução ao supercomputador - Parte&nbsp;1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Introdução ao supercomputador - Parte&nbsp;1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instale-os-pre-requisitos" class="md-nav__link">
+    Instale os pré-requisitos
+  </a>
+  
+    <nav class="md-nav" aria-label="Instale os pré-requisitos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gerando-uma-chave-ssh-publica" class="md-nav__link">
+    Gerando uma chave SSH pública
+  </a>
+  
+    <nav class="md-nav" aria-label="Gerando uma chave SSH pública">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-windows-11" class="md-nav__link">
+    Como gerar a chave pública no Windows 11
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-windows-com-mobaxterm" class="md-nav__link">
+    Como gerar a chave pública no Windows com MobaXterm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-windows-com-putty" class="md-nav__link">
+    Como gerar a chave pública no Windows com PuTTy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-linux" class="md-nav__link">
+    Como gerar a chave pública no Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-uma-conta-no-npad" class="md-nav__link">
+    Criando uma conta no NPAD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acessando-o-supercomputador" class="md-nav__link">
+    Acessando o supercomputador
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-uma-configuracao-para-ssh" class="md-nav__link">
+    Crie uma configuração para ssh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acessando-arquivos-do-supercomputador" class="md-nav__link">
+    Acessando arquivos do supercomputador
+  </a>
+  
+    <nav class="md-nav" aria-label="Acessando arquivos do supercomputador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atraves-de-uma-interface-grafica" class="md-nav__link">
+    Através de uma interface gráfica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atraves-do-terminal" class="md-nav__link">
+    Através do terminal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../superpc_introduction_part_2/" class="md-nav__link">
+        Introdução ao supercomputador - Parte&nbsp;2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnome_files/" class="md-nav__link">
+        Copiando arquivos através de uma interface gráfica Gnome Files (linux)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../winscp_tutorial/" class="md-nav__link">
+        Copiando arquivos através de uma interface gráfica WinSCP (Windows)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scp_tutorial/" class="md-nav__link">
+        Tutorial do scp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rsync_tutorial/" class="md-nav__link">
+        Tutorial do rsync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../putty_tutorial/" class="md-nav__link">
+        Tutorial do PuTTy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mobaxterm_tutorial/" class="md-nav__link">
+        Tutorial do MobaXterm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Intermediário
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Intermediário
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intermediate/superpc_introduction_part_3/" class="md-nav__link">
+        Introdução ao supercomputador - Parte&nbsp;3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intermediate/slurm_commands/" class="md-nav__link">
+        Comandos do supercomputador
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intermediate/gpu/" class="md-nav__link">
+        Uso da GPU
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intermediate/install_apps/" class="md-nav__link">
+        Instalação de programas no supercomputador
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intermediate/conda/" class="md-nav__link">
+        Tutorial do Conda (miniconda ou Anaconda)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Avançado
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Avançado
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/openmp_tutorial/" class="md-nav__link">
+        Tutorial de OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/mpi_tutorial/" class="md-nav__link">
+        Tutorial de MPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/job_array/" class="md-nav__link">
+        Tutorial de Job Array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/tch-rs_tutorial/" class="md-nav__link">
+        tch-rs-example MNIST
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/jupyter_tutorial/" class="md-nav__link">
+        Usando o Jupyter no supercomputador
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instale-os-pre-requisitos" class="md-nav__link">
+    Instale os pré-requisitos
+  </a>
+  
+    <nav class="md-nav" aria-label="Instale os pré-requisitos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gerando-uma-chave-ssh-publica" class="md-nav__link">
+    Gerando uma chave SSH pública
+  </a>
+  
+    <nav class="md-nav" aria-label="Gerando uma chave SSH pública">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-windows-11" class="md-nav__link">
+    Como gerar a chave pública no Windows 11
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-windows-com-mobaxterm" class="md-nav__link">
+    Como gerar a chave pública no Windows com MobaXterm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-windows-com-putty" class="md-nav__link">
+    Como gerar a chave pública no Windows com PuTTy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-gerar-a-chave-publica-no-linux" class="md-nav__link">
+    Como gerar a chave pública no Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-uma-conta-no-npad" class="md-nav__link">
+    Criando uma conta no NPAD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acessando-o-supercomputador" class="md-nav__link">
+    Acessando o supercomputador
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-uma-configuracao-para-ssh" class="md-nav__link">
+    Crie uma configuração para ssh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acessando-arquivos-do-supercomputador" class="md-nav__link">
+    Acessando arquivos do supercomputador
+  </a>
+  
+    <nav class="md-nav" aria-label="Acessando arquivos do supercomputador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atraves-de-uma-interface-grafica" class="md-nav__link">
+    Através de uma interface gráfica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atraves-do-terminal" class="md-nav__link">
+    Através do terminal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="introducao-ao-supercomputador-parte1">Introdução ao supercomputador - Parte&nbsp;1<a class="headerlink" href="#introducao-ao-supercomputador-parte1" title="Permanent link">&para;</a></h1>
 <div class="toc">
 <ul>
-<li><a href="#introducao-ao-supercomputador-parte1">Introdução ao supercomputador - Parte&nbsp;1</a><ul>
-<li><a href="#instale-os-pre-requisitos">Instale os pré-requisitos</a></li>
-<li><a href="#gerando-uma-chave-ssh-publica">Gerando uma chave SSH pública</a></li>
-<li><a href="#criando-uma-conta-no-npad">Criando uma conta no NPAD</a></li>
-<li><a href="#acessando-o-supercomputador">Acessando o supercomputador</a><ul>
-<li><a href="#dica-crie-uma-configuracao-para-ssh">Dica: Crie uma configuração para ssh</a></li>
+<li><a href="#instale-os-pre-requisitos">Instale os pré-requisitos</a><ul>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#linux">Linux</a></li>
 </ul>
 </li>
+<li><a href="#gerando-uma-chave-ssh-publica">Gerando uma chave SSH pública</a><ul>
+<li><a href="#como-gerar-a-chave-publica-no-windows-11">Como gerar a chave pública no Windows 11</a></li>
+<li><a href="#como-gerar-a-chave-publica-no-windows-com-mobaxterm">Como gerar a chave pública no Windows com MobaXterm</a></li>
+<li><a href="#como-gerar-a-chave-publica-no-windows-com-putty">Como gerar a chave pública no Windows com PuTTy</a></li>
+<li><a href="#como-gerar-a-chave-publica-no-linux">Como gerar a chave pública no Linux</a></li>
+</ul>
+</li>
+<li><a href="#criando-uma-conta-no-npad">Criando uma conta no NPAD</a></li>
+<li><a href="#acessando-o-supercomputador">Acessando o supercomputador</a></li>
+<li><a href="#crie-uma-configuracao-para-ssh">Crie uma configuração para ssh</a></li>
 <li><a href="#acessando-arquivos-do-supercomputador">Acessando arquivos do supercomputador</a><ul>
 <li><a href="#atraves-de-uma-interface-grafica">Através de uma interface gráfica</a></li>
 <li><a href="#atraves-do-terminal">Através do terminal</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 </div>
+<p>O NPAD oferece como solução um acesso a um supercomputador através de um terminal remoto. Para acessar o supercomputador é necessário utilizar um programa chamado <a href="https://linuxcommand.org/lc3_man_pages/ssh1.html">ssh</a>. O ssh é uma programa que permite fazer login em uma máquina remotamente. Neste tutorial iremos aprender a gerar uma chave ssh, a acessar o supercomputador e a transferir arquivos para o supercomputador. Caso tenha alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato conosco através do e-mail <strong>atendimento\<at>npad.ufrn.br</strong> (substituindo \<at> por @).</p>
 <h2 id="instale-os-pre-requisitos">Instale os pré-requisitos<a class="headerlink" href="#instale-os-pre-requisitos" title="Permanent link">&para;</a></h2>
-<p>Como dito anteriormente, acessar o supercomputador requer ssh. O ssh é apenas uma das ferramentas do <a href="https://www.openssh.com/">OpenSSH</a>. Então Caso você esteja utilizando Windows você pode seguir por três caminhos:</p>
+<p>Como dito anteriormente, acessar o supercomputador requer ssh. O ssh é apenas uma das ferramentas do <a href="https://www.openssh.com/">OpenSSH</a>. A seguir veremos como instalar o ssh em cada sistema operacional:</p>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p>O Windows 11 já vem com o OpenSSH e, portanto, você pode usar o ssh ou gerar a chave no Windows Terminal. Nos demais Windows, você pode seguir por um desses caminhos:</p>
 <ul>
-<li><a href="https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse">Instalar OpenSSH e utilizar o Windows PowerShell como terminal (Recomendado)</a></li>
 <li><a href="https://mobaxterm.mobatek.net/download-home-edition.html">Instalar o MobaXterm Home Edition que já vem com OpenSSH</a></li>
 <li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Instalar o PuTTY que possui o seu próprio cliente ssh</a></li>
+<li><a href="https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse">Instalar OpenSSH e utilizar o Windows PowerShell como terminal</a></li>
 </ul>
-<p>Se você utiliza Linux  procure por openssh nos repositórios oficiais. No caso do ubuntu para instalar o openssh é:</p>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p>Procure por openssh nos repositórios oficiais. No caso do ubuntu para instalar o openssh é:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openssh-client
 </code></pre></div>
 <p>Recomendamos utilizar o cliente ssh e terminal oficiais do sistema operacional que estiver utilizando.</p>
 <h2 id="gerando-uma-chave-ssh-publica">Gerando uma chave SSH pública<a class="headerlink" href="#gerando-uma-chave-ssh-publica" title="Permanent link">&para;</a></h2>
-<p>Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo <strong>rsa</strong>. Caso esteja utilizando o <strong>PuTTy</strong> veja esse tutorial: <a href="../putty_tutorial/#gerando-um-par-de-chaves-publico-privada-tipo-rsa">PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA</a>. Para as demais opções é necessário você abrir um terminal.</p>
-<ul>
-<li>Windows + MobaXterm: abra a aplicação e clique no botão <strong>start local terminal</strong></li>
-<li>Windows com  Windows PowerShell: procure o programa <strong>Windows PowerShell</strong> e abra-o</li>
-<li>Ubuntu: procure por gnome-terminal ou gnome-console ou aperte <strong>Ctrl + Alt + T</strong></li>
-</ul>
+<p>Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo <strong>rsa</strong>. Esta seção mostrará como gerar uma chave pública</p>
+<h3 id="como-gerar-a-chave-publica-no-windows-11">Como gerar a chave pública no Windows 11<a class="headerlink" href="#como-gerar-a-chave-publica-no-windows-11" title="Permanent link">&para;</a></h3>
+<p>Procure pelo Windows Terminal e abra-o.</p>
+<p><img alt="winterminal" src="../../assets/superpc_introduction_part_1/winterminal.png" /></p>
+<p>Para gerar sua chave ssh do tipo <strong>rsa</strong>, digite o comando a seguir que irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas:</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa
+</code></pre></div>
+<p>Para visualizar sua chave pública, digite o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="w"> </span>.ssh<span class="se">\i</span>d_rsa.pub
+</code></pre></div>
+<p>Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em <strong>.ssh\id_rsa</strong> e uma chave pública em <strong>.ssh\id_rsa.pub</strong>. </p>
+<p>Vale observar que o Windows usa uma barra invertida para separar as pastas em um caminho (path) para arquivos ou pastas. Enquanto, no Linux usa-se uma barra normal. Por exemplo, se no Windows o caminho é caminho\para\arquivo.txt, no Linux seria caminho/para/arquivo.txt.</p>
+<h3 id="como-gerar-a-chave-publica-no-windows-com-mobaxterm">Como gerar a chave pública no Windows com MobaXterm<a class="headerlink" href="#como-gerar-a-chave-publica-no-windows-com-mobaxterm" title="Permanent link">&para;</a></h3>
+<p>Abra o MobaXterm e clique no botão <strong>start local terminal</strong></p>
 <p>Para gerar sua chave ssh do tipo <strong>rsa</strong> , e digite o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
+</code></pre></div>
+<p>Irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas. Para visualizar sua chave pública, digite o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>.ssh/id_rsa.pub
+</code></pre></div>
+<p>Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em <strong>.ssh/id_rsa</strong> e uma
+chave pública <strong>.ssh/id_rsa.pub</strong>.</p>
+<h3 id="como-gerar-a-chave-publica-no-windows-com-putty">Como gerar a chave pública no Windows com PuTTy<a class="headerlink" href="#como-gerar-a-chave-publica-no-windows-com-putty" title="Permanent link">&para;</a></h3>
+<p>Veja esse tutorial: <a href="../putty_tutorial/#gerando-um-par-de-chaves-publico-privada-tipo-rsa">PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA</a></p>
+<h3 id="como-gerar-a-chave-publica-no-linux">Como gerar a chave pública no Linux<a class="headerlink" href="#como-gerar-a-chave-publica-no-linux" title="Permanent link">&para;</a></h3>
+<p>Abra o terminal do linux ou aperte <strong>Ctrl + Alt + T</strong></p>
+<p>Para gerar sua chave ssh do tipo <strong>rsa</strong>, digite o comando a seguir:</p>
 <div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
 </code></pre></div>
 <p>Irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas. Para visualizar sua chave pública, digite o comando a seguir:</p>
@@ -183,7 +970,7 @@ chave pública <strong>.ssh/id_rsa.pub</strong>.</p>
 duas formas:</p>
 <ul>
 <li>
-<p>Usando a aplicação <strong>PuTTy</strong>. Caso deseja usar o PuTTy veja o tutorial do <a href="../putty_tutorial/#acessando-o-supercomputador-atraves-do-putty">PuTTy</a>.</p>
+<p>Usando a aplicação <strong>PuTTy</strong>. Caso deseja usar o PuTTy veja o tutorial do <a href="../putty_tutorial/#acessando-o-supercomputador-atraves-do-putty">PuTTy</a>. </p>
 </li>
 <li>
 <p>através de um terminal como: <strong>Windows PowerShell</strong>, <strong>MobaXterm</strong>, usando o comando <strong>ssh</strong></p>
@@ -193,47 +980,13 @@ duas formas:</p>
 <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-p4422<span class="w"> </span>nomeDoUsuario@sc2.npad.ufrn.br
 </code></pre></div>
 <p>substituindo o termo <strong>nomeDoUsuario</strong> pelo nome de usuário criado. Caso tenha feito tudo corretamente será apresentada a tela inicial do supercomputador:</p>
-<div class="highlight"><pre><span></span><code>╭────────────────────────────────────────<span class="w"> </span>NPAD<span class="w"> </span>────────────────────────────────────────╮
-│<span class="w">  </span>Núcleo<span class="w"> </span>de<span class="w"> </span>Processamento<span class="w"> </span>de<span class="w"> </span>Alto<span class="w"> </span>Desempenho<span class="w"> </span>-<span class="w"> </span>Universidade<span class="w"> </span>Federal<span class="w"> </span><span class="k">do</span><span class="w"> </span>Rio<span class="w"> </span>Grande<span class="w"> </span><span class="k">do</span><span class="w">  </span>│
-│<span class="w">                                        </span>Norte<span class="w">                                         </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w"> </span>──────────────────────────────────────<span class="w"> </span>ALERTA<span class="w"> </span>──────────────────────────────────────<span class="w"> </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w"> </span>O<span class="w"> </span>uso<span class="w"> </span>deste<span class="w"> </span>sistema<span class="w"> </span>é<span class="w"> </span>restrito<span class="w"> </span>apenas<span class="w"> </span>a<span class="w"> </span>usuários<span class="w"> </span>autorizados.<span class="w"> </span>Você<span class="w"> </span>deve<span class="w"> </span>possuir<span class="w">      </span>│
-│<span class="w"> </span>permissões<span class="w"> </span>explícitas<span class="w"> </span>para<span class="w"> </span>acessar<span class="w"> </span>ou<span class="w"> </span>configurar<span class="w"> </span>este<span class="w"> </span>servidor.<span class="w"> </span>Todas<span class="w"> </span>as<span class="w"> </span>atividades<span class="w">  </span>│
-│<span class="w"> </span>realizadas<span class="w"> </span>neste<span class="w"> </span>dispositivo<span class="w"> </span>estão<span class="w"> </span>sujeitas<span class="w"> </span>a<span class="w"> </span>monitoramento<span class="w"> </span>e<span class="w"> </span>gravação<span class="w"> </span>e<span class="w"> </span>poderão<span class="w"> </span>ser<span class="w"> </span>│
-│<span class="w"> </span>devidamente<span class="w"> </span>reportadas<span class="w"> </span>em<span class="w"> </span>caso<span class="w"> </span>de<span class="w"> </span>uso<span class="w"> </span>ilegal.<span class="w"> </span>Obrigado.<span class="w">                              </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w"> </span>───────────────────────────────────────<span class="w"> </span>FAQ<span class="w"> </span>────────────────────────────────────────<span class="w"> </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w"> </span>Dúvidas?<span class="w"> </span>Veja<span class="w"> </span>nosso<span class="w"> </span>FAQ<span class="w"> </span>em<span class="w"> </span>http://npad.ufrn.br/faq.php<span class="w">                               </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w"> </span>───────────────────────────────────────<span class="w"> </span>USO<span class="w"> </span>────────────────────────────────────────<span class="w"> </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w">                            </span>Uso<span class="w"> </span>atual<span class="w"> </span>dos<span class="w"> </span>nós<span class="w"> </span><span class="k">do</span><span class="w"> </span>sistema<span class="w">                              </span>│
-│<span class="w">                  </span>┏━━━━━━━━━━━┳━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┓<span class="w">                   </span>│
-│<span class="w">                  </span>┃<span class="w"> </span>Partição<span class="w">  </span>┃<span class="w"> </span>Idle<span class="w"> </span>┃<span class="w"> </span>Mixed<span class="w"> </span>┃<span class="w"> </span>Alloc<span class="w"> </span>┃<span class="w"> </span>Maint/Down<span class="w"> </span>┃<span class="w">                   </span>│
-│<span class="w">                  </span>┡━━━━━━━━━━━╇━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━┩<span class="w">                   </span>│
-│<span class="w">                  </span>│<span class="w"> </span>cluster<span class="w">   </span>│<span class="w"> </span><span class="m">10</span><span class="w">   </span>│<span class="w"> </span><span class="m">9</span><span class="w">     </span>│<span class="w"> </span><span class="m">31</span><span class="w">    </span>│<span class="w"> </span><span class="m">1</span><span class="w">          </span>│<span class="w">                   </span>│
-│<span class="w">                  </span>│<span class="w"> </span>service<span class="w">   </span>│<span class="w"> </span><span class="m">3</span><span class="w">    </span>│<span class="w"> </span><span class="m">0</span><span class="w">     </span>│<span class="w"> </span><span class="m">1</span><span class="w">     </span>│<span class="w"> </span><span class="m">0</span><span class="w">          </span>│<span class="w">                   </span>│
-│<span class="w">                  </span>│<span class="w"> </span><span class="nb">test</span><span class="w">      </span>│<span class="w"> </span><span class="m">13</span><span class="w">   </span>│<span class="w"> </span><span class="m">9</span><span class="w">     </span>│<span class="w"> </span><span class="m">32</span><span class="w">    </span>│<span class="w"> </span><span class="m">1</span><span class="w">          </span>│<span class="w">                   </span>│
-│<span class="w">                  </span>│<span class="w"> </span>intel-512<span class="w"> </span>│<span class="w"> </span><span class="m">0</span><span class="w">    </span>│<span class="w"> </span><span class="m">0</span><span class="w">     </span>│<span class="w"> </span><span class="m">6</span><span class="w">     </span>│<span class="w"> </span><span class="m">0</span><span class="w">          </span>│<span class="w">                   </span>│
-│<span class="w">                  </span>│<span class="w"> </span>intel-256<span class="w"> </span>│<span class="w"> </span><span class="m">3</span><span class="w">    </span>│<span class="w"> </span><span class="m">3</span><span class="w">     </span>│<span class="w"> </span><span class="m">0</span><span class="w">     </span>│<span class="w"> </span><span class="m">1</span><span class="w">          </span>│<span class="w">                   </span>│
-│<span class="w">                  </span>│<span class="w"> </span>gpu<span class="w">       </span>│<span class="w"> </span><span class="m">2</span><span class="w">    </span>│<span class="w"> </span><span class="m">0</span><span class="w">     </span>│<span class="w"> </span><span class="m">0</span><span class="w">     </span>│<span class="w"> </span><span class="m">0</span><span class="w">          </span>│<span class="w">                   </span>│
-│<span class="w">                  </span>└───────────┴──────┴───────┴───────┴────────────┘<span class="w">                   </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w"> </span>──────────────────────────────────────<span class="w"> </span>QUOTA<span class="w"> </span>───────────────────────────────────────<span class="w"> </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w">                     </span>Você<span class="w"> </span>utilizou<span class="w"> </span><span class="m">81</span>.5<span class="w"> </span>%<span class="w"> </span>de<span class="w"> </span>sua<span class="w"> </span>quota<span class="w"> </span>de<span class="w"> </span>disco.<span class="w">                      </span>│
-│<span class="w"> </span>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━<span class="w"> </span>│
-│<span class="w">                                                                                      </span>│
-│<span class="w"> </span>─────────────────────────────────────<span class="w"> </span>NOTÍCIAS<span class="w"> </span>─────────────────────────────────────<span class="w"> </span>│
-│<span class="w">                                                                                      </span>│
-<span class="p">|</span><span class="w">                                      </span>...........<span class="w">                                     </span><span class="p">|</span>
-╰──────────────────────────────────────────────────────────────────────────────────────╯
-<span class="o">[</span>nomeDoUsuario@service0<span class="w"> </span>~<span class="o">]</span>$
-</code></pre></div>
-<h3 id="dica-crie-uma-configuracao-para-ssh">Dica: Crie uma configuração para ssh<a class="headerlink" href="#dica-crie-uma-configuracao-para-ssh" title="Permanent link">&para;</a></h3>
+<p><img alt="tela_inicial" src="../../assets/superpc_introduction_part_1/tela_inicial.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Aviso: usuários não tem permissão para usar o comando sudo</p>
+<p>Sudo significa “super user do” e é um comando para elevar seus privilégios ao poderoso usuário root que tem acesso total a todo o sistema. Por isso, você não tem permissão para usar o sudo.
+Se precisar fazer algo que necessite do poder de administrador do sistema, entre em contato com o atendimento do NPAD para obter assistência.</p>
+</div>
+<h2 id="crie-uma-configuracao-para-ssh">Crie uma configuração para ssh<a class="headerlink" href="#crie-uma-configuracao-para-ssh" title="Permanent link">&para;</a></h2>
 <p>Se você criar ou adicionar a seguinte configuração no arquivo <strong>~/.ssh/config</strong>:</p>
 <div class="highlight"><pre><span></span><code>Host<span class="w"> </span>super-pc
 <span class="w">  </span>HostName<span class="w"> </span>sc2.npad.ufrn.br
@@ -265,51 +1018,49 @@ Foi feito dois tutoriais:</p>
 </ul>
 <h3 id="atraves-do-terminal">Através do terminal<a class="headerlink" href="#atraves-do-terminal" title="Permanent link">&para;</a></h3>
 <p>É possível transferir arquivos através das aplicações de linhas de comando como:
-<a href="https://linux.die.net/man/1/scp">scp</a> e <a href="https://linux.die.net/man/1/rsync">rsync</a>. Sendo o <strong>rsync</strong> apenas para linux e <strong>scp</strong> funciona no Windows apenas se você instalar o <a href="https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse">OpenSSH</a>. Para usar como usar o <strong>scp</strong> veja o <a href="../scp_tutorial/">tutorial: scp</a> e para o <strong>rsync</strong> veja o <a href="../rsync_tutorial/">tutorial: rsync</a>.</p>
-              
+<a href="https://linux.die.net/man/1/scp">scp</a> e <a href="https://linux.die.net/man/1/rsync">rsync</a>. Sendo o <strong>rsync</strong> apenas para linux e <strong>scp</strong> funciona também no Windows 11 pelo Windows Terminal. Nos demais Windows,  apenas se você instalar o <a href="https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse">OpenSSH</a>. Para aprender a usar o <strong>scp</strong> veja o <a href="../scp_tutorial/">tutorial: scp</a> e para o <strong>rsync</strong> veja o <a href="../rsync_tutorial/">tutorial: rsync</a>.</p>
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Navegação no rodapé">
-        <a href="../.." class="btn btn-neutral float-left" title="Início"><span class="icon icon-circle-arrow-left"></span> Anterior</a>
-        <a href="../superpc_introduction_part_2/" class="btn btn-neutral float-right" title="Introdução ao supercomputador - Parte&nbsp;2">Seguinte <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Construído com <a href="https://www.mkdocs.org/">MkDocs</a> usando <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provido por <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
+          
           
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versões">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../.." style="color: #fcfcfc">&laquo; Anterior</a></span>
-    
-    
-      <span><a href="../superpc_introduction_part_2/" style="color: #fcfcfc">Seguinte &raquo;</a></span>
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.code.select", "navigation.sections", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
 </html>

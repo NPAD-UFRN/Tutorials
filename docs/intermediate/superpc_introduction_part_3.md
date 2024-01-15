@@ -14,13 +14,12 @@ Por padrão, quando não é definido o número de núcleos a ser utilizado, o su
 #SBATCH --time=0-0:5
 #SBATCH --partition=amd-512
 #SBATCH --cpus-per-task=32
-#SBATCH --hint=compute_bound
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 ./hello_threads 
 ```
 
-A opção `#SBATCH --hint=compute_bound` muda a configuração para ser um thread por core. A opção `#SBATCH --cpus-per-task=32` está definindo 32 cores ou núcleos para esse job. A variável de ambiente `SLURM_CPUS_PER_TASK` fornece a você o número de cores que seu job terá durante a execução do programa.
+A opção `#SBATCH --cpus-per-task=32` está definindo 32 cores ou núcleos para esse job. A variável de ambiente `SLURM_CPUS_PER_TASK` fornece a você o número de cores que seu job terá durante a execução do programa.
 
 ## Script para utilização de vários nós
 
@@ -30,14 +29,23 @@ Novamente, por padrão, **quando não é definido o número de nós a ser utiliz
 #!/bin/bash
 #SBATCH --partition=amd-512  # partição para a qual o job é enviado
 #SBATCH --nodes=2 #número de nós
-#SBATCH --ntasks=4 #número total de tarefas
 #SBATCH --ntasks-per-node=2 #número de tarefas por nó
+#SBATCH --hint=compute_bound
 
-srun prog1 #programa a ser executado. #srun: executa jobs em paralelo
+#programa a ser executado.
+#srun: executa jobs em paralelo
+srun prog1 
+
+#alternativa para casos em que srun não funciona:
+mpirun prog1
 ```
 
-Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](../advanced/mpi_tutorial.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`. Com `#SBATCH --ntasks-per-node` é definido as tarefas por nó. Já `#SBATCH --cpus-per-task` define a quantidade de cpu por tarefas. Vale salientar que as duas últimas opções citadas não são dependentes. Com isso, pode ser que a nó que esteja utilizando seja compartilhado com outros jobs.
+Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](../advanced/mpi_tutorial.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`, que define o total de tarefas, ou `#SBATCH --ntasks-per-node` que define o número de tarefas por nó. 
+A opção `#SBATCH --hint=compute_bound` muda a configuração para ser um thread por core e pode trazer benefícios de performance quando se usa apenas paralelismo de memória distribuída.
 
+Cada tarefa é um processo, ou seja, um programa em execução. Então iniciar 10 tarefas em 2 nós significa iniciar 10 processos em paralelo em cada um dos nós, para um total de 20 processos. Se esses processos não usam MPI, ou alguma outra forma de comunicação entre si, há o risco de que eles apenas executem o mesmo trabalho 20 vezes.
+
+O comando srun é quase sempre equivalente a mpirun: sua função é efetivamente iniciar as tarefas com os recursos que foram alocados. No entanto, em casos em que se usam versões de MPI incompatíveis com Slurm, o comando srun poderá ter efeitos diferentes de mpirun. Em caso de dúvidas, recomenda-se testar cada caso.
 
 ## Compartilhamento dos nós
 
@@ -106,7 +114,7 @@ Também é necessário definir o e-mail que irá receber as notificações com `
 
 ## Definir a quantidade de memória a ser utilizada
 
-O supercomputador está configurado para atribuir, no mínimo, 4GB de memória por núcleo. Caso queira modificar a quantidade de memória padrão, você pode utilizar a opção `#SBATCH --mem-per-cpu`, como demonstrado no exemplo a seguir:
+O supercomputador está configurado para atribuir, no mínimo, 2GB de memória por thread (cpu). Caso queira modificar a quantidade de memória padrão, você pode utilizar a opção `#SBATCH --mem-per-cpu`, como demonstrado no exemplo a seguir:
 
 ```bash
 #!/bin/bash
@@ -117,7 +125,18 @@ O supercomputador está configurado para atribuir, no mínimo, 4GB de memória p
 ./prog1
 ```
 
-O script do exemplo utiliza 3 cpus e para cada cpu é reservado aproximadamente 1GB de memória. Sendo que a multiplicação entre a quantidade de memória por cpu e o número de cpus usada não pode ultrapassar de 4GB, pois esse é o limite de cada nó. O limite de cada nó varia de acordo com a sua partição. Um Nó pertencente a partição **cluster** ou **service**, só pode utilizar ao total 4GB. Um nó na partição **intel-256** e  **gpu**  pode usar até 8 GB e **intel-512** pode usar até 16GB. Lembrando que a partição **test** é **cluster** mais **service**.
+O script do exemplo utiliza 3 cpus e para cada cpu é reservado aproximadamente 1GB de memória. Sendo que a multiplicação entre a quantidade de memória por cpu e o número de cpus usadas não pode ultrapassar o limite total do nó, que varia de acordo com a sua partição. Um nó pertencente a partição **intel-128** só pode utilizar ao total 4GB por core, ou 2GB por cpu. Um nó na partição **intel-256** e  **gpu**  pode usar até 8 GB e **intel-512** pode usar até 16GB.
+
+A tabela a seguir lista os limites de memória por partição:
+
+|   Partição |  Padrão          |  Máximo |
+|------------|------------------|---------|
+| amd-512    | 2000             | 4000    |
+| intel-128  | 2000             | 4000    |
+| intel-256  | 4000             | 8000    |
+| intel-512  | 8000             | 16000   |
+| gpu-8-v100 | 8000             | 8000    |
+| gpu-4-a100 | 2000             | 2000    |
 
 Também há a opção `#SBATCH --mem` que já especifica a quantidade de memória para o job por completo.
 

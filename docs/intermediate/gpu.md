@@ -41,7 +41,7 @@ $ conda activate gpu
 
 Há duas maneiras básicas (que podem ser combinadas) de realizar um treinamento da rede neural com múltiplas GPUs: paralelismo de dados e paralelismo de modelo.
 
-No paralelismo de dados o modelo da rede neural é replicado em cada GPU e cada réplica processa um diferente "batch" de dados. Em seguida, os resultados são reunidos. Pytorch dispõe de classes que facilitam a implementação deste método. Veja mais em:
+No paralelismo de dados, o modelo da rede neural é replicado em cada GPU e cada réplica processa um diferente "batch" de dados. Em seguida, os resultados são reunidos. Pytorch dispõe de classes que facilitam a implementação deste método. Veja mais em:
 
 - [Data Parallelism](https://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html)
 
@@ -49,7 +49,7 @@ No paralelismo de dados o modelo da rede neural é replicado em cada GPU e cada 
 
 - [Getting started with distributed data parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html#getting-started-with-distributed-data-parallel)
 
-No paralelismo de modelo diferentes partes de um mesmo modelo de rede neurais são executadas em diferentes GPUS, mas processando o mesmo "batch" de dados. Veja mais em:
+No paralelismo de modelo, diferentes partes de um mesmo modelo de rede neurais são executadas em diferentes GPUS, mas processando o mesmo "batch" de dados. Veja mais em:
 
 - [Model Parallel](https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html)
 

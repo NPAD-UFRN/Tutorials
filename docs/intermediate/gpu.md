@@ -15,7 +15,7 @@ Um exemplo de script de job para usar duas GPUs da partição gpu-8-v100:
 ./meuprograma # use nvidia-smi para teste
 ```
 
-Exemplo de script para um job com múltiplos threads usando a partição gpu-4-a100
+Exemplo de script para um job com múltiplos threads usando uma GPU da partição gpu-4-a100
 
 ```bash
 #!/bin/bash

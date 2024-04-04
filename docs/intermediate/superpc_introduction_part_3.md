@@ -9,7 +9,7 @@ Nesse tutorial iremos aprender a função de algumas opções que podem ser inse
 Por padrão, quando não é definido o número de núcleos a ser utilizado, o supercomputador executará o job em apenas um **um** núcleo do nó. Para que seu programa execute em mais de um núcleo, é necessário definir no script `#SBATCH --cpus-per-task`, da seguinte forma:
 
 ```bash
- #!/bin/bash
+#!/bin/bash
 #SBATCH --job-name=multithreading_example
 #SBATCH --time=0-0:5
 #SBATCH --partition=amd-512

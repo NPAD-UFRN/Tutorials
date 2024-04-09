@@ -2,7 +2,7 @@
 
 Veremos neste tutorial como executar um job contendo códigos escritos com OpenMP no supercomputador. OpenMP é um modelo de programação paralela para sistemas de memória compartilhada. Nesse modelo, o programa cria diversas threads que são coordenadas por um thread mestre. O programador define algumas seções do código como paralelas utilizando diretivas de preprocessamento específicas.
 
-Os nós do supercomputador não compartilham memória. Por isso, não é possível executar em mais de um nó um job que utiliza somente OpenMP como ferramenta de programação parelela. Contudo, um programa escrito com OpenMP pode ser executado em múltiplos cores em um mesmo nó. Para que um job seja executado em vários nós, deve-se utilizar um modelo de programçáo paralela para sistemas de memória distribuída (e.g. MPI). Também é possível utilizar OpenMP e MPI em um mesmo código.
+Os nós do supercomputador não compartilham memória. Por isso, não é possível executar em mais de um nó um job que utiliza somente OpenMP como ferramenta de programação paralela. Contudo, um programa escrito com OpenMP pode ser executado em múltiplos cores em um mesmo nó. Para que um job seja executado em vários nós, deve-se utilizar um modelo de programação paralela para sistemas de memória distribuída (e.g. MPI). Também é possível utilizar OpenMP e MPI em um mesmo código.
 
 ## Exemplo: Hello World
 
@@ -27,74 +27,61 @@ int main (int argc, char *argv[])
 }
 ```
 
-Em seguida, é necessário escrever um script para executar o programa.
+Em seguida, é necessário escrever um script de job para executar o programa. Por exemplo:
 
 ```bash
 #!/bin/bash 
-#SBATCH --partition=amd-512 #partição para a qual o job é enviado
 #SBATCH --job-name=OMP_hello 
 #SBATCH --time=0-0:5
-#SBATCH --cpus-per-task=8
-#SBATCH --hint=compute_bound
-export OMP_NUM_THREADS=32
+#SBATCH --cpus-per-task=8 
 
 ./hello_openmp
 ```
 
-A descrição dos valores dos campos do script é informada abaixo:
+A descrição dos valores das diretivas do script é informada abaixo:
 
-job-name: Nome que aparecerá na fila de jobs
-time: Tempo máximo para execução do job (neste exemplo = 5 min). Caso o job ainda não tenha terminado, após esse tempo ele será cancelado. Formato: dias-horas:minutos.
+- ``--job-name``: Nome que aparecerá na fila de jobs
+- ``--time``: Tempo máximo para execução do job (neste exemplo = 5 min). Caso o job ainda não tenha terminado, após esse tempo ele será cancelado. Formato: dias-horas:minutos.
+- ``--cpus-per-task``: Significa que foi solicitado oito processadores para o programa hello_openmp.  
 
-Note a configuração da variável de ambiente `OMP_NUM_THREADS` para 32. Isso controla quantas threads serão utilizadas nos jobs que usam OpenMP. Configurar essa variável para um número maior que 32 provavelmente não irá melhorar o desempenho do programa uma vez que cada nó do supercomputador possui 32 cores.
+O Slurm considera que cada core tem dois processadores. Na verdade, esses dois processadores são threads de hardware. Para fazer com que o Slurm considere cada core como sendo um só processador use a diretiva ``--hint=compute_bound``.
+
+Em programas OpenMP, usa-se a variável de ambiente `OMP_NUM_THREADS` para especificar explicitamente o número de threads do programa. Você pode usar a variável de ambiente `SLURM_CPUS_PER_TASK` para definir `OMP_NUM_THREADS`. Por exemplo:
+
+```bash
+#!/bin/bash 
+#SBATCH --job-name=OMP_hello 
+#SBATCH --time=0-0:5
+#SBATCH --cpus-per-task=8 
+#SBATCH --hint=compute_bound
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+./hello_openmp
+```
+
+Note que configurar `OMP_NUM_THREADS` para um número maior que `cpus-per-task` provavelmente não irá melhorar o desempenho do programa porque forçará as threads do programa a compartilhar os recursos do mesmo processador. Em geral, para melhor desempenho, deve-se alocar um processador para cada thread do programa.
 
 ## Submissão de um job
 
-Para enviar arquivos para o supercomputador recomenda-se utilizar o comando rsync.
+Acesse o supercomputador e compile o programa:
 
 ```bash
-$ rsync -azP -e "ssh -p 4422" ~/pastaLocal/{hello_openmp.c,run.slurm} seuUsuario@sc2.npad.ufrn.brr:~/pastaRemota
+gcc -g -Wall -fopenmp -o hello_openmp hello_openmp.c
 ```
 
-O acesso ao supercomputador pode ser feito através do protocolo SSH (Secure Shell).
+Supondo que seu script de job foi salvo no arquivo ``script_job.sh``, submeta o job:
 
 ```bash
-$ ssh -p4422 nome_do_usuario@sc2.npad.ufrn.brr
+$ sbatch script_job.sh
+
+Submitted batch job JOBID
 ```
 
-Em seguida, acesse a pasta onde estão o código fonte em OpenMP e o script de execução.
+JOBID é número do job. O job entrará em uma fila para ser executado. Quando isso acontecer, o saída do programa será gravada no arquivo slurm-JOBID.out. Então, é possível verificar a saída com o seguinte comando:
 
 ```bash
-$ cd pastaRemota/
-```
-
-Compile o código fonte com a flag de otimização "-O_" desejada. No exemplo abaixo, é utilizada a flag -O2 (a flag é habilitada pela letra "O" e não o número "0").
-
-```bash
-$ gcc -O2 hello_openmp.c -o hello_openmp -openmp
-```
-
-### Flags de otimização
-
-- **-O0** Desabilita todas as otimizações.
-
-- **-O1** Habilita otimização para melhorar velocidade, entretanto desabilita  algumas otimizações que aumentam o tamanho do código e afetam a velocidade.
-
-- **-O2** Habilita otimização para melhorar velocidade. Esse é o nível de otimização normalente recomendável e padrão para o icc. Vetorização é habilitada em O2 e níveis maiores.
-- **-O3** Realiza otimizações O2 e habilita transformações de loop mais agressivos. Essas otimizações podem deixar o código mais lento em alguns casos quando comparados a O2. A opção O3 é recomendada para aplicações que têm loops que utilizam fortemente cálculos de ponto flutante e processam grandes conjuntos de dados.
-
-Quanto maior o nível de otimização, mais liberdade o compilador terá para fazer suposições sobre o seu código, podendo produzir resultados indesejados.
-
-Submeta o job.
-
-```bash
-$ sbatch run.slurm
-```
-
-O job entrará em uma fila para ser executado. Quando isso acontecer, será possível verificar as saídas que foram salvas nos arquivos configurados nas tags "--output" e "--error".
-
-```bash
-$ cat slurm.out
+$ cat slurm-JOBID.out
 
   Thread 0 says: Hello Word!
 

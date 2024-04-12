@@ -64,13 +64,13 @@ Note que configurar `OMP_NUM_THREADS` para um número maior que `cpus-per-task` 
 
 ## Submissão de um job
 
-Acesse o supercomputador e compile o programa:
+Edite o arquivo ``hello_openmp.c`` com seu editor favorito e [transfira para o supercomputador](../beginner/superpc_introduction_part_1.md#acessando-arquivos-do-supercomputador). Acesse o supercomputador e compile o programa:
 
 ```bash
 gcc -g -Wall -fopenmp -o hello_openmp hello_openmp.c
 ```
 
-Supondo que seu script de job foi salvo no arquivo ``script_job.sh``, submeta o job:
+Na mesma forma, crie o script de job ``script_job.sh``. Então submeta o job:
 
 ```bash
 $ sbatch script_job.sh

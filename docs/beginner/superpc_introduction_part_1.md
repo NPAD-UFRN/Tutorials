@@ -28,7 +28,7 @@ Recomendamos utilizar o cliente ssh e terminal oficiais do sistema operacional q
 
 ## Gerando uma chave SSH pública
 
-Para criar uma conta no supercomputador, ou tenha perdido a chave pública. Será necessário inserir uma nova chave pública do tipo **rsa**. Esta seção mostrará como gerar uma chave pública
+Para criar uma conta no supercomputador, ou caso tenha perdido a chave pública, será necessário inserir uma nova chave pública do tipo **rsa**. Esta seção mostrará como gerar uma chave pública
 
 ### Como gerar a chave pública no Windows 11
 

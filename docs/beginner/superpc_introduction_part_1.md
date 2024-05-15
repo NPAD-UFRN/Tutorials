@@ -30,6 +30,25 @@ Recomendamos utilizar o cliente ssh e terminal oficiais do sistema operacional q
 
 Para criar uma conta no supercomputador, ou caso tenha perdido a chave pública, será necessário inserir uma nova chave pública do tipo **rsa**. Esta seção mostrará como gerar uma chave pública.
 
+### Como gerar a chave pública no Linux
+
+Abra o terminal do linux ou aperte **Ctrl + Alt + T**
+
+Para gerar sua chave ssh do tipo **rsa**, digite o comando a seguir:
+
+```bash
+ssh-keygen -t rsa
+```
+
+Irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas. Para visualizar sua chave pública, digite o comando a seguir:
+
+```bash
+cat .ssh/id_rsa.pub
+```
+
+Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh/id_rsa** e uma
+chave pública **.ssh/id_rsa.pub**.
+
 ### Como gerar a chave pública no Windows 11
 
 Procure pelo Windows Terminal e abra-o.
@@ -74,25 +93,6 @@ chave pública **.ssh/id_rsa.pub**.
 ### Como gerar a chave pública no Windows com PuTTy
 
 Veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](../beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa)
-
-### Como gerar a chave pública no Linux
-
-Abra o terminal do linux ou aperte **Ctrl + Alt + T**
-
-Para gerar sua chave ssh do tipo **rsa**, digite o comando a seguir:
-
-```bash
-ssh-keygen -t rsa
-```
-
-Irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas. Para visualizar sua chave pública, digite o comando a seguir:
-
-```bash
-cat .ssh/id_rsa.pub
-```
-
-Você precisará copiar e colar essa chave pública na hora de criar uma conta ou adicionar outra chave. Com uma chave pública você está pronto para criar uma conta no NPAD. Perceba que você criou uma chave privada em **.ssh/id_rsa** e uma
-chave pública **.ssh/id_rsa.pub**.
 
 ## Criando uma conta no NPAD
 

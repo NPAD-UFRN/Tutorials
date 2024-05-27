@@ -4,7 +4,7 @@ Nesse tutorial iremos aprender a conduzir a execução de aplicações utilizand
 
 O MPI é um padrão de troca de mensagens para uso em computação paralela, oferecendo uma infraestrutura para a criação de programas que utilizem recursos de CPU e memória de múltiplos computadores em um cluster ou nós em um supercomputador, além de permitir a passagem coordenada de mensagens entre processos.
 
-Definindo um padrão industrial para a troca de mensagens, existem diversas implementações do MPI. Iremos utilizar o Intel MPI juntamente com o gerenciador de recursos SLURM de acordo com os passos a seguir:
+Definindo um padrão industrial para a troca de mensagens, existem diversas implementações do MPI. Iremos utilizar o Open MPI juntamente com o gerenciador de recursos SLURM de acordo com os passos a seguir:
 
 1. Conexão ao supercomputador por SSH
 2. Criação de um programa MPI
@@ -68,29 +68,35 @@ int main (int argc, char *argv[])
 
 ## Passo 3: Compilação do programa MPI
 
-De posse do arquivo `mpi_hello.c`, você pode compilar o mesmo com o comando “mpiicc” da seguinte forma:
+De posse do arquivo `mpi_hello.c`, você pode compilar o mesmo com o comando `mpicc` da seguinte forma:
 
 ```bash
-$ mpiicc mpi_hello.c -o mpi_hello 
+$ mpicc mpi_hello.c -o mpi_hello 
 $ ls 
 mpi_hello.c   mpi_hello
 ```
+ Para programas em C++, use os comandos `mpic++` ou `mpiCC` em vez de `mpicc` para compilar.
 
-A compilação gerou com sucesso o arquivo binário “mpi_hello” que será executado em vários núcleos de processadores do supercomputador no próximo passo.
+
+A compilação gerou com sucesso o arquivo binário `mpi_hello` que será executado em vários núcleos de processadores do supercomputador no próximo passo.
 
 ## Passo 4: Execução do programa no supercomputador
 
-No supercomputador é utilizado o gerenciador de recursos SLURM para se executar tarefas em diversos processadores da máquina. Tradicionalmente usuários do MPI utilizam o comando “mpirun” ou “mpiexec”, mas no nosso ambiente iremos utilizar o SLURM com o comando “sbatch” que recebe um script bash contendo configurações específicas sobre os recursos desejados, assim como que programa será executado pela sua tarefa. Esse script é chamado oficialmente de “Job submission file”.
+No supercomputador é utilizado o gerenciador de recursos SLURM para se executar tarefas em diversos processadores da máquina. No SLURM, o termo tarefa (do inglês task) equivale ao termo processo como estudado no curso de sistemas operacionais. 
+
+Tradicionalmente usuários do MPI utilizam o comando `mpirun` ou `mpiexec`, mas no nosso ambiente iremos utilizar o SLURM com o comando `sbatch` que recebe um script bash contendo configurações específicas sobre os recursos desejados, assim como que programa será executado pela sua tarefa. 
 
 ### Exemplo de script mais simples
 
-Para executar 4 tarefas do programa “mpi_hello” devemos criar um script chamado, por exemplo, de “jobMPI.sh” com o conteúdo abaixo:
+Para executar 4 tarefas (processos) do programa `mpi_hello` devemos criar um script chamado, por exemplo, de `jobMPI.sh` com o conteúdo abaixo:
 
 ```bash
 #!/bin/bash
 #SBATCH --partition=amd-512 #partição para a qual o job é enviado
+#SBATCH --ntasks=4
+#SBATCH --time=0-0:5
 
-srun --time=0-0:5 -n4 mpi_hello
+srun mpi_hello 
 ```
 
 Para enviar esse “job” para a fila de execução usamos o comando:
@@ -137,10 +143,9 @@ Um exemplo de script que solicita que 4 tarefas do programa “mpi_hello” exec
 #SBATCH --partition=amd-512
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=2
-#SBATCH --cpus-per-task=1
 #SBATCH --time=0-0:5
 
-srun mpi_hello
+srun mpi_hello 
 ```
 
 Repare que agora o script contém vários parâmetros que foram adicionados. A descrição desses parâmetros é informada abaixo:
@@ -150,17 +155,16 @@ Repare que agora o script contém vários parâmetros que foram adicionados. A d
 - `error`: Arquivo de saída de erro do programa
 - `nodes`: Quantidade de nós alocados para o programa
 - `ntasks-per-node`: Número de processos em um mesmo nó (normalmente 1 para jobs OpenMP) - Útil para jobs MPI
-- `cpus-per-task`: Número de núcleos de CPU alocados para um processo do programa
 - `time`: Tempo máximo para execução do job (nesse exemplo = 5 min). Caso o job ainda não tenha terminado, após esse tempo ele será cancelado. Formato: dias-horas:minutos
 
-Observa-se, então, que foram requisitados 2 (valor de --nodes) nós para os jobs e que em cada nó serão criados 2 (valor de --ntasks-per-node) processos. O comando “srun mpi_hello” agora não deve mais conter o número de tarefas que será executada, uma vez que isso já está definido anteriormente no script. Veja sua execução:
+Observa-se, então, que foram requisitados 2 (valor de --nodes) nós para os jobs e que em cada nó serão criados 2 (valor de --ntasks-per-node) processos. Veja sua execução:
 
 ```bash
 $ sbatch jobMPI.sh 
 
 Submitted batch job 2236
 
-[seuUsuario@service0 ~]$  cat slurm-2236.out 
+$ cat slurm-2236.out 
 
 Hello from process 3 on node r1i1n2!
 

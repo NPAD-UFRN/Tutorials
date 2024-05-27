@@ -20,7 +20,7 @@ Iremos nesse tutorial utilizar como padrão a plataforma Linux, mas sua execuç�
 Para se conectar no nó de login do supercomputador basta executar o seguinte comando:
 
 ```bash
-$ ssh -p 4422 USUARIO@sc2.npad.ufrn.br
+ssh -p 4422 USUARIO@sc2.npad.ufrn.br
 ```
 
 Troque **USUARIO** pelo seu nome de usuário já autorizado. Você deve visualizar uma tela com notícias sobre o supercomputador e a criação dos seus diretórios pessoais.
@@ -75,16 +75,18 @@ $ mpicc mpi_hello.c -o mpi_hello
 $ ls 
 mpi_hello.c   mpi_hello
 ```
- Para programas em C++, use os comandos `mpic++` ou `mpiCC` em vez de `mpicc` para compilar.
 
+ Para programas em C++, use os comandos `mpic++` ou `mpiCC` em vez de `mpicc` para compilar.
 
 A compilação gerou com sucesso o arquivo binário `mpi_hello` que será executado em vários núcleos de processadores do supercomputador no próximo passo.
 
 ## Passo 4: Execução do programa no supercomputador
 
-No supercomputador é utilizado o gerenciador de recursos SLURM para se executar tarefas em diversos processadores da máquina. No SLURM, o termo tarefa (do inglês task) equivale ao termo processo como estudado no curso de sistemas operacionais. 
+No supercomputador é utilizado o gerenciador de recursos SLURM para se executar tarefas em diversos processadores da máquina. No SLURM, o termo tarefa (do inglês task) é equivalente ao conceito de processo como estudado nos cursos de sistemas operacionais.
 
-Tradicionalmente usuários do MPI utilizam o comando `mpirun` ou `mpiexec`, mas no nosso ambiente iremos utilizar o SLURM com o comando `sbatch` que recebe um script bash contendo configurações específicas sobre os recursos desejados, assim como que programa será executado pela sua tarefa. 
+No Slurm há duas maneiras de lançar tarefas (processos MPI): 1) atráves do comando `mpirun` ou 2) pelo comando do slurm `srun`. As duas maneiras são equivalentes para a maioria dos casos. Fica a critério do usuário testar a melhor maneira de executar seu job.
+
+Neste tutorial, usaremos o comando `mpirun` que é tradicionalmente usado pelo usuários do MPI. Para mais informações sobre `srun` consulte  <https://slurm.schedmd.com/srun.html>
 
 ### Exemplo de script mais simples
 
@@ -96,7 +98,7 @@ Para executar 4 tarefas (processos) do programa `mpi_hello` devemos criar um scr
 #SBATCH --ntasks=4
 #SBATCH --time=0-0:5
 
-srun mpi_hello 
+mpirun mpi_hello 
 ```
 
 Para enviar esse “job” para a fila de execução usamos o comando:
@@ -145,7 +147,7 @@ Um exemplo de script que solicita que 4 tarefas do programa “mpi_hello” exec
 #SBATCH --ntasks-per-node=2
 #SBATCH --time=0-0:5
 
-srun mpi_hello 
+mpirun mpi_hello 
 ```
 
 Repare que agora o script contém vários parâmetros que foram adicionados. A descrição desses parâmetros é informada abaixo:
@@ -179,7 +181,8 @@ From process 0: Number of MPI processes is 4
 
 Repare que agora as 4 tarefas foram executadas em dois nós distintos (r1i1n2 e r1i3n5), exatamente da forma que instruímos.
 
-Assim finalizamos nosso tutorial Intel MPI. Para mais informações sobre o Intel MPI e o SLURM acesse os links abaixo:
+Assim finalizamos nosso tutorial. Para mais informações sobre o Open MPI e o SLURM acesse os links abaixo:
 
-- <http://slurm.schedmd.com/>
-- <https://software.intel.com/en-us/intel-mpi-library>
+- <http://slurm.schedmd.com>
+- <https://slurm.schedmd.com/mpi_guide.html>
+- <https://docs.open-mpi.org/en/v5.0.x/launching-apps/slurm.html>

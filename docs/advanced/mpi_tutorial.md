@@ -84,9 +84,14 @@ A compilação gerou com sucesso o arquivo binário `mpi_hello` que será execut
 
 No supercomputador é utilizado o gerenciador de recursos SLURM para se executar tarefas em diversos processadores da máquina. No SLURM, o termo tarefa (do inglês task) é equivalente ao conceito de processo como estudado nos cursos de sistemas operacionais.
 
-No Slurm há duas maneiras de lançar tarefas (processos MPI): 1) atráves do comando `mpirun` ou 2) pelo comando do slurm `srun`. As duas maneiras são equivalentes para a maioria dos casos. Fica a critério do usuário testar a melhor maneira de executar seu job.
+Há duas maneiras de lançar tarefas (processos) no Slurm:
 
-Neste tutorial, usaremos o comando `mpirun` que é tradicionalmente usado pelo usuários do MPI. Para mais informações sobre `srun` consulte  <https://slurm.schedmd.com/srun.html>
+1) Através do comando `mpirun`;
+2) Através do comando do slurm [`srun`](https://slurm.schedmd.com/srun.html).
+
+As duas maneiras são equivalentes para a maioria dos casos. Fica a critério do usuário testar a melhor maneira de executar seu job.
+
+Neste tutorial, usaremos o comando `mpirun`.
 
 ### Exemplo de script mais simples
 

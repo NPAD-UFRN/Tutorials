@@ -106,6 +106,8 @@ Para executar 4 tarefas (processos) do programa `mpi_hello` devemos criar um scr
 mpirun mpi_hello 
 ```
 
+Note que é desnecessário usar a opção -np do `mpirun` porque o slurm já se encarrega de indicar o número de processos, como definido em `–ntasks`, para o `mpirun`.
+
 Para enviar esse “job” para a fila de execução usamos o comando:
 
 ```bash

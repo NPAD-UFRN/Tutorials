@@ -1,0 +1,1070 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../gpu/">
+      
+      
+        <link rel="next" href="../conda/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Instalação de programas no supercomputador - Tutoriais do NPAD</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instalacao-manual-recomendado" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tutoriais do NPAD" class="md-header__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutoriais do NPAD
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instalação de programas no supercomputador
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tutoriais do NPAD" class="md-nav__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    Tutoriais do NPAD
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Iniciante
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciante
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/introduction_part_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/introduction_part_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/gnome_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copiando arquivos através de uma interface gráfica Gnome Files (linux)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/winscp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copiando arquivos através de uma interface gráfica WinSCP (Windows)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/scp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do scp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/rsync/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do rsync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/putty/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do PuTTy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/mobaxterm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do MobaXterm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Intermediário
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Intermediário
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_part_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comandos do supercomputador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uso da GPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Instalação de programas no supercomputador
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Instalação de programas no supercomputador
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-manual-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação manual (recomendado)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalação manual (recomendado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-instalacao-manual-do-programa-htop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: instalação manual do programa htop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalando-programas-utilizando-o-yumdownloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalando programas utilizando o yumdownloader
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalando programas utilizando o yumdownloader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-instalacao-do-htop-atraves-do-yumdownloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: Instalação do htop através do yumdownloader
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do Conda (miniconda ou Anaconda)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Avançado
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Avançado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/openmp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de OpenMP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/mpi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de MPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/job_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de Job Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/tch-rs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tch-rs-example MNIST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/jupyter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usando o Jupyter no supercomputador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-manual-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação manual (recomendado)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalação manual (recomendado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-instalacao-manual-do-programa-htop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: instalação manual do programa htop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalando-programas-utilizando-o-yumdownloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalando programas utilizando o yumdownloader
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalando programas utilizando o yumdownloader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-instalacao-do-htop-atraves-do-yumdownloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: Instalação do htop através do yumdownloader
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="instalacao-de-programas-no-supercomputador">Instalação de programas no supercomputador<a class="headerlink" href="#instalacao-de-programas-no-supercomputador" title="Permanent link">&para;</a></h1>
+<p>No supercomputador, há diversos programas instalados para todos os usuários. Caso deseje instalar um novo software no supercomputador, você pode solicitar que a equipe do NPAD faça a instalação, através da nossa <a href="http://npad.ufrn.br/solicitarNovoSoftware.php">Página de Solicitação de Software</a>. Entretanto, esse pedido de software será analisado e apenas softwares a serem utilizados por diversos pesquisadores serão aprovados. Os software aprovados entrarão na fila de tarefas da equipe do NPAD e serão instalados assim que possível. Caso sua necessidade de instalação seja urgente ou o software que você deseja instalar não seja largamente utilizado por pesquisadores, você poderá instalar o programa desejado na sua pasta pessoal seguindo uma das duas formas de instalação.
+Instalação manual ou através do gerenciador de pacotes</p>
+<div class="toc">
+<ul>
+<li><a href="#instalacao-manual-recomendado">Instalação manual (recomendado)</a><ul>
+<li><a href="#exemplo-instalacao-manual-do-programa-htop">Exemplo: instalação manual do programa htop</a></li>
+</ul>
+</li>
+<li><a href="#instalando-programas-utilizando-o-yumdownloader">Instalando programas utilizando o yumdownloader</a><ul>
+<li><a href="#exemplo-instalacao-do-htop-atraves-do-yumdownloader">Exemplo: Instalação do htop através do yumdownloader</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="instalacao-manual-recomendado">Instalação manual (recomendado)<a class="headerlink" href="#instalacao-manual-recomendado" title="Permanent link">&para;</a></h2>
+<p>A instalação manual se resume em baixar, compilar o código fonte e instalar na pasta home. A instalação manual é a recomendada pois dessa forma você está livre para realizar as modificações que quiser, escolher a versão que quiser sem a necessidade de intervenção da equipe NPAD. No entanto, exige um conhecimento avançado sobre Linux que muitos clientes não possuem.</p>
+<h3 id="exemplo-instalacao-manual-do-programa-htop">Exemplo: instalação manual do programa htop<a class="headerlink" href="#exemplo-instalacao-manual-do-programa-htop" title="Permanent link">&para;</a></h3>
+<p>Baixando o <strong>htop</strong>. No meu caso estou na minha pasta home, ao executar o comando.</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/htop-dev/htop/archive/refs/tags/3.2.2.tar.gz
+</code></pre></div>
+<p>ao finalizar o download terei baixado o arquivo: <strong>3.2.2.tar.gz</strong> que representa o código do htop na sua versão <strong>3.2.2</strong>. Posso visualizar o arquivos com o comando <strong>ls</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># comando ls na minha pasta home</span>
+ls
+<span class="m">3</span>.2.2.tar.gz<span class="w">  </span>etc<span class="w">  </span>libvips<span class="w">  </span>pascal-parsec<span class="w">  </span>pkgs<span class="w">  </span>scratch<span class="w"> </span>
+</code></pre></div>
+<p>O arquivo está compactado no formato <strong>.tar.gz</strong>. Então vou descompactar
+o arquivo.</p>
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span><span class="m">3</span>.2.2.tar.gz<span class="w"> </span>
+</code></pre></div>
+<p>Listando o diretório novamente verei que agora tenho uma pasta chamada
+<strong>htop-3.2.2</strong>.</p>
+<div class="highlight"><pre><span></span><code>ls
+<span class="m">3</span>.2.2.tar.gz<span class="w">  </span>etc<span class="w">  </span>htop-3.2.2<span class="w">  </span>libvips<span class="w">  </span>pascal-parsec<span class="w">  </span>pkgs<span class="w">  </span>scratch<span class="w"> </span>
+</code></pre></div>
+<p>Entro do diretório do <strong>htop-3.2.2</strong> e inicio o processo de configuração e compilação do pacote seguindo a documentação do projeto <a href="https://github.com/htop-dev/htop#compile-from-source">https://github.com/htop-dev/htop#compile-from-source</a></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w">  </span>htop-3.2.2<span class="p">;</span>
+</code></pre></div>
+<p>Segundo a documentação preciso executar 3 comandos <strong>autogen.sh</strong>, .<strong>/configure</strong> e <strong>make</strong>. Sendo o último comando a  compilação. Segundo a documentação o comando <strong>./configure</strong>, aceita o parâmetro <strong>--prefix</strong> referente ao local de instalação do pacote. Como não se pode instalar nenhum programa globalmente no supercomputador, então deve-se passar um outro diretório. Segundo a <a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">freedesktop.org</a> é recomendado instalar aplicações de usuário na pasta oculta: <strong>~/.local</strong> ou  <strong>$HOME/.local</strong>, caso não exista essa pasta, crie.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># configurando e compilando o htop</span>
+./autogen.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make
+<span class="c1"># instalando o htop</span>
+make<span class="w"> </span>install
+</code></pre></div>
+<p>Agora posso executar htop da seguinte forma</p>
+<div class="highlight"><pre><span></span><code>~/.local/bin/htop
+</code></pre></div>
+<p>Como você instalou o htop na pasta padrão do <strong>freedesktop</strong>, então se você relogar ou executar o comando</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>irá perceber que o htop está disponível nas suas variáveis de ambiente ou seja, pode executar o htop da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code>htop<span class="w"> </span>--version
+htop<span class="w"> </span><span class="m">3</span>.2.2
+</code></pre></div>
+<p>perceba que a versão que vem instalada por padrão é a <strong>3.0.5</strong></p>
+<div class="highlight"><pre><span></span><code>/bin/htop<span class="w"> </span>--version
+htop<span class="w"> </span><span class="m">3</span>.0.5
+</code></pre></div>
+<h2 id="instalando-programas-utilizando-o-yumdownloader">Instalando programas utilizando o yumdownloader<a class="headerlink" href="#instalando-programas-utilizando-o-yumdownloader" title="Permanent link">&para;</a></h2>
+<p>Ao acessar sua pasta no supercomputador, execute o seguinte comando para baixar o seu programa.</p>
+<div class="highlight"><pre><span></span><code>yumdownloader<span class="w"> </span>&lt;nome<span class="w"> </span><span class="k">do</span><span class="w"> </span>programa&gt;
+</code></pre></div>
+<p>O yumdownloader irá procurar em diferentes repositórios  uma versão empacotada <strong>.rpm</strong> do programa que você pesquisou. Caso você encontre o pacote é possível instalar o programa na sua pasta home com os programas: <code>rpm2cpio</code> e <code>cpio</code>, através do seguinte comando:</p>
+<div class="highlight"><pre><span></span><code>rpm2cpio<span class="w"> </span>&lt;nome<span class="w"> </span><span class="k">do</span><span class="w"> </span>arquivo<span class="w"> </span>baixado&gt;.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idv<span class="w"> </span>
+</code></pre></div>
+<p>Se tudo der certo o programa será instalado no caminho relativo: <code>./usr</code>.</p>
+<h3 id="exemplo-instalacao-do-htop-atraves-do-yumdownloader">Exemplo: Instalação do htop através do yumdownloader<a class="headerlink" href="#exemplo-instalacao-do-htop-atraves-do-yumdownloader" title="Permanent link">&para;</a></h3>
+<p>Procure o <strong>htop</strong> nos repositórios com <code>yumdownloader</code></p>
+<div class="highlight"><pre><span></span><code>yumdownloader<span class="w"> </span>htop
+</code></pre></div>
+<p>Caso yumdownloader encontre o pacote ele irá baixá-lo para você</p>
+<div class="highlight"><pre><span></span><code>ls
+etc<span class="w">  </span>htop-3.2.1-1.el8.x86_64.rpm<span class="w">  </span>libvips<span class="w">  </span>pascal-parsec<span class="w">  </span>pkgs<span class="w">  </span>scratch<span class="w"> </span>
+</code></pre></div>
+<p>no caso do htop ele encontrou uma versão mais antiga da aplicação a versão <strong>3.2.1</strong>. Para instalar o htop no diretório: <code>./usr</code>,  basta usar o comando:</p>
+<div class="highlight"><pre><span></span><code>rpm2cpio<span class="w">  </span>htop-3.2.1-1.el8.x86_64.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idv<span class="w"> </span>
+</code></pre></div>
+<p>Perceba que ele criou uma pasta <strong>usr</strong> no local onde você está e instalar o htop nessa pasta</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>
+etc<span class="w">  </span>htop-3.2.1-1.el8.x86_64.rpm<span class="w">  </span>libvips<span class="w">  </span>pascal-parsec<span class="w">  </span>pkgs<span class="w">  </span>scratch<span class="w">  </span>usr
+</code></pre></div>
+<p>Como eu utilizei o comando <code>rpm2cpio</code>  na minha pasta home. Então posso posso executar htop da seguinte forma</p>
+<div class="highlight"><pre><span></span><code>~/usr/bin/htop
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.code.select", "navigation.sections", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

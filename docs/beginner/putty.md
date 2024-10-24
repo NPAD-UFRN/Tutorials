@@ -7,12 +7,12 @@ Nesses tutoriais foi utilizado o PuTTy na sua versão **0.78**
 Procure nos seus aplicativos e abra o programa **puttygen**.
 Em **Type of Key to generate** selecione **RSA**. Clique em **Generate**.
 
-![PuTTyGen](../assets/putty_tutorial/puttygen_before.png)
+![PuTTyGen](../assets/putty/puttygen_before.png)
 
 Faça movimentos aleatórios com o mouse até preencher toda a barra verde. Quando
 isso acontecer irá aparecer a seguinte tela:
 
-![PuTTyGen after](../assets/putty_tutorial/puttygen_after.png)
+![PuTTyGen after](../assets/putty/puttygen_after.png)
 
 Debaixo de **Public key for pasting into OpenSSH authorized keys file:** Encontra-se
 a chave que você deve copiar colocar criar uma conta no NPAD. Lembre-se de salvar duas chaves, a publica e a privada. Você deve salvar as chaves clicando em **Save public-key** e **Save private-key**. Se você não colocar uma passphrase ele irá lhe alerta isso mas não é necessário colocar uma. *LEMBRE-SE* que se você colocar uma passphrase e esquece-la ou perder o par de chaves você terá que criar um novo par de chaves e [adicionar uma nova chave](http://npad.ufrn.br/npad/chave).
@@ -34,10 +34,10 @@ Dessa forma sempre que quiser acessar o NPAD através do PuTTy é só selecionar
 nome da sessão, clicar em **Load** e depois no botão **Open**.
 
 
-![PuTTY Config Session](../assets/putty_tutorial/putty_session.png) 
+![PuTTY Config Session](../assets/putty/putty_session.png) 
 
-![PuTTY Config Session](../assets/putty_tutorial/putty_private_key.png)
+![PuTTY Config Session](../assets/putty/putty_private_key.png)
 
-![PuTTY Config Session](../assets/putty_tutorial/putty_username.png)
+![PuTTY Config Session](../assets/putty/putty_username.png)
 
 

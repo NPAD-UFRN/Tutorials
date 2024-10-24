@@ -40,7 +40,7 @@ srun prog1
 mpirun prog1
 ```
 
-Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](../advanced/mpi_tutorial.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`, que define o total de tarefas, ou `#SBATCH --ntasks-per-node` que define o número de tarefas por nó. 
+Onde `#SBATCH --nodes` indica a quantidade de nós a ser utilizada, podendo também ser definido com `#SBATCH -N`. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com [MPI](../advanced/mpi.md). Para isso é necessário primeiramente definir o número de tarefas com a opção `#SBATCH --ntasks` ou `#SBATCH -n`, que define o total de tarefas, ou `#SBATCH --ntasks-per-node` que define o número de tarefas por nó. 
 A opção `#SBATCH --hint=compute_bound` muda a configuração para ser um thread por core e pode trazer benefícios de performance quando se usa apenas paralelismo de memória distribuída.
 
 Cada tarefa é um processo, ou seja, um programa em execução. Então iniciar 10 tarefas em 2 nós significa iniciar 10 processos em paralelo em cada um dos nós, para um total de 20 processos. Se esses processos não usam MPI, ou alguma outra forma de comunicação entre si, há o risco de que eles apenas executem o mesmo trabalho 20 vezes.
@@ -248,4 +248,4 @@ O tempo de início esperado depende da finalização dos jobs em execução e o 
 #SBATCH --time=0-0:5 #Formato padrão: dias-horas:minutos
 ```
 
-Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](../advanced/openmp_tutorial.md) e [MPI](../advanced/mpi_tutorial.md).
+Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](../advanced/openmp.md) e [MPI](../advanced/mpi.md).

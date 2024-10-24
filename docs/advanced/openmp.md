@@ -64,7 +64,7 @@ Note que configurar `OMP_NUM_THREADS` para um número maior que `cpus-per-task` 
 
 ## Submissão de um job
 
-Edite o arquivo ``hello_openmp.c`` com seu editor favorito e [transfira para o supercomputador](../beginner/superpc_introduction_part_1.md#acessando-arquivos-do-supercomputador). Acesse o supercomputador e compile o programa:
+Edite o arquivo ``hello_openmp.c`` com seu editor favorito e [transfira para o supercomputador](../beginner/introduction_part_1.md#acessando-arquivos-do-supercomputador). Acesse o supercomputador e compile o programa:
 
 ```bash
 gcc -g -Wall -fopenmp -o hello_openmp hello_openmp.c

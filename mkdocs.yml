@@ -73,24 +73,24 @@ markdown_extensions:
 nav:
    - Início: index.md
    - Iniciante:
-      - beginner/superpc_introduction_part_1.md
-      - beginner/superpc_introduction_part_2.md
+      - beginner/introduction_part_1.md
+      - beginner/introduction_part_2.md
       - beginner/gnome_files.md
-      - beginner/winscp_tutorial.md
-      - beginner/scp_tutorial.md
-      - beginner/rsync_tutorial.md
-      - beginner/putty_tutorial.md
-      - beginner/mobaxterm_tutorial.md
+      - beginner/winscp.md
+      - beginner/scp.md
+      - beginner/rsync.md
+      - beginner/putty.md
+      - beginner/mobaxterm.md
    - Intermediário:
-      - intermediate/superpc_introduction_part_3.md
+      - intermediate/introduction_part_3.md
       - intermediate/slurm_commands.md  
       - intermediate/gpu.md            
       - intermediate/install_apps.md
       - intermediate/conda.md     
    - Avançado:    
-      - advanced/openmp_tutorial.md
-      - advanced/mpi_tutorial.md
+      - advanced/openmp.md
+      - advanced/mpi.md
       - advanced/job_array.md
-      - advanced/tch-rs_tutorial.md
-      - advanced/jupyter_tutorial.md
+      - advanced/tch-rs.md
+      - advanced/jupyter.md
       

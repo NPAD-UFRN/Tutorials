@@ -1,0 +1,1349 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../beginner/mobaxterm/">
+      
+      
+        <link rel="next" href="../slurm_commands/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Introdução ao supercomputador - Parte 3 - Tutoriais do NPAD</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#script-para-multithreading" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tutoriais do NPAD" class="md-header__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutoriais do NPAD
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introdução ao supercomputador - Parte&nbsp;3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tutoriais do NPAD" class="md-nav__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    Tutoriais do NPAD
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Iniciante
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciante
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/introduction_part_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/introduction_part_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/gnome_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copiando arquivos através de uma interface gráfica Gnome Files (linux)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/winscp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copiando arquivos através de uma interface gráfica WinSCP (Windows)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/scp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do scp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/rsync/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do rsync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/putty/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do PuTTy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/mobaxterm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do MobaXterm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Intermediário
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Intermediário
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;3
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;3
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#script-para-multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script para multithreading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-para-utilizacao-de-varios-nos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script para utilização de vários nós
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compartilhamento-dos-nos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compartilhamento dos nós
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escolha da qualidade de serviço e Limite no uso do supercomputador
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escolha da qualidade de serviço e Limite no uso do supercomputador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qos-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      QOS 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qos-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      QOS 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preempt" class="md-nav__link">
+    <span class="md-ellipsis">
+      preempt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receber-e-mails-sobre-inicio-e-fim-da-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receber e-mails sobre início e fim da execução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definir-a-quantidade-de-memoria-a-ser-utilizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definir a quantidade de memória a ser utilizada
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carregando-softwares-disponiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carregando softwares disponíveis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizando-a-sua-pasta-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilizando a sua pasta home
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizando-o-scratch-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilizando o scratch global
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backfill-e-escolha-do-tempo-de-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backfill e escolha do tempo de execução
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comandos do supercomputador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uso da GPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalação de programas no supercomputador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do Conda (miniconda ou Anaconda)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Avançado
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Avançado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/openmp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de OpenMP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/mpi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de MPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/job_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de Job Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/tch-rs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tch-rs-example MNIST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/jupyter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usando o Jupyter no supercomputador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#script-para-multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script para multithreading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-para-utilizacao-de-varios-nos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script para utilização de vários nós
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compartilhamento-dos-nos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compartilhamento dos nós
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escolha da qualidade de serviço e Limite no uso do supercomputador
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escolha da qualidade de serviço e Limite no uso do supercomputador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qos-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      QOS 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qos-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      QOS 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preempt" class="md-nav__link">
+    <span class="md-ellipsis">
+      preempt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receber-e-mails-sobre-inicio-e-fim-da-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receber e-mails sobre início e fim da execução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definir-a-quantidade-de-memoria-a-ser-utilizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definir a quantidade de memória a ser utilizada
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carregando-softwares-disponiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carregando softwares disponíveis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizando-a-sua-pasta-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilizando a sua pasta home
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizando-o-scratch-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilizando o scratch global
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backfill-e-escolha-do-tempo-de-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backfill e escolha do tempo de execução
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="introducao-ao-supercomputador-parte-3">Introdução ao supercomputador - Parte&nbsp;3<a class="headerlink" href="#introducao-ao-supercomputador-parte-3" title="Permanent link">&para;</a></h1>
+<p>Nesse tutorial iremos aprender a função de algumas opções que podem ser inseridas nos scripts enviados para o supercomputador. Caso surja alguma dúvida durante o tutorial, sinta-se à vontade para entrar em contato através do e-mail <strong>atendimento\<at>npad.ufrn.br</strong> (substituindo \<at> por <strong>@</strong>).</p>
+<div class="toc">
+<ul>
+<li><a href="#script-para-multithreading">Script para multithreading</a></li>
+<li><a href="#script-para-utilizacao-de-varios-nos">Script para utilização de vários nós</a></li>
+<li><a href="#compartilhamento-dos-nos">Compartilhamento dos nós</a></li>
+<li><a href="#escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador">Escolha da qualidade de serviço e Limite no uso do supercomputador</a><ul>
+<li><a href="#qos-1">QOS 1</a></li>
+<li><a href="#qos-2">QOS 2</a></li>
+<li><a href="#preempt">preempt</a></li>
+</ul>
+</li>
+<li><a href="#receber-e-mails-sobre-inicio-e-fim-da-execucao">Receber e-mails sobre início e fim da execução</a></li>
+<li><a href="#definir-a-quantidade-de-memoria-a-ser-utilizada">Definir a quantidade de memória a ser utilizada</a></li>
+<li><a href="#carregando-softwares-disponiveis">Carregando softwares disponíveis</a></li>
+<li><a href="#utilizando-a-sua-pasta-home">Utilizando a sua pasta home</a></li>
+<li><a href="#utilizando-o-scratch-global">Utilizando o scratch global</a></li>
+<li><a href="#backfill-e-escolha-do-tempo-de-execucao">Backfill e escolha do tempo de execução</a></li>
+</ul>
+</div>
+<h2 id="script-para-multithreading">Script para multithreading<a class="headerlink" href="#script-para-multithreading" title="Permanent link">&para;</a></h2>
+<p>Por padrão, quando não é definido o número de núcleos a ser utilizado, o supercomputador executará o job em apenas um <strong>um</strong> núcleo do nó. Para que seu programa execute em mais de um núcleo, é necessário definir no script <code>#SBATCH --cpus-per-task</code>, da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=multithreading_example</span>
+<span class="c1">#SBATCH --time=0-0:5</span>
+<span class="c1">#SBATCH --partition=amd-512</span>
+<span class="c1">#SBATCH --cpus-per-task=32</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+
+./hello_threads<span class="w"> </span>
+</code></pre></div>
+<p>A opção <code>#SBATCH --cpus-per-task=32</code> está definindo 32 cores ou núcleos para esse job. A variável de ambiente <code>SLURM_CPUS_PER_TASK</code> fornece a você o número de cores que seu job terá durante a execução do programa.</p>
+<h2 id="script-para-utilizacao-de-varios-nos">Script para utilização de vários nós<a class="headerlink" href="#script-para-utilizacao-de-varios-nos" title="Permanent link">&para;</a></h2>
+<p>Novamente, por padrão, <strong>quando não é definido o número de nós a ser utilizado, o supercomputador executará o job em apenas um nó e em um núcleo desse nó</strong>. Para que seu programa execute em mais de um nó, é necessário definir no script da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512  # partição para a qual o job é enviado</span>
+<span class="c1">#SBATCH --nodes=2 #número de nós</span>
+<span class="c1">#SBATCH --ntasks-per-node=2 #número de tarefas por nó</span>
+<span class="c1">#SBATCH --hint=compute_bound</span>
+
+<span class="c1">#programa a ser executado.</span>
+<span class="c1">#srun: executa jobs em paralelo</span>
+srun<span class="w"> </span>prog1<span class="w"> </span>
+
+<span class="c1">#alternativa para casos em que srun não funciona:</span>
+mpirun<span class="w"> </span>prog1
+</code></pre></div>
+<p>Onde <code>#SBATCH --nodes</code> indica a quantidade de nós a ser utilizada, podendo também ser definido com <code>#SBATCH -N</code>. Também se pode definir o número de tarefas por nó e a quantidade de cpus por tarefas, essas configurações estão relacionadas a paralelização com <a href="../../advanced/mpi/">MPI</a>. Para isso é necessário primeiramente definir o número de tarefas com a opção <code>#SBATCH --ntasks</code> ou <code>#SBATCH -n</code>, que define o total de tarefas, ou <code>#SBATCH --ntasks-per-node</code> que define o número de tarefas por nó. 
+A opção <code>#SBATCH --hint=compute_bound</code> muda a configuração para ser um thread por core e pode trazer benefícios de performance quando se usa apenas paralelismo de memória distribuída.</p>
+<p>Cada tarefa é um processo, ou seja, um programa em execução. Então iniciar 10 tarefas em 2 nós significa iniciar 10 processos em paralelo em cada um dos nós, para um total de 20 processos. Se esses processos não usam MPI, ou alguma outra forma de comunicação entre si, há o risco de que eles apenas executem o mesmo trabalho 20 vezes.</p>
+<p>O comando srun é quase sempre equivalente a mpirun: sua função é efetivamente iniciar as tarefas com os recursos que foram alocados. No entanto, em casos em que se usam versões de MPI incompatíveis com Slurm, o comando srun poderá ter efeitos diferentes de mpirun. Em caso de dúvidas, recomenda-se testar cada caso.</p>
+<h2 id="compartilhamento-dos-nos">Compartilhamento dos nós<a class="headerlink" href="#compartilhamento-dos-nos" title="Permanent link">&para;</a></h2>
+<p>Outro padrão do supercomputador é, ao submeter um job o nó <strong>não</strong> será reservado exclusivamente para aquele job, podendo ser alocado mais jobs dependendo da disponibilidade dos recursos naquele nó. Caso seu programa necessite de um nó por completo, utilize a opção <code>#SBATCH --exclusive</code>. Por exemplo, para um programa que será executado em paralelo, o desempenho do programa será melhor se o programa puder utilizar os recursos por completo.</p>
+<h2 id="escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador">Escolha da qualidade de serviço e Limite no uso do supercomputador<a class="headerlink" href="#escolha-da-qualidade-de-servico-e-limite-no-uso-do-supercomputador" title="Permanent link">&para;</a></h2>
+<p>O usuário poderá enviar múltiplos jobs para o supercomputador. Porém, para permitir que mais pesquisadores compartilhem esse recurso com menos tempo de espera foram impostos limites no uso do supercomputador a partir da <strong>qualidade do serviço em inglês Quality of Service (QOS)</strong> utilizado. Comando a ser acrescentado no script de execução:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --qos=qosN #Subistitua N pelo tipo de QOS desejado</span>
+</code></pre></div>
+<h3 id="qos-1">QOS 1<a class="headerlink" href="#qos-1" title="Permanent link">&para;</a></h3>
+<p>O QOS 1 é o QOS padrão, com ele o usuário poderá enviar até 100 jobs para o supercomputador, sendo somente 4 jobs em execução ou 256 núcleos físicos (4 nós completos) em utilização, o que ocorrer primeiro. O job tem limite de tempo de até <strong>2 dias</strong> Ex.:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="w"> </span><span class="c1">#SBATCH --partition=amd-512</span>
+<span class="w"> </span><span class="c1">#SBATCH --time=0-0:5</span>
+
+<span class="w"> </span>./prog1
+</code></pre></div>
+<h3 id="qos-2">QOS 2<a class="headerlink" href="#qos-2" title="Permanent link">&para;</a></h3>
+<p>O QOS 2 é mais indicado para mais jobs que utilizam um nó inteiro ou jobs que utilizam alguns poucos nós. Com ele, o usuário poderá colocar 100 jobs na fila, mas apenas <strong>1 job</strong> em execução  com até 256 núcleos físicos (4 nós completos) em utilização, o que ocorrer primeiro. Tendo o job o limite de tempo de até <strong>7 dias</strong> Ex.:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="w"> </span><span class="c1">#SBATCH --partition=amd-512</span>
+<span class="w"> </span><span class="c1">#SBATCH --time=0-0:5</span>
+<span class="w"> </span><span class="c1">#SBATCH --qos=qos2</span>
+
+<span class="w"> </span>./prog1
+</code></pre></div>
+<h3 id="preempt">preempt<a class="headerlink" href="#preempt" title="Permanent link">&para;</a></h3>
+<p>Para trabalhos que necessitem rodar vários jobs simultaneamente , ou job que precisa de mais de até 20 dias para ser executado. Recomenda-se utilizar preempt, nele o usuário pode deixar rodando até 100 jobs simultâneos. No entanto, por falta de recurso o seus jobs poderão ser cancelados a qualquer momento. Ex:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1">#!/bin/bash</span>
+<span class="w"> </span><span class="c1">#SBATCH --partition=amd-512</span>
+<span class="w"> </span><span class="c1">#SBATCH --time=0-0:5</span>
+<span class="w"> </span><span class="c1">#SBATCH --qos=preempt</span>
+
+<span class="w"> </span>./prog1
+</code></pre></div>
+<h2 id="receber-e-mails-sobre-inicio-e-fim-da-execucao">Receber e-mails sobre início e fim da execução<a class="headerlink" href="#receber-e-mails-sobre-inicio-e-fim-da-execucao" title="Permanent link">&para;</a></h2>
+<p>Caso deseje receber notificações por e-mail sobre início e fim de execução, utiliza-se a opção <strong>--mail-type</strong> onde se pode definir que tipo de notificação deseja receber. Se for definido <code>ALL</code>, as notificações recebidas serão sobre <code>BEGIN</code>, <code>END</code>, <code>FAIL</code>, <code>REQUEUE</code> e <code>STAGE_OUT</code>. Caso deseje apenas um evento específico utilize uma das opções, sendo as opções disponíveis: <code>NONE</code>, <code>BEGIN</code>, <code>END</code>, <code>FAIL</code>, <code>REQUEUE</code>, <code>STAGE_OUT</code>, <code>TIME_LITMIT</code>, <code>TIME_LIMIT_90</code> (alcançou 90% do tempo limite), <code>TIME_LIMIT_50</code> e <code>ARRAY_TASKS</code> (enviar e-mail para cada array task).</p>
+<p>Também é necessário definir o e-mail que irá receber as notificações com <code>#SBATCH --mail-user</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512</span>
+<span class="c1">#SBATCH --mail-user=meuemail@mail.com</span>
+<span class="c1">#SBATCH --mail-type=ALL</span>
+
+./prog1
+</code></pre></div>
+<h2 id="definir-a-quantidade-de-memoria-a-ser-utilizada">Definir a quantidade de memória a ser utilizada<a class="headerlink" href="#definir-a-quantidade-de-memoria-a-ser-utilizada" title="Permanent link">&para;</a></h2>
+<p>O supercomputador está configurado para atribuir, no mínimo, 2GB de memória por thread (cpu). Caso queira modificar a quantidade de memória padrão, você pode utilizar a opção <code>#SBATCH --mem-per-cpu</code>, como demonstrado no exemplo a seguir:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512</span>
+<span class="c1">#SBATCH --mem-per-cpu=1000</span>
+<span class="c1">#SBATCH --cpus-per-task=3</span>
+
+./prog1
+</code></pre></div>
+<p>O script do exemplo utiliza 3 cpus e para cada cpu é reservado aproximadamente 1GB de memória. Sendo que a multiplicação entre a quantidade de memória por cpu e o número de cpus usadas não pode ultrapassar o limite total do nó, que varia de acordo com a sua partição. Um nó pertencente a partição <strong>intel-128</strong> só pode utilizar ao total 4GB por core, ou 2GB por cpu. Um nó na partição <strong>intel-256</strong> e  <strong>gpu</strong>  pode usar até 8 GB e <strong>intel-512</strong> pode usar até 16GB.</p>
+<p>A tabela a seguir lista os limites de memória por partição:</p>
+<table>
+<thead>
+<tr>
+<th>Partição</th>
+<th>Padrão</th>
+<th>Máximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amd-512</td>
+<td>2000</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>intel-128</td>
+<td>2000</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>intel-256</td>
+<td>4000</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>intel-512</td>
+<td>8000</td>
+<td>16000</td>
+</tr>
+<tr>
+<td>gpu-8-v100</td>
+<td>8000</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>gpu-4-a100</td>
+<td>2000</td>
+<td>2000</td>
+</tr>
+</tbody>
+</table>
+<p>Também há a opção <code>#SBATCH --mem</code> que já especifica a quantidade de memória para o job por completo.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512</span>
+<span class="c1">#SBATCH --mem=3000</span>
+<span class="c1">#SBATCH --cpus-per-task=3</span>
+
+./prog1
+</code></pre></div>
+<h2 id="carregando-softwares-disponiveis">Carregando softwares disponíveis<a class="headerlink" href="#carregando-softwares-disponiveis" title="Permanent link">&para;</a></h2>
+<p>A grande maioria dos softwares científicos instalados no supercomputador são executados por módulo e, portanto, será preciso carregar seus módulos. Para verificar quais módulos estão disponíveis no supercomputador, digite no terminal do Linux o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>avail
+</code></pre></div>
+<p>Depois de verificar os módulos disponíveis, você poderá carregar aqueles dos quais você precisa utilizando um comando semelhante ao mostrado a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>libraries/zlib/1.2.11-intel-16.0.1<span class="w">     </span><span class="c1"># Substitua libraries/zlib/1.2.11-intel-16.0.1 pelo módulo desejado, inserindo seu caminho completo fornecido pelo comando module avail</span>
+</code></pre></div>
+<p>Para verificar quais módulos você tem atualmente carregados, utilize o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>list
+</code></pre></div>
+<p>Para limpar todos os módulos que você tem atualmente carregados, utilize o comando a seguir:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>clear
+</code></pre></div>
+<p>Os módulos podem ser adicionados ao script criado usando o editor de textos disponível de sua preferência, caso queira editar via linha comando, pode utilizar o editor <strong>Nano</strong>, basta você efetuar o devido carregamento dos módulos necessários, através dos comandos supracitados. Tome o cuidado apenas de, no script, carregar os módulos antes de fazer a execução do programa propriamente dito.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512</span>
+<span class="c1">#SBATCH --time=0-0:5</span>
+
+module<span class="w"> </span>load<span class="w"> </span>nome-do-software<span class="w"> </span><span class="c1">#nome do software que aparecerá após usar o comando module avail</span>
+nome-do-software<span class="w"> </span>prog1
+</code></pre></div>
+<h2 id="utilizando-a-sua-pasta-home">Utilizando a sua pasta home<a class="headerlink" href="#utilizando-a-sua-pasta-home" title="Permanent link">&para;</a></h2>
+<p>Ao logar no supercomputador, você estará na pasta home. Essa pasta possui uma comunicação via rede com o supercomputador e já está configurada para, ao submeter os scripts para o supercomputador, ler os arquivos de entrada necessários para executar o job dessa pasta, assim como arquivo log de saída que será salvo nesse mesmo local.</p>
+<p>Ou seja, não é necessário utilizar comandos extras ao utilizar essa pasta. Apenas as configurações básicas do script, como o tempo estimado de execução do programa, quantidade de cpus, a fila em que deseja alocar o job e afins.</p>
+<p>Uma vez com o script pronto, é só enviar o script com o comando <code>sbatch</code>.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sbatch<span class="w"> </span>meu-script.sh
+</code></pre></div>
+<h2 id="utilizando-o-scratch-global">Utilizando o scratch global<a class="headerlink" href="#utilizando-o-scratch-global" title="Permanent link">&para;</a></h2>
+<p>O NPAD utiliza o BeeGFS para scratch global, ou seja, armazenamento temporário de arquivos, compartilhado com todos os nós. Como usuário do sistema, tudo que você precisa fazer é copiar os arquivos relevantes pra pasta ~/scratch. Você pode inclusive submeter jobs de lá. Essa pasta na verdade é um symlink que aponta pra /scratch/global/usuario. Num job script, você também pode usar a variável de ambiente $SCRATCH_GLOBAL para pegar a localização dessa pasta. </p>
+<p>Acessando a pasta /scratch/global destinada ao seu usuário:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/scratch
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCH_GLOBAL</span>
+</code></pre></div>
+<p>Exemplo de utilização:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512</span>
+<span class="c1">#SBATCH --time=0-0:5</span>
+
+<span class="c1">#move os arquivos com os parâmetros de entrada para a pasta /scratch/global</span>
+mv<span class="w"> </span>entrada.in<span class="w"> </span><span class="nv">$SCRATCH_GLOBAL</span><span class="w"> </span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCH_GLOBAL</span>
+
+<span class="c1">#execução normal do seu programa</span>
+./prog<span class="w"> </span>
+
+<span class="c1">#move os arquivos de saída para o diretório /home/usuario</span>
+mv<span class="w"> </span>saida.out<span class="w"> </span>/home/usuario/<span class="w"> </span>
+</code></pre></div>
+<p>O scratch global deve ser considerada como uma pasta temporária, e os arquivos lá podem ser excluídos se a equipe do NPAD determinar que eles não estão sendo usados há muito tempo. Portanto, não mantenha arquivos importantes nela. A boa prática é usar a scratch global para a geração de arquivos temporários e depois copiar os resultados importantes para fora dela.</p>
+<h2 id="backfill-e-escolha-do-tempo-de-execucao">Backfill e escolha do tempo de execução<a class="headerlink" href="#backfill-e-escolha-do-tempo-de-execucao" title="Permanent link">&para;</a></h2>
+<p>O Supercomputador por padrão aloca os jobs de acordo com suas prioridades, ou seja, jobs com alta prioridade executam antes. Porém a opção backfill é utilizada para uma melhor utilização do sistema. Com isso é possível que jobs com prioridades menores sejam alocados e executados antes de jobs com alta prioridade. Isso acontece apenas no caso em que o tempo de início esperado do jobs de alta prioridade for maior que o tempo limite de execução do job de baixa prioridade.</p>
+<p>O tempo de início esperado depende da finalização dos jobs em execução e o tempo limite de execução depende da opção <strong>--time</strong> no script do job. Logo, uma escolha razoável do tempo estimado de execução pode fazer com que o job comece a executar mais rápido. Ex.:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --partition=amd-512</span>
+<span class="c1">#SBATCH --time=0-0:5 #Formato padrão: dias-horas:minutos</span>
+</code></pre></div>
+<p>Para executar programas em paralelo no supercomputador, leia os tutorias de <a href="../../advanced/openmp/">OpenMP</a> e <a href="../../advanced/mpi/">MPI</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.code.select", "navigation.sections", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

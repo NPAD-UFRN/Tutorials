@@ -1,0 +1,1521 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../introduction_part_3/">
+      
+      
+        <link rel="next" href="../gpu/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Comandos do supercomputador - Tutoriais do NPAD</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comandos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tutoriais do NPAD" class="md-header__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutoriais do NPAD
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Comandos do supercomputador
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tutoriais do NPAD" class="md-nav__button md-logo" aria-label="Tutoriais do NPAD" data-md-component="logo">
+      
+  <img src="../../assets/logo_npad.png" alt="logo">
+
+    </a>
+    Tutoriais do NPAD
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NPAD-UFRN/Tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Iniciante
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Iniciante
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/introduction_part_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/introduction_part_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/gnome_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copiando arquivos através de uma interface gráfica Gnome Files (linux)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/winscp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copiando arquivos através de uma interface gráfica WinSCP (Windows)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/scp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do scp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/rsync/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do rsync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/putty/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do PuTTy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beginner/mobaxterm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do MobaXterm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Intermediário
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Intermediário
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_part_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução ao supercomputador - Parte&nbsp;3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Comandos do supercomputador
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Comandos do supercomputador
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinfo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-sinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: sinfo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprio" class="md-nav__link">
+    <span class="md-ellipsis">
+      sprio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sprio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-sprio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: sprio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squeue" class="md-nav__link">
+    <span class="md-ellipsis">
+      squeue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="squeue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-squeue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: squeue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sbatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      sbatch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sbatch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      scancel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scancel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-scancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: scancel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uso da GPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalação de programas no supercomputador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial do Conda (miniconda ou Anaconda)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Avançado
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Avançado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/openmp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de OpenMP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/mpi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de MPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/job_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de Job Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/tch-rs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tch-rs-example MNIST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/jupyter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usando o Jupyter no supercomputador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinfo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-sinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: sinfo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprio" class="md-nav__link">
+    <span class="md-ellipsis">
+      sprio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sprio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-sprio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: sprio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squeue" class="md-nav__link">
+    <span class="md-ellipsis">
+      squeue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="squeue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-squeue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: squeue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sbatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      sbatch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sbatch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      scancel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scancel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-scancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo: scancel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="comandos-do-supercomputador">Comandos do supercomputador<a class="headerlink" href="#comandos-do-supercomputador" title="Permanent link">&para;</a></h1>
+<p>O <a href="https://slurm.schedmd.com/">Slurm</a> é o gerenciador de recursos usado no
+supercomputador. Ele que auxilia o usuário na utilização do supercomputador,
+disponibilizando ferramentas e comandos que ajudam na submissão, execução e
+gerenciamento de jobs. Aqui então vamos listar alguns desses comandos, muito
+úteis para o usuário saber o que se passa com seu job recém-submetido.</p>
+<h2 id="comandos">Comandos<a class="headerlink" href="#comandos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sinfo">sinfo</a></td>
+<td>Visualize as informações das partições e nós do supercomputador.</td>
+</tr>
+<tr>
+<td><a href="#sprio">sprio</a></td>
+<td>Visualize as informações dos fatores que compõem a prioridade na fila de cada job.</td>
+</tr>
+<tr>
+<td><a href="#squeue">squeue</a></td>
+<td>Visualize as informações gerais dos Job's que estão na fila ou executando.</td>
+</tr>
+<tr>
+<td><a href="#sbatch">sbatch</a></td>
+<td>Submeta um Job para o supercomputador.</td>
+</tr>
+<tr>
+<td><a href="#scancel">scancel</a></td>
+<td>Cancele um Job que está na fila ou em execução.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sinfo">sinfo<a class="headerlink" href="#sinfo" title="Permanent link">&para;</a></h3>
+<p>sinfo exibe as informações das partições e nós do supercomputador.</p>
+<h4 id="exemplo-sinfo">Exemplo: sinfo<a class="headerlink" href="#exemplo-sinfo" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sinfo
+PARTITION<span class="w"> </span>AVAIL<span class="w">  </span>TIMELIMIT<span class="w">  </span>NODES<span class="w">  </span>STATE<span class="w"> </span>NODELIST
+cluster*<span class="w">     </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">      </span><span class="m">1</span><span class="w">  </span>down*<span class="w"> </span>r1i2n14
+cluster*<span class="w">     </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">     </span><span class="m">18</span><span class="w">  </span>alloc<span class="w"> </span>r1i0n<span class="o">[</span><span class="m">1</span>-2,4-7,11-12,14-16<span class="o">]</span>,r1i1n<span class="o">[</span><span class="m">7</span>,9,15<span class="o">]</span>,r1i2n<span class="o">[</span><span class="m">1</span>-2,11<span class="o">]</span>,r1i3n1
+cluster*<span class="w">     </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">     </span><span class="m">13</span><span class="w">    </span>mix<span class="w"> </span>r1i0n<span class="o">[</span><span class="m">0</span>,3,9<span class="o">]</span>,r1i1n<span class="o">[</span><span class="m">4</span>-6,10,14<span class="o">]</span>,r1i2n<span class="o">[</span><span class="m">3</span>-4,10,13<span class="o">]</span>,r1i3n2
+cluster*<span class="w">     </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">     </span><span class="m">19</span><span class="w">   </span>idle<span class="w"> </span>r1i0n<span class="o">[</span><span class="m">10</span>,17<span class="o">]</span>,r1i1n<span class="o">[</span><span class="m">0</span>-3,11-13,16<span class="o">]</span>,r1i2n<span class="o">[</span><span class="m">0</span>,5-7,9,12,15-16<span class="o">]</span>,r1i3n0
+service<span class="w">      </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">      </span><span class="m">3</span><span class="w">    </span>mix<span class="w"> </span>service<span class="o">[</span><span class="m">1</span>,3-4<span class="o">]</span>
+service<span class="w">      </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">      </span><span class="m">1</span><span class="w">  </span>alloc<span class="w"> </span>service2
+<span class="nb">test</span><span class="w">         </span>up<span class="w">      </span><span class="m">30</span>:00<span class="w">      </span><span class="m">1</span><span class="w">  </span>down*<span class="w"> </span>r1i2n14
+<span class="nb">test</span><span class="w">         </span>up<span class="w">      </span><span class="m">30</span>:00<span class="w">     </span><span class="m">19</span><span class="w">  </span>alloc<span class="w"> </span>r1i0n<span class="o">[</span><span class="m">1</span>-2,4-7,11-12,14-16<span class="o">]</span>,r1i1n<span class="o">[</span><span class="m">7</span>,9,15<span class="o">]</span>,r1i2n<span class="o">[</span><span class="m">1</span>-2,11<span class="o">]</span>,r1i3n1,service2
+<span class="nb">test</span><span class="w">         </span>up<span class="w">      </span><span class="m">30</span>:00<span class="w">     </span><span class="m">16</span><span class="w">    </span>mix<span class="w"> </span>r1i0n<span class="o">[</span><span class="m">0</span>,3,9<span class="o">]</span>,r1i1n<span class="o">[</span><span class="m">4</span>-6,10,14<span class="o">]</span>,r1i2n<span class="o">[</span><span class="m">3</span>-4,10,13<span class="o">]</span>,r1i3n2,service<span class="o">[</span><span class="m">1</span>,3-4<span class="o">]</span>
+<span class="nb">test</span><span class="w">         </span>up<span class="w">      </span><span class="m">30</span>:00<span class="w">     </span><span class="m">19</span><span class="w">   </span>idle<span class="w"> </span>r1i0n<span class="o">[</span><span class="m">10</span>,17<span class="o">]</span>,r1i1n<span class="o">[</span><span class="m">0</span>-3,11-13,16<span class="o">]</span>,r1i2n<span class="o">[</span><span class="m">0</span>,5-7,9,12,15-16<span class="o">]</span>,r1i3n0
+intel-512<span class="w">    </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">      </span><span class="m">6</span><span class="w">    </span>mix<span class="w"> </span>r1i3n<span class="o">[</span><span class="m">11</span>-16<span class="o">]</span>
+intel-256<span class="w">    </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">      </span><span class="m">6</span><span class="w">    </span>mix<span class="w"> </span>r1i3n<span class="o">[</span><span class="m">3</span>-6,9-10<span class="o">]</span>
+intel-256<span class="w">    </span>up<span class="w"> </span><span class="m">20</span>-00:00:0<span class="w">      </span><span class="m">1</span><span class="w">   </span>idle<span class="w"> </span>r1i3n7
+gpu<span class="w">          </span>up<span class="w"> </span><span class="m">2</span>-00:00:00<span class="w">      </span><span class="m">2</span><span class="w">   </span>idle<span class="w"> </span>gpunode<span class="o">[</span><span class="m">0</span>-1<span class="o">]</span>
+</code></pre></div>
+<p>A lista abaixo mostra o que representa cada campo de saída do comando sinfo.</p>
+<ul>
+<li><strong>PARTITION</strong>: Partições do supercomputador</li>
+<li><strong>cluster</strong>: Partição padrão indicada pelo asterisco, composta por 64 nós
+    computacionais em lâmina.
+    \
+    r1i0n[0-7, 9-12, 14-17], r1i1n[0-7, 9-16], r1i2n[0-7, 9-16] e r1i3n[0-7,
+    9-16]</li>
+<li><strong>test</strong>: Partição para testes rápidos, composta por 72 (todos) nós
+    computacionais. Jobs rodados na partição teste tem o valor de prioridade
+    aumentado em 15000.
+    \
+    r1i0n[0-7, 9-12, 14-17], r1i1n[0-7, 9-16], r1i2n[0-7, 9-16], r1i3n[0-7,
+    9-16], service[1-4, 8-11]</li>
+<li><strong>service</strong>: Partição composta por 4 nós computacionais.
+    \
+    service[1-4]</li>
+<li><strong>knl</strong>: Partição composta por 2 nós computacionais com grande número de
+    núcleos.
+    \
+    service[8,9]</li>
+<li><strong>gpu</strong>: Partição composta por 2 nós computacionais com 8 GPUs cada.
+    \
+    service[10,11]</li>
+<li><strong>full</strong>: Partição composta por todos os 72 nós computacionais.
+    \
+    r1i0n[0-7, 9-12, 14-17], r1i1n[0-7, 9-16], r1i2n[0-7, 9-16], r1i3n[0-7,
+    9-16], service[1-4, 8-11]</li>
+</ul>
+<p>Mais detalhes sobre o hardware podem ser vistos em
+  <a href="http://npad.ufrn.br/hardware.php">Hardware</a></p>
+<ul>
+<li>
+<p><strong>AVAIL</strong>: Disponibilidade de cada partição (<em>Available</em>)</p>
+</li>
+<li>
+<p><strong>TIMELIMIT</strong>: Tempo limite de execução do job na partição correspondente.
+  Todas as partições possuem o tempo limite de 20 dias para execução do job.
+  Exceto a partição teste, cujo o tempo limite é de 30 minutos com ganho na
+  prioridade para execução.\
+  <strong>Formato do timelimit no comando sinfo</strong>: Dias <strong>-</strong> horas <strong>:</strong> minutos
+  <strong>:</strong> segundos, exemplo: 20-13:22:21 significa 20 dias, 13 horas, 22 minutos e
+  21 segundos</p>
+</li>
+<li>
+<p><strong>NODES</strong>: Número de nós de cada partição</p>
+</li>
+<li>
+<p><strong>STATE</strong>: Campo mais relevante dado como resposta do comando sinfo. Seu
+  resultado pode ter significados diferentes, dependendo da saída fornecida,
+  conforme é possível verificar abaixo.</p>
+</li>
+<li>
+<p><strong>alloc</strong>: Indica que um conjunto de nós está em uso</p>
+</li>
+<li>
+<p><strong>idle</strong>: Indica que um conjunto de nós está ocioso</p>
+</li>
+<li>
+<p><strong>down/drain</strong>: Indica que um conjunto de nós se encontra indisponível</p>
+</li>
+<li>
+<p><strong>maint/resv</strong>: Indica que um conjunto de nós está reservados</p>
+</li>
+<li>
+<p><strong>mix</strong>: Indica que um conjunto de nós está sendo compartilhados por mais de
+    um job</p>
+</li>
+<li>
+<p><strong>NODELIST</strong>: Representa as listas de nós correspondentes a cada par
+  partição/estado</p>
+</li>
+</ul>
+<h3 id="sprio">sprio<a class="headerlink" href="#sprio" title="Permanent link">&para;</a></h3>
+<p>Sprio é usado para exibir componentes da prioridade da fila de jobs. Quanto
+maior for seu valor, maior será a sua prioridade. São mostradas somente as
+informações dos jobs que ainda não estão em execução. Caso seja de seu interesse
+entender como se dá o cálculo da prioridade da fila de jobs,
+<a href="http://npad.ufrn.br/uso.php#fila-jobs">clique aqui</a>.</p>
+<h4 id="exemplo-sprio">Exemplo: sprio<a class="headerlink" href="#exemplo-sprio" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sprio<span class="w"> </span>-l
+<span class="w">          </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>USER<span class="w">   </span>PRIORITY<span class="w">       </span>SITE<span class="w">        </span>AGE<span class="w">      </span>ASSOC<span class="w">  </span>FAIRSHARE<span class="w">    </span>JOBSIZE<span class="w">  </span>PARTITION<span class="w">        </span>QOS<span class="w">        </span>NICE
+<span class="w">         </span><span class="m">164854</span><span class="w"> </span>intel-512<span class="w"> </span>dnpinhei<span class="w">      </span><span class="m">25031</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1000</span><span class="w">          </span><span class="m">0</span><span class="w">         </span><span class="m">31</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">24000</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">165887</span><span class="w"> </span>intel-512<span class="w"> </span>dnpinhei<span class="w">      </span><span class="m">25031</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1000</span><span class="w">          </span><span class="m">0</span><span class="w">         </span><span class="m">31</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">24000</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">167884</span><span class="w"> </span>cluster<span class="w">   </span>dnpinhei<span class="w">      </span><span class="m">25031</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1000</span><span class="w">          </span><span class="m">0</span><span class="w">         </span><span class="m">31</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">24000</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">168322</span><span class="w"> </span>intel-512<span class="w"> </span>bpesilva<span class="w">       </span><span class="m">1486</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1000</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">487</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">168323</span><span class="w"> </span>intel-512<span class="w"> </span>bpesilva<span class="w">       </span><span class="m">1486</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1000</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">487</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">168333</span><span class="w"> </span>intel-512<span class="w"> </span>bpesilva<span class="w">       </span><span class="m">1486</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1000</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">487</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">168917</span><span class="w"> </span>intel-512<span class="w"> </span>bpesilva<span class="w">       </span><span class="m">1226</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">740</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">487</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170024</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1028</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">510</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170025</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1028</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">510</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170026</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1027</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">510</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170027</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1027</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">509</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170028</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1027</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">509</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170030</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1026</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">509</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170031</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1024</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">506</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170032</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1024</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">506</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170033</span><span class="w"> </span>cluster<span class="w">   </span>jxdlneto<span class="w">       </span><span class="m">1023</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">506</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">518</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170034</span><span class="w"> </span>cluster<span class="w">    </span>crcosta<span class="w">       </span><span class="m">1840</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">506</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1334</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170035</span><span class="w"> </span>cluster<span class="w">    </span>crcosta<span class="w">       </span><span class="m">1838</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">504</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1334</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170036</span><span class="w"> </span>cluster<span class="w">    </span>crcosta<span class="w">       </span><span class="m">1838</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">504</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1334</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170037</span><span class="w"> </span>cluster<span class="w">   </span>scavalca<span class="w">       </span><span class="m">2984</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">504</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">2480</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170514</span><span class="w"> </span>cluster<span class="w">   </span>thsrodri<span class="w">       </span><span class="m">2423</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">446</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1978</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170515</span><span class="w"> </span>cluster<span class="w">   </span>thsrodri<span class="w">       </span><span class="m">2423</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">446</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1978</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170516</span><span class="w"> </span>cluster<span class="w">   </span>thsrodri<span class="w">       </span><span class="m">2423</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">446</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1978</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+<span class="w">         </span><span class="m">170517</span><span class="w"> </span>cluster<span class="w">   </span>thsrodri<span class="w">       </span><span class="m">2423</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">446</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">1978</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">           </span><span class="m">0</span>
+</code></pre></div>
+<p>A lista abaixo mostra o que representa cada campo de saída do comando sprio.</p>
+<ul>
+<li>
+<p><strong>JOBID</strong>: Identificador (ID) do job em espera</p>
+</li>
+<li>
+<p><strong>USER</strong>: Usuário que submeteu o job</p>
+</li>
+<li>
+<p><strong>PRIORITY</strong>: Representa a prioridade do job na fila. Quanto maior seu valor,
+  maior sua prioridade</p>
+</li>
+<li>
+<p><strong>AGE</strong>: É utilizado para o cálculo da prioridade. Se o job acabou de ser
+  submetido, então o AGE vale 0; caso o mesmo esteja em espera há 24 horas,
+  então o AGE tem valor 500; a partir de 48 horas, esse campo passa a
+  valer 1000. Quaisquer valores intermediários representam frações de tempo,
+  obedecendo o padrão supracitado.</p>
+</li>
+<li>
+<p><strong>FAIRSHARE</strong> É utilizado para o cálculo da prioridade, juntamente com o valor
+  do campo AGE. Representa uma espécie de peso, compensação, no caso do usuário
+  consumir uma quantidade menor ou maior do que sua fatia esperada.</p>
+</li>
+<li>
+<p><strong>JOBSIZE</strong>: Campo irrelevante: não é utilizado no cálculo da prioridade</p>
+</li>
+<li>
+<p><strong>PARTITION</strong>: Somente terá um valor caso a fila utilizada seja a test</p>
+</li>
+<li>
+<p><strong>QOS</strong>: Representa simplesmente um bônus na prioridade, caso o usuário seja o
+  administrador</p>
+</li>
+<li>
+<p><strong>NICE</strong>: Campo irrelevante: não é utilizado no cálculo da prioridade</p>
+</li>
+</ul>
+<h3 id="squeue">squeue<a class="headerlink" href="#squeue" title="Permanent link">&para;</a></h3>
+<p>Squeue exibe as informações gerais dos Job's que estão na fila ou executando.
+Este comando possuí variações como:\
+<strong>squeue --start</strong>: Exibe, além da fila, o tempo esperado para execução dos
+jobs.\
+<strong>watch squeue</strong>: Atualiza a exibição da fila a cada 2 segundos.</p>
+<h4 id="exemplo-squeue">Exemplo: squeue<a class="headerlink" href="#exemplo-squeue" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>squeue
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+<span class="w">            </span><span class="m">167884</span><span class="w">   </span>cluster<span class="w">   </span>tupi10<span class="w"> </span>dnpinhei<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">     </span><span class="m">21</span><span class="w"> </span><span class="o">(</span>Resources<span class="o">)</span>
+<span class="w">            </span><span class="m">170642</span><span class="w">   </span>cluster<span class="w">   </span>MIN_06<span class="w"> </span>rbdpasso<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170639</span><span class="w">   </span>cluster<span class="w">   </span>MIN_03<span class="w"> </span>rbdpasso<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170640</span><span class="w">   </span>cluster<span class="w">   </span>MIN_04<span class="w"> </span>rbdpasso<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170641</span><span class="w">   </span>cluster<span class="w">   </span>MIN_05<span class="w"> </span>rbdpasso<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170643</span><span class="w">   </span>cluster<span class="w">   </span>MIN_07<span class="w"> </span>rbdpasso<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170037</span><span class="w">   </span>cluster<span class="w"> </span>PascalAn<span class="w"> </span>scavalca<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170518</span><span class="w">   </span>cluster<span class="w">    </span>cout1<span class="w"> </span>thsrodri<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170519</span><span class="w">   </span>cluster<span class="w">    </span>cout1<span class="w"> </span>thsrodri<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170517</span><span class="w">   </span>cluster<span class="w">    </span>cout1<span class="w"> </span>thsrodri<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170516</span><span class="w">   </span>cluster<span class="w">    </span>cout1<span class="w"> </span>thsrodri<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170515</span><span class="w">   </span>cluster<span class="w">    </span>cout1<span class="w"> </span>thsrodri<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170514</span><span class="w">   </span>cluster<span class="w">    </span>cout1<span class="w"> </span>thsrodri<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170034</span><span class="w">   </span>cluster<span class="w">   </span>SLP_20<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170035</span><span class="w">   </span>cluster<span class="w">   </span>SLP_21<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170036</span><span class="w">   </span>cluster<span class="w">   </span>SLP_22<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170659</span><span class="w">   </span>cluster<span class="w">   </span>SLP_31<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170660</span><span class="w">   </span>cluster<span class="w">   </span>SLP_32<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170661</span><span class="w">   </span>cluster<span class="w">   </span>SLP_33<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170662</span><span class="w">   </span>cluster<span class="w">   </span>SLP_41<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170663</span><span class="w">   </span>cluster<span class="w">   </span>SLP_42<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170664</span><span class="w">   </span>cluster<span class="w">   </span>SLP_43<span class="w">  </span>crcosta<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170025</span><span class="w">   </span>cluster<span class="w"> </span>dinam_hw<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170026</span><span class="w">   </span>cluster<span class="w"> </span>dinam_iw<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170024</span><span class="w">   </span>cluster<span class="w"> </span>dinam_hw<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170027</span><span class="w">   </span>cluster<span class="w"> </span>dinam_iw<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170028</span><span class="w">   </span>cluster<span class="w"> </span>dinam_iw<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170030</span><span class="w">   </span>cluster<span class="w"> </span>PBEqe_ge<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170032</span><span class="w">   </span>cluster<span class="w"> </span>PBEd35qe<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170033</span><span class="w">   </span>cluster<span class="w"> </span>PBEd36qe<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170031</span><span class="w">   </span>cluster<span class="w"> </span>PBEd2qe_<span class="w"> </span>jxdlneto<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170657</span><span class="w">   </span>cluster<span class="w"> </span>complex_<span class="w"> </span>ldflacer<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">170658</span><span class="w">   </span>cluster<span class="w">   </span>Citopt<span class="w"> </span>bpesilva<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+<span class="w">            </span><span class="m">168024</span><span class="w">   </span>cluster<span class="w"> </span>fwi-deli<span class="w"> </span>cdssanta<span class="w">  </span>R<span class="w"> </span><span class="m">2</span>-02:21:08<span class="w">      </span><span class="m">4</span><span class="w"> </span>r1i0n<span class="o">[</span><span class="m">14</span>-16<span class="o">]</span>,r1i1n9
+</code></pre></div>
+<p>A lista abaixo mostra o que representa cada campo de saída do comando squeue.</p>
+<ul>
+<li>
+<p><strong>JOBID</strong>: Identificador (ID) do job</p>
+</li>
+<li>
+<p><strong>PARTITION</strong>: Fila do supercomputador que está sendo utilizada</p>
+</li>
+<li>
+<p><strong>NAME</strong>: Nome do job.</p>
+</li>
+<li>
+<p><strong>USER</strong>: Usuário que está executando aquele job</p>
+</li>
+<li>
+<p><strong>ST</strong>: O estado em que se encontra o job. Abaixo seguem os dois estados
+  possíveis em que um job pode se encontrar.</p>
+</li>
+<li><strong>PD</strong> (<strong>Pending</strong>): Significa que o job está pendente, devido a uma ou
+    mais razões. Neste caso, mais detalhes são mostrados no campo
+    NODELIST(REASON)</li>
+<li>
+<p><strong>R</strong> (<strong>Running</strong>): Significa que o job está em execução normal</p>
+</li>
+<li>
+<p><strong>TIME</strong>: O tempo total em que o job está em execução</p>
+</li>
+<li>
+<p><strong>NODES</strong>: O número de nós em que o job está sendo executado</p>
+</li>
+<li>
+<p><strong>NODELIST(REASON)</strong>: Se o job estiver em execução, esse campo lista os nomes
+  dos nós em que o job está sendo executado. Se o job estiver pendente, este
+  campo mostra o motivo pelo qual o trabalho está pendente. Neste caso, os
+  motivos podem ser:</p>
+</li>
+<li>
+<p><strong>Resources</strong>: Significa que os recursos de computação necessários para
+    aquele job não estão disponíveis no momento</p>
+</li>
+<li>
+<p><strong>Priority</strong>: Indica que o job está aguardando sua vez na fila,seguindo a
+    fila de prioridades</p>
+</li>
+<li>
+<p><strong>Dependency</strong>: Indica que o job está aguardando a conclusão de outro
+    trabalho antes de ser executado. Dependências são solicitadas quando um
+    trabalho é submetido</p>
+</li>
+<li>
+<p><strong>PartitionTimeLimit</strong>: Significa que o job solicitou mais tempo de execução
+    do que a fila permite</p>
+</li>
+<li>
+<p><strong>AssocGrpCpuLimit</strong>: Indica que o grupo do usuário está executando próximo
+    ao seu número máximo de núcleos de CPU permitidos</p>
+</li>
+<li>
+<p><strong>AssocGrpCPURunMinsLimit</strong>: Indica que executar aquele job colocaria o
+    grupo do usuário além do número máximo de minutos de CPU alocados para os
+    jobs atualmente em execução.</p>
+</li>
+<li>
+<p><strong>AssocGrpMemLimit</strong>: O grupo do usuário alocou sua quantidade máxima de RAM</p>
+</li>
+<li>
+<p><strong>JobArrayTaskLimit</strong>: Indica que aquele job está envolvido em um vetor
+    (grupo) de tarefas limitado a executar em um número definido de núcleos de
+    CPU de uma vez</p>
+</li>
+</ul>
+<h3 id="sbatch">sbatch<a class="headerlink" href="#sbatch" title="Permanent link">&para;</a></h3>
+<p>Sbatch envia um script para o supercomputador, esse script é passado através do
+nome do arquivo que for especificado, o sbach irá ler o script a partir da
+entrada padrão. (Você pode encontrar como criar um script na Parte 2 do tutorial
+referente à introdução ao supercomputador).</p>
+<h4 id="exemplo">Exemplo<a class="headerlink" href="#exemplo" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>squeue<span class="w"> </span>-u<span class="w"> </span>scavalcanti
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+sbatch<span class="w"> </span>run_pascalanalyzer.sh
+Submitted<span class="w"> </span>batch<span class="w"> </span>job<span class="w"> </span><span class="m">170926</span>
+
+$<span class="w"> </span>squeue<span class="w"> </span>-u<span class="w"> </span>scavalcanti
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+<span class="w">            </span><span class="m">170926</span><span class="w">   </span>cluster<span class="w"> </span>PascalAn<span class="w"> </span>scavalca<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+</code></pre></div>
+<p>no exemplo acima, foi utilizado o comando <strong>squeue</strong> como o parâmetro <strong>-u</strong>
+para mostrar as informações gerais dos jobs do usuário scavalcanti, tanto os que
+estão executando. quanto os que estão na fila. Sendo que não havia nenhum job a
+ser mostrado. Posteriormente, o comando <strong>sbatch</strong> foi usado para submeter um
+job. Novamente, o comando squeue foi usado, mostrando que o job foi devidamente
+submetido e aguarda na fila para ser executado.</p>
+<h3 id="scancel">scancel<a class="headerlink" href="#scancel" title="Permanent link">&para;</a></h3>
+<p>Scancel é utilizado para cancelar um job depois que ele foi submetido, podendo
+ele estar na fila de espera ou em execução. O job será interrompido de imediato,
+então seja sempre cuidadoso ao usar esse comando, lembrando sempre que ao
+executar outro job você estará no final da fila. Entretando, você não precisa se
+preocupar que nenhum usuário terá acesso ao job de outro, sendo assim, não há
+riscos de alguém cancelar job's que não são seus.</p>
+<h4 id="exemplo-scancel">Exemplo: scancel<a class="headerlink" href="#exemplo-scancel" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>squeue<span class="w"> </span>-u<span class="w"> </span>scavalcanti
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+<span class="w">            </span><span class="m">170926</span><span class="w">   </span>cluster<span class="w"> </span>PascalAn<span class="w"> </span>scavalca<span class="w"> </span>PD<span class="w">       </span><span class="m">0</span>:00<span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Priority<span class="o">)</span>
+
+$<span class="w"> </span>scancel<span class="w"> </span><span class="m">170926</span>
+
+$<span class="w"> </span>squeue<span class="w"> </span>-u<span class="w"> </span>scavalcanti
+<span class="w">             </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+</code></pre></div>
+<p>No exemplo acima, foi utilizado o comando <strong>squeue</strong> como o parâmetro <strong>-u</strong>
+para mostrar as informações gerais dos jobs do usuário scavalcanti, tanto os que
+estão executando. quanto os que estão na fila. Sendo mostrado um único job em
+espera. Posteriormente, o comando scancel foi usado para cancelar o único job
+existente. Novamente, o comando squeue foi usado, mostrando que o job foi
+devidamente deletado.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.code.select", "navigation.sections", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

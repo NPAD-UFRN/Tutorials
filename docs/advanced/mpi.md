@@ -13,7 +13,7 @@ Definindo um padrão industrial para a troca de mensagens, existem diversas impl
 
 ## Passo 1: Conexão ao supercomputador por SSH
 
-Para se conectar ao supercomputador é necessário utilizar o SSH já disponível por padrão na maioria dos sistemas Unix como nas distribuições Linux e todas as versões do Mac OS X assim como disponível livremente na Internet como download para a plataforma Windows. O cliente SSH mais popular da plataforma Windows é o [Putty](../beginner/putty_tutorial.md)
+Para se conectar ao supercomputador é necessário utilizar o SSH já disponível por padrão na maioria dos sistemas Unix como nas distribuições Linux e todas as versões do Mac OS X assim como disponível livremente na Internet como download para a plataforma Windows. O cliente SSH mais popular da plataforma Windows é o [Putty](../beginner/putty.md)
 
 Iremos nesse tutorial utilizar como padrão a plataforma Linux, mas sua execução no Windows segue os mesmos princípios.
 

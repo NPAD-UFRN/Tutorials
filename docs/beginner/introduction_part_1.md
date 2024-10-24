@@ -53,7 +53,7 @@ chave pública **.ssh/id_rsa.pub**.
 
 Procure pelo Windows Terminal e abra-o.
 
-![winterminal](../assets/superpc_introduction_part_1/winterminal.png)
+![winterminal](../assets/introduction_part_1/winterminal.png)
 
 Para gerar sua chave ssh do tipo **rsa**, digite o comando a seguir que irá ser realizado uma sequência de perguntas, apenas pressione enter em todas elas:
 
@@ -92,7 +92,7 @@ chave pública **.ssh/id_rsa.pub**.
 
 ### Como gerar a chave pública no Windows com PuTTy
 
-Veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](../beginner/putty_tutorial.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa)
+Veja esse tutorial: [PuTTy Tutoriais: Gerando um par de chaves publico privada tipo RSA](../beginner/putty.md#gerando-um-par-de-chaves-publico-privada-tipo-rsa)
 
 ## Criando uma conta no NPAD
 
@@ -103,7 +103,7 @@ Para utilizar o supercomputador é necessário criar uma conta na nossa [Página
 Uma vez que tenha cadastro no NPAD, você pode acessar o supercomputador de
 duas formas:
 
-- Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](../beginner/putty_tutorial.md#acessando-o-supercomputador-atraves-do-putty). 
+- Usando a aplicação **PuTTy**. Caso deseja usar o PuTTy veja o tutorial do [PuTTy](../beginner/putty.md#acessando-o-supercomputador-atraves-do-putty). 
 
 - através de um terminal como: **Windows PowerShell**, **MobaXterm**, usando o comando **ssh**
 
@@ -115,7 +115,7 @@ ssh -p4422 nomeDoUsuario@sc2.npad.ufrn.br
 
 substituindo o termo **nomeDoUsuario** pelo nome de usuário criado. Caso tenha feito tudo corretamente será apresentada a tela inicial do supercomputador:
 
-![tela_inicial](../assets/superpc_introduction_part_1/tela_inicial.png)
+![tela_inicial](../assets/introduction_part_1/tela_inicial.png)
 
 
 !!! Warning "Aviso: usuários não tem permissão para usar o comando sudo"  
@@ -140,7 +140,7 @@ ssh super-pc
 ```
 
 Caso você esteja usando MobaXterm, você pode criar uma nova sessão para facilitar
-o acesso ao supercomputador: [MobaXterm tutoriais: criando uma sessão com NPAD](../beginner/mobaxterm_tutorial.md)
+o acesso ao supercomputador: [MobaXterm tutoriais: criando uma sessão com NPAD](../beginner/mobaxterm.md)
 
 ## Acessando arquivos do supercomputador
 
@@ -156,11 +156,11 @@ Para isso você pode utilizar o **WinSCP** no caso do Windows ou configurar o
 próprio navegador de arquivos do ubuntu: **Gnome Files** para essa tarefa.
 Foi feito dois tutoriais:
 
-- [Copiando Arquivos através de uma Interface gráfica WinSCP (Windows)](../beginner/winscp_tutorial.md)
+- [Copiando Arquivos através de uma Interface gráfica WinSCP (Windows)](../beginner/winscp.md)
 
 - [Copiando Arquivos através de uma Interface gráfica Gnome Files (linux)](../beginner/gnome_files.md)
 
 ### Através do terminal
 
 É possível transferir arquivos através das aplicações de linhas de comando como:
-[scp](https://linux.die.net/man/1/scp) e [rsync](https://linux.die.net/man/1/rsync). Sendo o **rsync** apenas para linux e **scp** funciona também no Windows 11 pelo Windows Terminal. Nos demais Windows,  apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Para aprender a usar o **scp** veja o [tutorial: scp](../beginner/scp_tutorial.md) e para o **rsync** veja o [tutorial: rsync](../beginner/rsync_tutorial.md).
+[scp](https://linux.die.net/man/1/scp) e [rsync](https://linux.die.net/man/1/rsync). Sendo o **rsync** apenas para linux e **scp** funciona também no Windows 11 pelo Windows Terminal. Nos demais Windows,  apenas se você instalar o [OpenSSH](https://learn.microsoft.com/pt-br/windows-server/administration/openssh/openssh_install_firstuse). Para aprender a usar o **scp** veja o [tutorial: scp](../beginner/scp.md) e para o **rsync** veja o [tutorial: rsync](../beginner/rsync.md).

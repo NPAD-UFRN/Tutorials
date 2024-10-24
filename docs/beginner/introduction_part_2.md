@@ -25,7 +25,7 @@ Após abrir o editor de textos **nano**, digite os comandos abaixo:
 factor 120     # Especifica o programa a ser executado (no caso, factor) e o parâmetro de entrada (120)
 ```
 
-Em sequência, aperte `ctrl+o` para salvar, depois `enter` e, então, aperte `ctrl+x` para sair do **nano**. Vale ressaltar que também é possível abrir o arquivo correspondente ao script e fazer alterações diretamente nele, via [interface gráfica](superpc_introduction_part_1.md#atraves-de-uma-interface-grafica).
+Em sequência, aperte `ctrl+o` para salvar, depois `enter` e, então, aperte `ctrl+x` para sair do **nano**. Vale ressaltar que também é possível abrir o arquivo correspondente ao script e fazer alterações diretamente nele, via [interface gráfica](introduction_part_1.md#atraves-de-uma-interface-grafica).
 
 ## Executando um programa já existente no supercomputador
 
@@ -35,7 +35,7 @@ Para executar um programa no supercomputador, você precisará criar um script, 
 
 O nó de login é mais indicado para execução de softwares de teste, ou seja, que requerem um tempo de execução menor. O tempo limite para execução neste nó é de 30 minutos, considerando que o usuário está utilizando apenas um núcleo e 100% de sua capacidade. Um usuário que decide utilizar esse nó para execução de um processo que ocupa 100% de 10 CPUs, por exemplo, será terminado automaticamente após 3 minutos de uso, como pode ser visto na tabela abaixo (**Figura 1**), junto com demais exemplos. Isso ocorre mesmo que o script tenha tempo maior configurado. Desse modo, recomenda-se utilizar o nó de login apenas para fins de teste.
 
-![Figura 1](../../assets/superpc_introduction_part_2/Tabela_Uso_Noh_Login.jpg)
+![Figura 1](../../assets/introduction_part_2/Tabela_Uso_Noh_Login.jpg)
 
 **Figura 1 - Tabela com exemplos de tempo de execução de programas no nó de login, para várias configurações**
 
@@ -98,7 +98,7 @@ A execução de um programa no supercomputador está sujeita à disponibilidade 
 ./helloWorld #o ponto e a barra indicam o caminho até a pasta atual.
 ```
 
-Saiba como escolher o tempo de execução [aqui](../intermediate/superpc_introduction_part_3.md#backfill-e-escolha-do-tempo-de-execucao).
+Saiba como escolher o tempo de execução [aqui](../intermediate/introduction_part_3.md#backfill-e-escolha-do-tempo-de-execucao).
 
 ## Partições
 
@@ -148,4 +148,4 @@ Submitted batch job 14520
 Hello World!
 ```
 
-Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](../advanced/openmp_tutorial.md) e [MPI](../advanced/mpi_tutorial.md).
+Para executar programas em paralelo no supercomputador, leia os tutorias de [OpenMP](../advanced/openmp.md) e [MPI](../advanced/mpi.md).

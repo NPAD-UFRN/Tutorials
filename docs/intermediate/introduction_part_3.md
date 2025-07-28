@@ -51,51 +51,17 @@ O comando srun é quase sempre equivalente a mpirun: sua função é efetivament
 
 Outro padrão do supercomputador é, ao submeter um job o nó **não** será reservado exclusivamente para aquele job, podendo ser alocado mais jobs dependendo da disponibilidade dos recursos naquele nó. Caso seu programa necessite de um nó por completo, utilize a opção `#SBATCH --exclusive`. Por exemplo, para um programa que será executado em paralelo, o desempenho do programa será melhor se o programa puder utilizar os recursos por completo.
 
-## Escolha da qualidade de serviço e Limite no uso do supercomputador
+## Preempção e tempo máximo de uso
 
-O usuário poderá enviar múltiplos jobs para o supercomputador. Porém, para permitir que mais pesquisadores compartilhem esse recurso com menos tempo de espera foram impostos limites no uso do supercomputador a partir da **qualidade do serviço em inglês Quality of Service (QOS)** utilizado. Comando a ser acrescentado no script de execução:
+Conforme nossa política de uso, há algumas distinções importantes entre usuários prioritários e não-prioritários (comuns).
+Uma delas é que jobs de usuários comuns podem ser cancelados para liberar recursos para jobs de usuários prioritários.
+Esse cancelamento chama-se **preempção**, e pode ocorrer se um job de um usuário comum executar por mais do que 6 horas 
+em partições de GPU, ou 2 dias nas demais partições. A esse intervalo chamaremos de imunidade.
 
-```bash
-#SBATCH --qos=qosN #Subistitua N pelo tipo de QOS desejado
-```
-
-### QOS 1
-
-O QOS 1 é o QOS padrão, com ele o usuário poderá enviar até 100 jobs para o supercomputador, sendo somente 4 jobs em execução ou 256 núcleos físicos (4 nós completos) em utilização, o que ocorrer primeiro. O job tem limite de tempo de até **2 dias** Ex.:
-
-```bash
- #!/bin/bash
- #SBATCH --partition=amd-512
- #SBATCH --time=0-0:5
-
- ./prog1
-```
-
-### QOS 2
-
-O QOS 2 é mais indicado para mais jobs que utilizam um nó inteiro ou jobs que utilizam alguns poucos nós. Com ele, o usuário poderá colocar 100 jobs na fila, mas apenas **1 job** em execução  com até 256 núcleos físicos (4 nós completos) em utilização, o que ocorrer primeiro. Tendo o job o limite de tempo de até **7 dias** Ex.:
-
-```bash
- #!/bin/bash
- #SBATCH --partition=amd-512
- #SBATCH --time=0-0:5
- #SBATCH --qos=qos2
-
- ./prog1
-```
-
-### preempt
-
-Para trabalhos que necessitem rodar vários jobs simultaneamente , ou job que precisa de mais de até 20 dias para ser executado. Recomenda-se utilizar preempt, nele o usuário pode deixar rodando até 100 jobs simultâneos. No entanto, por falta de recurso o seus jobs poderão ser cancelados a qualquer momento. Ex:
-
-```bash
- #!/bin/bash
- #SBATCH --partition=amd-512
- #SBATCH --time=0-0:5
- #SBATCH --qos=preempt
-
- ./prog1
-```
+Usuários comuns podem submeter jobs com duração de até 20 dias, mas ao submeter jobs com duração superior ao tempo de 
+imunidade, devem estar cientes de que *o job corre o risco ser preemptado sem aviso prévio*. 
+Caso o usuário comum decida correr esse risco, é aconselhável adotar técnicas de *checkpoint*, ou outras metodologias
+que não resultem em perda completa do trabalho se ele for preemptado.
 
 ## Receber e-mails sobre início e fim da execução
 
